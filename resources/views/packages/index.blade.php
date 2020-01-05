@@ -107,7 +107,7 @@
                 <div class="rounded shadow p-6 bg-white mb-3 hover:shadow-md">
                     <h3 class="text-lg font-semibold">
                         <a href="{{ $package->route('show') }}">{{ $package->display_name }}</a>
-                        <span class="text-xs tracking-tight text-gray-600">{{ $package->vendor }}/{{ $package->name }}</span>
+                        <span class="text-xs text-gray-600">{{ $package->vendor }}/{{ $package->name }}</span>
                     </h3>
                     <p class="my-3 text-gray-600">
                         {{ $package->description }}
