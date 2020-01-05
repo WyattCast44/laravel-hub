@@ -39,7 +39,17 @@ class LoginController extends Controller
      */
     public function handleProviderCallback()
     {
-        $githubUser = Socialite::driver('github')->user();
+        try {
+            $githubUser = Socialite::driver('github')->user();
+        } catch (\Exception $e) {
+            report($e);
+
+            if (app()->environment('local')) {
+                throw $e;
+            }
+
+            return redirect()->route('auth.errors.show');
+        }
 
         $user = User::where('email', $githubUser->email)->first();
         
@@ -50,6 +60,11 @@ class LoginController extends Controller
         $this->loginUser($user);
 
         return redirect('/');
+    }
+
+    public function showError()
+    {
+        return view('auth.errors.show');
     }
 
     protected function registerNewUser(SocialUser $user)
