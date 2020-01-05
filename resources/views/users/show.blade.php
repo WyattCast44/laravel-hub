@@ -2,6 +2,8 @@
 
 @section('content')
 
-{{ $user }}
+<div class="container mx-auto my-16">
+    {{ $user }}
+</div>
 
 @endsection

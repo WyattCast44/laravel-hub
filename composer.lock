@@ -4,8 +4,44 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6ddc5398230a928883b6b9270e6b2d18",
+    "content-hash": "a53bf0e6f384cbce716cab0f7d6eb8d0",
     "packages": [
+        {
+            "name": "code-orange/turbolinks-location",
+            "version": "v1.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/code-orange/turbolinks-location.git",
+                "reference": "52e8da102dd485d2b2eb3890bc12abf3ba31ccf7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/code-orange/turbolinks-location/zipball/52e8da102dd485d2b2eb3890bc12abf3ba31ccf7",
+                "reference": "52e8da102dd485d2b2eb3890bc12abf3ba31ccf7",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/http": ">=5.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "CodeOrange\\TurbolinksLocation\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Tim van Dalen",
+                    "email": "tim@code-orange.nl"
+                }
+            ],
+            "description": "Laravel middleware to insert Turbolinks-Location header into every response",
+            "time": "2019-10-16T13:48:34+00:00"
+        },
         {
             "name": "dnoegel/php-xdg-base-dir",
             "version": "v0.1.1",

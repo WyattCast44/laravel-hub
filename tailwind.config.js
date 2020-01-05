@@ -7,7 +7,5 @@ module.exports = {
         }
     },
     variants: {},
-    plugins: []
+    plugins: [require("@tailwindcss/custom-forms")]
 };
-
-// font-family: 'Rubik', sans-serif;
