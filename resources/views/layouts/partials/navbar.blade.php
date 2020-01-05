@@ -13,9 +13,9 @@
 
                 <div class="ml-5">
 
-                    <a href="#" class="text-lg hover:no-underline hover:text-red-700">Templates</a>
-                    <a href="#" class="text-lg hover:no-underline hover:text-red-700 mx-2">Packages</a>
-                    <a href="#" class="text-lg hover:no-underline hover:text-red-700">Documentation</a>
+                    <a href="#" class="text-lg hover:no-underline hover:text-red-700">Packages</a>
+                    <a href="#" class="text-lg hover:no-underline hover:text-red-700 mx-2">Templates</a>
+                    {{-- <a href="#" class="text-lg hover:no-underline hover:text-red-700">Documentation</a> --}}
                     
                 </div>
 
@@ -34,13 +34,14 @@
 
                         <div x-show="open" x-on:click.away="open = false" class="absolute shadow-lg border border-solid right-0 rounded-lg bg-white w-48 flex flex-col pb-2" style="top:38px">
 
-                            <a href="#" class="tracking-tighter text-gray-900 hover:no-underline px-4 py-3 border-b border-solid break-words">
+                            <a href="{{ route('app.users.show', auth()->user()) }}" class="tracking-tighter text-gray-900 hover:no-underline px-4 py-3 border-b border-solid break-words">
                                 <span class="text-sm text-gray-500 block">Signed in as</span>
                                 {{ auth()->user()->name }}
                             </a>
 
                             <a href="#" class="px-4 py-1 hover:bg-gray-200 hover:no-underline">My Templates</a>
                             <a href="#" class="px-4 py-1 hover:bg-gray-200 hover:no-underline">My Packages</a>
+                            <a href="#" class="px-4 py-1 hover:bg-gray-200 hover:no-underline">Settings</a>
                             
                             <form action="{{ route('auth.logout') }}" method="post" class="block">
                                 @csrf

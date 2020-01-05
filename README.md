@@ -28,3 +28,8 @@ Palette hub is a repository of user defined palette compose files. Palette is a 
 -   Front end presets hooked into the config files
     -   Ex. frontend: tailwind/tailwind-auth, will look into the repo and pull out that front end scaffolding
 -   Have lots of front end packages/configs
+
+-   https://packagist.org/apidoc
+-   https://laravel-news.com/category/laravel-packages
+-   https://novapackages.com/
+-   https://laravel.com/

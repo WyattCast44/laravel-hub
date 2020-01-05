@@ -21,7 +21,7 @@ class CreateUsersTable extends Migration
             $table->text('avatar')->nullable();
             $table->string('auth_provider');
             $table->string('auth_token')->nullable();
-            $table->json('meta');
+            $table->json('meta')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

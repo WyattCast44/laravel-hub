@@ -21,6 +21,15 @@ class User extends Authenticatable
         'password', 'remember_token', 'auth_token'
     ];
 
+    /**
+     * Get the field used for route model
+    * binding
+     */
+    public function getRouteKeyName()
+    {
+        return 'username';
+    }
+
     public function templates()
     {
         return $this->hasMany(Template::class);
