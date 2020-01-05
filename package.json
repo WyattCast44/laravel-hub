@@ -26,6 +26,7 @@
     },
     "dependencies": {
         "alpinejs": "^1.2.0",
+        "codemirror": "^5.50.2",
         "tailwindcss": "^1.1.4",
         "turbolinks": "^5.2.0"
     }

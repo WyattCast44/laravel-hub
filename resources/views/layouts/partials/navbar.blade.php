@@ -16,7 +16,7 @@
                     <a href="{{ route('app.packages.index') }}" class="text-lg hover:no-underline hover:text-red-700">
                         Packages
                     </a>
-                    <a href="#" class="text-lg hover:no-underline hover:text-red-700 mx-2">
+                    <a href="{{ route('app.templates.index') }}" class="text-lg hover:no-underline hover:text-red-700 mx-2">
                         Templates
                     </a>
                     
@@ -42,8 +42,8 @@
                                 {{ auth()->user()->name }}
                             </a>
 
-                            <a href="#" class="px-4 py-1 hover:bg-gray-200 hover:no-underline">My Templates</a>
                             <a href="#" class="px-4 py-1 hover:bg-gray-200 hover:no-underline">My Packages</a>
+                            <a href="#" class="px-4 py-1 hover:bg-gray-200 hover:no-underline">My Templates</a>
                             <a href="{{ route('app.settings.index') }}" class="px-4 py-1 hover:bg-gray-200 hover:no-underline">
                                 Settings
                             </a>

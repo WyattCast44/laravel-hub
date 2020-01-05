@@ -30,12 +30,15 @@ Palette hub is a repository of user defined palette compose files. Palette is a 
 -   Have lots of front end packages/configs
 
 -   https://packagist.org/apidoc
+-   https://developer.github.com/v3/repos/#list-your-repositories
 -   https://laravel-news.com/category/laravel-packages
 -   https://novapackages.com/
+-   https://medium.com/@danielalvidrez/laravel-inspired-javascript-packages-9eb8fd1b3516
 -   https://laravel.com/
 
 # Types of packages
 
+-   JS vs PHP
 -   Official
 -   Nova
 -   Eloquent

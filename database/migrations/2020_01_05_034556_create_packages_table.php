@@ -17,10 +17,11 @@ class CreatePackagesTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id');
             $table->string('name')->index();
-            $table->string('vendor')->index();
+            $table->string('vendor')->index()->nullable();
             $table->string('display_name')->nullable();
             $table->string('tagline')->nullable();
             $table->text('description')->nullable();
+            $table->string('install_command')->index()->nullable();
             $table->text('repo_url');
             $table->text('package_url')->nullable();
             $table->json('meta')->nullable();

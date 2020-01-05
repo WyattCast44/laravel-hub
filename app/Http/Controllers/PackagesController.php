@@ -9,7 +9,7 @@ class PackagesController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth')->only(['create']);
+        $this->middleware('auth')->only(['create', 'store']);
     }
     
     public function index()
@@ -24,5 +24,10 @@ class PackagesController extends Controller
     public function create()
     {
         return view('packages.create');
+    }
+
+    public function store(Request $request)
+    {
+        //
     }
 }
