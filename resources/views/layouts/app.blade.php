@@ -8,8 +8,13 @@
     <script src="{{ asset('js/app.js') }}" defer></script>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
-<body>
-    @yield('content')
+<body class="antialiased font-sans text-base text-gray-800 bg-gray-100">
+
+    @include('layouts.partials.navbar')
+
+    <div class="container mx-auto my-16">
+        @yield('content')
+    </div>
     
     @livewireAssets
 </body>

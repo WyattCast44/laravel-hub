@@ -68,5 +68,5 @@ return [
     |
     */
 
-    'class' => '',
+    'class' => 'inline-block',
 ];
