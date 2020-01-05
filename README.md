@@ -42,3 +42,7 @@ Palette hub is a repository of user defined palette compose files. Palette is a 
 -   Official
 -   Nova
 -   Eloquent
+
+# Palette
+
+-   Make an interactiver cli command that asks you for the name of the project. Then asks you for the vendor name of the template. Then builds an interactive menu to seach published templates under that vendor

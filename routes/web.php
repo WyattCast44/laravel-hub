@@ -22,6 +22,7 @@ Route::get('/users/{user}', 'UserProfilesController@show')->name('app.users.show
 Route::get('/packages', 'PackagesController@index')->name('app.packages.index');
 Route::post('/packages', 'PackagesController@store')->name('app.packages.store');
 Route::get('/packages/create', 'PackagesController@create')->name('app.packages.create');
+Route::get('/packages/{vendor}/{package}', 'PackagesController@show')->name('app.packages.show');
 
 // Templates
 Route::get('/templates', 'TemplatesController@index')->name('app.templates.index');

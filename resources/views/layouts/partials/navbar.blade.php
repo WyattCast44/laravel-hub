@@ -1,10 +1,14 @@
 <header>
+
+    <!-- Color badn -->
     <div class="h-1 bg-red-500 w-full"></div>
 
+    <!-- Main nav -->
     <nav class="bg-white py-6 shadow">
     
         <div class="container mx-auto flex items-center justify-between">
             
+            <!-- Left nav -->
             <div class="flex items-center">
                 
                 <a href="/" class="text-red-500 font-bold text-2xl font-header leading-tight hover:no-underline tracking-tighter">
@@ -24,6 +28,7 @@
 
             </div>
 
+            <!-- Right nav -->
             <div class="flex items-center">
 
                 @auth
@@ -64,9 +69,11 @@
                     </a>
 
                 @endauth
+
             </div>
 
         </div>
     
     </nav>
+    
 </header>

@@ -30,4 +30,9 @@ class PackagesController extends Controller
     {
         //
     }
+
+    public function show($vendor, Package $package)
+    {
+        dd($vendor, $package);
+    }
 }
