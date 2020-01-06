@@ -2,9 +2,8 @@
 
 namespace App;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
@@ -30,6 +29,17 @@ class User extends Authenticatable
         return 'username';
     }
 
+    /**
+     * Get the users packages
+     */
+    public function packages()
+    {
+        return $this->hasMany(Package::class);
+    }
+
+    /**
+     * Get the users templates
+     */
     public function templates()
     {
         return $this->hasMany(Template::class);

@@ -14,3 +14,7 @@ a {
 a:hover {
     @apply underline;
 }
+
+.turbolinks-progress-bar {
+    @apply bg-red-500 h-1;
+}
