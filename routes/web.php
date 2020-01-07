@@ -1,7 +1,7 @@
 <?php
 
+use App\Services\GitHub;
 use Illuminate\Support\Facades\Route;
-use GrahamCampbell\GitHub\Facades\GitHub;
 
 // Auth
 Route::get('login', 'Auth\LoginController@redirectToProvider')->name('auth.login');
@@ -30,9 +30,7 @@ Route::get('/templates', 'TemplatesController@index')->name('app.templates.index
 Route::get('/templates/create', 'TemplatesController@create')->name('app.templates.create');
 
 Route::get('/test', function () {
-    //$response = GitHub::me();
+    $response = (new GitHub)->doesRepoExist('wyattcas44/palette-hub');
 
-    $response = App::make('App\Services\GitHub')->bar();
-
-    dd($response);
+    dd(json_decode($response->getContents()));
 });
