@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use GrahamCampbell\GitHub\Facades\GitHub;
 
 // Auth
 Route::get('login', 'Auth\LoginController@redirectToProvider')->name('auth.login');
@@ -27,3 +28,11 @@ Route::get('/packages/{vendor}/{package}', 'PackagesController@show')->name('app
 // Templates
 Route::get('/templates', 'TemplatesController@index')->name('app.templates.index');
 Route::get('/templates/create', 'TemplatesController@create')->name('app.templates.create');
+
+Route::get('/test', function () {
+    //$response = GitHub::me();
+
+    $response = App::make('App\Services\GitHub')->bar();
+
+    dd($response);
+});

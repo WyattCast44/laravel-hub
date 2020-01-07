@@ -28,7 +28,7 @@ class LoginController extends Controller
     public function redirectToProvider()
     {
         return Socialite::driver('github')
-                ->scopes(['user:email'])
+                ->scopes(config('services.github.scopes'))
                 ->redirect();
     }
 
