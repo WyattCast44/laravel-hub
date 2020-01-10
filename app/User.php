@@ -44,4 +44,24 @@ class User extends Authenticatable
     {
         return $this->hasMany(Template::class);
     }
+
+    /**
+     * Get the user's favorites.
+     */
+    public function favorites()
+    {
+        return $this->hasMany(Favorite::class);
+    }
+
+    public function getAvatarAttribute($value)
+    {
+        return ($value === null) ? $this->getGravatarUrl() :  $value;
+    }
+
+    protected function getGravatarUrl()
+    {
+        $hash = md5(trim(strtolower($this->email)));
+
+        return "https://www.gravatar.com/avatar/{$hash}?s=200";
+    }
 }

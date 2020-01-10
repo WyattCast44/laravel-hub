@@ -18,6 +18,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 // Users
 Route::get('/users/{user}', 'UserProfilesController@show')->name('app.users.show');
+Route::get('/users/{user}/favorites', 'UserFavoritesController@show')->name('app.users.favorites.show');
 
 // Packages
 Route::get('/packages', 'PackagesController@index')->name('app.packages.index');
@@ -29,8 +30,8 @@ Route::get('/packages/{vendor}/{package}', 'PackagesController@show')->name('app
 Route::get('/templates', 'TemplatesController@index')->name('app.templates.index');
 Route::get('/templates/create', 'TemplatesController@create')->name('app.templates.create');
 
-Route::get('/test', function () {
-    $response = (new GitHub)->doesRepoExist('wyattcas44/palette-hub');
+// Route::get('/test', function () {
+//     $response = (new GitHub)->doesRepoExist('wyattcas44/palette-hub');
 
-    dd(json_decode($response->getContents()));
-});
+//     dd(json_decode($response->getContents()));
+// });

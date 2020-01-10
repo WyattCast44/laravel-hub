@@ -2,6 +2,8 @@
 
 @section('content')
 
+@include('partials.yaml-editor')
+
 <div class="container mx-auto my-16" style="max-width: 1000px">
     
     <div class="bg-white rounded-lg py-10 px-10 border-solid border shadow mb-32">
@@ -61,15 +63,5 @@ laravel: master # master, dev, auth</div>
     </div>
 
 </div>
-
-<script>
-
-document.addEventListener("turbolinks:load", function() {
-  var editor = ace.edit("yaml-editor");
-  var YamlMode = ace.require("ace/mode/yaml").Mode;
-  editor.session.setMode(new YamlMode());
-})
-    
-</script>
 
 @endsection

@@ -8,8 +8,7 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
     <script src="{{ asset('js/app.js') }}" defer></script>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.7/ace.js" integrity="sha256-C7DTYRJLG+B/VEzHGeoPMw699nsTQYPAXHKXZb+q04E=" crossorigin="anonymous" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.7/mode-yaml.js" integrity="sha256-WgdHONNZD/4LA7nlYhFqXqAAvZL4U2vbXDo2g6rWv7s=" crossorigin="anonymous" defer></script>
+    @stack('head')
 </head>
 <body class="antialiased font-sans text-base text-gray-800 bg-gray-100">
 
@@ -18,5 +17,6 @@
     @yield('content')
     
     @livewireAssets
+    @stack('footer')
 </body>
 </html>

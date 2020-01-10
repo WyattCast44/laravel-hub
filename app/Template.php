@@ -17,6 +17,14 @@ class Template extends Model
     }
 
     /**
+     * Get all of the templates's favorites.
+     */
+    public function favorites()
+    {
+        return $this->morphMany(Favorite::class, 'favoritable');
+    }
+
+    /**
      * Increment the view count
      */
     public function incrementViewCount()

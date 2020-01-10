@@ -14,7 +14,7 @@ class PackagesController extends Controller
     
     public function index()
     {
-        $packages = Package::with(['user'])->get();
+        $packages = Package::with(['user'])->paginate();
 
         return view('packages.index', [
             'packages' => $packages,

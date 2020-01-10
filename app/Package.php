@@ -18,11 +18,19 @@ class Package extends Model
     }
 
     /**
-     * Get the package submitter
+     * Get the package owner
      */
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    /**
+     * Get all of the package's favorites.
+     */
+    public function favorites()
+    {
+        return $this->morphMany(Favorite::class, 'favoritable');
     }
 
     /**
