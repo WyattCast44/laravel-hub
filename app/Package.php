@@ -47,4 +47,13 @@ class Package extends Model
             'package' => $this,
         ]);
     }
+
+    public function github()
+    {
+        // I want this to query github and get data from that
+        // and cache the response for some set time.
+        // The main reason is I dont want to store the readme
+        // for more than the cache time.
+        return;
+    }
 }

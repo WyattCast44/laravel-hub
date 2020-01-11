@@ -50,9 +50,9 @@
                     <label for="description" class="text-gray-700 block font-semibold pl-1">
                         Content
                     </label>
-                    <div id="yaml-editor" class="resize-y form-textarea my-2 block w-full bg-gray-200 placeholder-gray-600" style="min-height: 750px" contenteditable="true">name: my-name
+                    <div id="yaml-editor" class="resize-y form-textarea my-2 block w-full bg-gray-200 placeholder-gray-600" style="min-height: 750px" data-lpignore="true"
+                    >name: my-name
 laravel: master # master, dev, auth</div>
-                    {{-- <textarea id="yaml-editor" class="form-textarea my-2 block w-full bg-gray-200 placeholder-gray-600" rows="10" placeholder="Define your template here..."></textarea> --}}
                     <span class="text-sm text-gray-500 block pl-1">Required.</span> 
                 </div>
 
