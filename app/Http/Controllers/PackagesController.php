@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Package;
+use App\Services\GitHub;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class PackagesController extends Controller
 {
@@ -23,12 +25,29 @@ class PackagesController extends Controller
 
     public function create()
     {
-        return view('packages.create');
+        $repos = collect(auth()->user()->getRepos());
+
+        return view('packages.create', [
+            'repos' => $repos,
+        ]);
     }
 
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'repos' => 'required|array',
+        ]);
+
+        $repos = collect($request->repos)->each(function ($repo) {
+            // Do work
+        });
+
+        Session::flash('status', array_merge((array)session('status'), [
+            'type' => 'success',
+            'message' => "Successfully submitted {$repos->count()} package(s)!"
+        ]));
+
+        return redirect()->route('app.packages.index');
     }
 
     public function show($vendor, Package $package)

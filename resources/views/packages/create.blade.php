@@ -8,8 +8,10 @@
         
         <h2 class="text-3xl font-semibold font-header mb-6 text-gray-700">Submit Your Package</h2>
 
-        <div class="">
-            <div class="flex -mx-2">
+        <div>
+
+            <!-- Selectors -->
+            {{-- <div class="flex -mx-2">
 
                 <div class="w-1/3 px-2">
                     <a href="#" class="flex flex-col items-center py-6 justify-center rounded shadow border-solid border bg-white hover:bg-red-100 hover:no-underline">
@@ -29,20 +31,38 @@
                     </a>
                 </div>
 
-                {{-- <div class="w-1/3 px-2">
-                    <div class="bg-gray-400 h-12">Submit Multiple</div>
-                </div> --}}
+            </div> --}}
+    
+            <!-- Form -->
+            <div class="mt-8">
+    
+                <form action="{{ route('app.packages.store') }}" method="post">
+                    @csrf
+                
+                    @foreach ($repos as $repo)
 
+                        <div class="block"> 
+                            <label class="inline-flex items-center mb-2">
+                            <input type="checkbox" class="form-checkbox text-red-500 border-gray-400" name="repos[]" value="{{ $repo->full_name }}">
+                                <span class="ml-2 text-gray-700 align-middle">
+                                    {{ $repo->full_name }}
+                                    <a href="{{ $repo->html_url }}" class="" target="_blank">
+                                        @svg('external-link', ' w-4')
+                                    </a>
+                                </span>
+                            </label>
+                        </div>
+                        
+                    @endforeach
+
+                    <button type="submit" class="mt-8">Submit</button>
+
+                </form>
+    
             </div>
-        </div>
 
-        {{-- <form action="">
-            <label class="block">
-                <span class="text-gray-700 block font-semibold">Display Name</span>
-                <input class="form-input mt-1 block w-full my-3" placeholder="Laravel Avengers Package...">
-                <span class="text-sm text-gray-600 block">Required. This will show when users are searching the package page</span>
-            </label>              
-        </form> --}}
+        </div>
+        
 
     </div>
 

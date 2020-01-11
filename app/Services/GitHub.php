@@ -23,4 +23,15 @@ class GitHub
 
         return $response->getBody();
     }
+
+    public function getUserRepos($username)
+    {
+        $client = new Client();
+
+        $response = $client->request('GET', "{$this->baseUrl}/users/{$username}/repos?type=all");
+
+        $data = json_decode($response->getBody()->getContents());
+
+        return $data;
+    }
 }

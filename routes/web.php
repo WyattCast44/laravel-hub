@@ -31,7 +31,7 @@ Route::get('/templates', 'TemplatesController@index')->name('app.templates.index
 Route::get('/templates/create', 'TemplatesController@create')->name('app.templates.create');
 
 // Route::get('/test', function () {
-//     $response = (new GitHub)->doesRepoExist('wyattcas44/palette-hub');
+//     $response = (new GitHub)->getUserRepos('wyattcast44');
 
 //     dd(json_decode($response->getContents()));
 // });

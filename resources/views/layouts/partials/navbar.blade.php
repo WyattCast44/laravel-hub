@@ -75,5 +75,7 @@
         </div>
     
     </nav>
+
+    @include('partials.status')
     
 </header>

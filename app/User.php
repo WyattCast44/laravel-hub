@@ -2,6 +2,8 @@
 
 namespace App;
 
+use App\Services\GitHub;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -63,5 +65,24 @@ class User extends Authenticatable
         $hash = md5(trim(strtolower($this->email)));
 
         return "https://www.gravatar.com/avatar/{$hash}?s=200";
+    }
+
+    public function getRepos()
+    {
+        $key = "{$this->username}:repos";
+        
+        if (Cache::has($key)) {
+            $repos = Cache::get($key);
+        } else {
+            $client = app()->make(GitHub::class);
+
+            $data = $client->getUserRepos($this->username);
+
+            Cache::put($key, $data, now()->addMinutes(5));
+
+            $repos = $data;
+        }
+
+        return collect($repos);
     }
 }

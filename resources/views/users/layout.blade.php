@@ -8,7 +8,7 @@
         
         <div class="flex flex-col items-center">
 
-            <div class="w-full h-auto">
+            <div class="w-full h-auto flex justify-center">
                 <img src="{{ $user->avatar }}" alt="{{ $user->username }}" class="rounded-lg">
             </div>
 

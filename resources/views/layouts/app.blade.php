@@ -15,7 +15,7 @@
     @include('layouts.partials.navbar')
 
     @yield('content')
-    
+
     @livewireAssets
     @stack('footer')
 </body>
