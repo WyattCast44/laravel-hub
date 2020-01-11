@@ -78,7 +78,7 @@ class RouteServiceProvider extends ServiceProvider
      */
     protected function mapTestRoutes()
     {
-        if (app()->enviroment('local')) {
+        if (app()->environment('local')) {
             Route::prefix('tests')
                  ->middleware('web')
                  ->namespace($this->namespace)

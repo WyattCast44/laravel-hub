@@ -2,9 +2,10 @@
 
 use App\Package;
 use App\Services\GitHub;
+use App\Services\GitHub\Client;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/test', function () {
+Route::get('/1', function () {
     $package = Package::create([
         'user_id' => auth()->user()->id,
         'name' => 'laravel-safe-username',
@@ -25,23 +26,8 @@ Route::get('/test', function () {
     dd($response);
 });
 
-Route::get('/test', function () {
-    $package = Package::create([
-        'user_id' => auth()->user()->id,
-        'name' => 'laravel-safe-username',
-        'vendor' => 'WyattCast44',
-        'display_name' => 'Laravel Safe Username',
-    ]);
+Route::get('/2', function () {
+    $client = new Client;
 
-    $client = new GitHub;
-
-    $response = $client->importPackageReadme($package);
-
-    $package->update([
-        'meta' => json_encode([
-            'readme' => $response,
-        ]),
-    ]);
-
-    dd($response);
+    dd($client);
 });
