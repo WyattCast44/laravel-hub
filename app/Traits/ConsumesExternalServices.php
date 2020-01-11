@@ -8,10 +8,10 @@ namespace App\Traits;
  */
 
 use Psr\Http\Message\ResponseInterface;
-use Themsaid\Forge\Exceptions\TimeoutException;
-use Themsaid\Forge\Exceptions\NotFoundException;
-use Themsaid\Forge\Exceptions\ValidationException;
-use Themsaid\Forge\Exceptions\FailedActionException;
+use App\Exceptions\TimeoutException;
+use App\Exceptions\NotFoundException;
+use App\Exceptions\ValidationException;
+use App\Exceptions\FailedActionException;
 
 trait ConsumesExternalServices
 {
