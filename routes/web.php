@@ -1,5 +1,7 @@
 <?php
 
+use App\Package;
+use App\Services\GitHub;
 use Illuminate\Support\Facades\Route;
 
 // Auth
@@ -30,8 +32,23 @@ Route::get('/packages/{vendor}/{package}', 'PackagesController@show')->name('app
 Route::get('/templates', 'TemplatesController@index')->name('app.templates.index');
 Route::get('/templates/create', 'TemplatesController@create')->name('app.templates.create');
 
-// Route::get('/test', function () {
-//     $response = (new GitHub)->getUserRepos('wyattcast44');
+Route::get('/test', function () {
+    $package = Package::create([
+        'user_id' => auth()->user()->id,
+        'name' => 'laravel-safe-username',
+        'vendor' => 'WyattCast44',
+        'display_name' => 'Laravel Safe Username',
+    ]);
 
-//     dd(json_decode($response->getContents()));
-// });
+    $client = new GitHub;
+
+    $response = $client->importPackageReadme($package);
+
+    $package->update([
+        'meta' => json_encode([
+            'readme' => $response,
+        ]),
+    ]);
+
+    dd($response);
+});

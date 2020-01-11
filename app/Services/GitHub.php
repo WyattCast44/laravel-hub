@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Package;
 use GuzzleHttp\Client;
 
 class GitHub
@@ -33,5 +34,16 @@ class GitHub
         $data = json_decode($response->getBody()->getContents());
 
         return $data;
+    }
+
+    public function importPackageReadme(Package $package)
+    {
+        $fullName = "{$package->vendor}/{$package->name}";
+
+        $client = new Client();
+
+        $response = $client->request('GET', "{$this->baseUrl}/repos/{$fullName}/readme");
+
+        return base64_decode(json_decode($response->getBody()->getContents())->content);
     }
 }

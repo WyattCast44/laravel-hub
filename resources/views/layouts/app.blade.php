@@ -8,6 +8,7 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
     <script src="{{ asset('js/app.js') }}" defer></script>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    @gitdown
     @stack('head')
 </head>
 <body class="antialiased font-sans text-base text-gray-800 bg-gray-100">

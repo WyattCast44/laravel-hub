@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use GitDown\Facades\GitDown;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
@@ -34,5 +35,13 @@ class ViewServiceProvider extends ServiceProvider
         Blade::directive('endrouteIs', function () {
             return "<?php endif; ?>";
         });
+
+        /**
+         * Courtesy of the legend: Mr Porzio
+         * @link https://github.com/calebporzio/gitdown
+         */
+        if (config()->has('gitdown.token')) {
+            GitDown::setToken(config('gitdown.token'));
+        }
     }
 }

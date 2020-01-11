@@ -8,6 +8,10 @@ class Package extends Model
 {
     protected $guarded = [];
 
+    protected $casts = [
+        'meta' => 'array'
+    ];
+
     /**
      * Get the field used for route
      * model binding

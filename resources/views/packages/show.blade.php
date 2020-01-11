@@ -8,10 +8,10 @@
     
         <h2 class="text-3xl font-semibold font-header mb-6 text-gray-700">{{ $package->display_name }}</h2>
 
-        <div class="flex">
-            Stuff
+        <div class="markdown-body">
+            {!! GitDown::parseAndCache($package->meta['readme'], $seconds = 300) !!}
         </div>
-
+            
     </div>
 
     <div class="w-3/12">

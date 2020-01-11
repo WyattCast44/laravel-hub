@@ -47,8 +47,14 @@
                                 {{ auth()->user()->name }}
                             </a>
 
-                            <a href="#" class="px-4 py-1 hover:bg-gray-200 hover:no-underline">My Packages</a>
-                            <a href="#" class="px-4 py-1 hover:bg-gray-200 hover:no-underline">My Templates</a>
+                            <a href="{{ route('app.users.packages.show', auth()->user()) }}" class="px-4 py-1 hover:bg-gray-200 hover:no-underline">
+                                My Packages
+                            </a>
+
+                            <a href="{{ route('app.users.templates.show', auth()->user()) }}" class="px-4 py-1 hover:bg-gray-200 hover:no-underline">
+                                My Templates
+                            </a>
+
                             <a href="{{ route('app.settings.index') }}" class="px-4 py-1 hover:bg-gray-200 hover:no-underline">
                                 Settings
                             </a>
