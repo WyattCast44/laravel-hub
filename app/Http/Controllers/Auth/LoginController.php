@@ -48,7 +48,9 @@ class LoginController extends Controller
                 throw $e;
             }
 
-            return redirect()->route('auth.errors.show');
+            flash('status', 'error', "We are having an error authenticating with GitHub, please try again in a few minutes.");
+
+            return redirect('/');
         }
 
         $user = User::where('email', $githubUser->email)->first();

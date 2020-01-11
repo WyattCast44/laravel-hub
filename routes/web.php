@@ -3,10 +3,9 @@
 use Illuminate\Support\Facades\Route;
 
 // Auth
-Route::get('login', 'Auth\LoginController@redirectToProvider')->name('auth.login');
-Route::get('login/callback', 'Auth\LoginController@handleProviderCallback');
-Route::get('login/error', 'Auth\LoginController@showError')->name('auth.errors.show');
 Route::post('logout', 'Auth\LogoutController')->name('auth.logout');
+Route::get('login/callback', 'Auth\LoginController@handleProviderCallback');
+Route::get('login', 'Auth\LoginController@redirectToProvider')->name('auth.login');
 
 // Settings
 Route::get('/settings', 'UserSettingsController@show')->name('app.settings.index');

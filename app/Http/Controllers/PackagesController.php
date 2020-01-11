@@ -3,9 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Package;
-use App\Services\GitHub;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Session;
+use App\Jobs\ImportGitHubRepo;
 
 class PackagesController extends Controller
 {
@@ -25,7 +24,7 @@ class PackagesController extends Controller
 
     public function create()
     {
-        $repos = collect(auth()->user()->getRepos());
+        $repos = auth()->user()->getRepos();
 
         return view('packages.create', [
             'repos' => $repos,
@@ -39,10 +38,14 @@ class PackagesController extends Controller
         ]);
 
         $repos = collect($request->repos)->each(function ($repo) {
-            // Do work
+            ImportGitHubRepo::dispatch($repo);
         });
 
-        flash('status', 'success', "Successfully submitted {$repos->count()} package(s)!");
+        $message = ($repos->count() > 1)
+                    ? "Successfully submitted {$repos->count()} packages."
+                    : "Successfully submitted {$repos->first()}.";
+
+        flash('status', 'success', $message);
 
         return redirect()->route('app.packages.index');
     }
