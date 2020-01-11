@@ -36,6 +36,8 @@ class RouteServiceProvider extends ServiceProvider
         $this->mapApiRoutes();
 
         $this->mapWebRoutes();
+
+        $this->mapTestRoutes();
     }
 
     /**
@@ -65,5 +67,22 @@ class RouteServiceProvider extends ServiceProvider
              ->middleware('api')
              ->namespace($this->namespace)
              ->group(base_path('routes/api.php'));
+    }
+
+    /**
+     * Define the "test" routes for the application.
+     *
+     * These routes all receive session state, CSRF protection, etc.
+     *
+     * @return void
+     */
+    protected function mapTestRoutes()
+    {
+        if (app()->enviroment('local')) {
+            Route::prefix('tests')
+                 ->middleware('web')
+                 ->namespace($this->namespace)
+                 ->group(base_path('routes/test.php'));
+        }
     }
 }
