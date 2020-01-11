@@ -76,6 +76,6 @@
     
     </nav>
 
-    @include('partials.status')
+    @include('partials.flash')
     
 </header>

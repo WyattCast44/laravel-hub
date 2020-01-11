@@ -42,10 +42,7 @@ class PackagesController extends Controller
             // Do work
         });
 
-        Session::flash('status', array_merge((array)session('status'), [
-            'type' => 'success',
-            'message' => "Successfully submitted {$repos->count()} package(s)!"
-        ]));
+        flash('status', 'success', "Successfully submitted {$repos->count()} package(s)!");
 
         return redirect()->route('app.packages.index');
     }
