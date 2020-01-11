@@ -30,8 +30,13 @@
                     Overview
                 </a>
 
-                <a href="#" class="px-4 border-b-2 pb-3 hover:border-red-500 hover:no-underline">Packages</a>
-                <a href="#" class="px-4 border-b-2 pb-3 hover:border-red-500 hover:no-underline">Templates</a>
+                <a href="{{ route('app.users.packages.show', $user) }}" class="px-4 border-b-2 pb-3 hover:border-red-500 hover:no-underline @routeIs('app.users.packages.show') border-red-500 @endrouteIs">
+                    Packages
+                </a>
+
+                <a href="{{ route('app.users.templates.show', $user) }}" class="px-4 border-b-2 pb-3 hover:border-red-500 hover:no-underline @routeIs('app.users.templates.show') border-red-500 @endrouteIs">
+                    Templates
+                </a>
                 
                 <a href="{{ route('app.users.favorites.show', $user) }}" class="px-4 border-b-2 pb-3 hover:border-red-500 hover:no-underline @routeIs('app.users.favorites.show') border-red-500 @endrouteIs">
                     Favorites
