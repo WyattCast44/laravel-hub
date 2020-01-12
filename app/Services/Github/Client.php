@@ -2,7 +2,9 @@
 
 namespace App\Services\GitHub;
 
+use Illuminate\Support\Arr;
 use GuzzleHttp\Client as HttpClient;
+use Illuminate\Support\Facades\Cache;
 use App\Traits\ConsumesExternalServices;
 
 class Client
@@ -23,9 +25,9 @@ class Client
      */
     public $timeout = 30;
 
-    public function __construct(HttpClient $guzzle = null)
+    public function __construct($token = null, HttpClient $guzzle = null)
     {
-        $this->ensureGuzzleIsSetup($guzzle);
+        $this->ensureGuzzleIsSetup($token, $guzzle);
 
         return $this;
     }
@@ -36,15 +38,21 @@ class Client
      * @param $guzzle
      * @return $this
      */
-    public function ensureGuzzleIsSetup($guzzle)
+    public function ensureGuzzleIsSetup($token, $guzzle)
     {
+        $headers = [
+            'Accept' => 'application/json',
+            'Content-Type' => 'application/json'
+        ];
+
+        if ($token != null) {
+            $headers['Authorization'] = "Bearer {$token}";
+        }
+
         $this->guzzle = $guzzle ?: new HttpClient([
             'base_uri' => 'https://api.github.com/',
             'http_errors' => false,
-            'headers' => [
-                'Accept' => 'application/json',
-                'Content-Type' => 'application/json'
-            ]
+            'headers' => $headers
         ]);
         
         return $this;
@@ -60,19 +68,40 @@ class Client
         return $this->timeout;
     }
 
-    public function getRepoDetails()
+    /**
+     * Get an array of the usernames public repos
+     *
+     * @param string $username
+     * @return array
+     */
+    public function getUserRepos($username)
     {
-        //
-    }
+        $key= "github:{$username}:repos";
+        
+        if (cache()->has($key)) {
+            return cache()->get($key);
+        }
 
-    public function getRepoReadme()
-    {
-        //
-    }
+        $page = 1;
+        $result = [];
+        $results = [];
 
-    public function getUserRepos()
-    {
-        //
+        do {
+            $result = $this->get("users/{$username}/repos?page={$page}");
+            
+            if (gettype($result) === "array") {
+                $page = $page + 1;
+                array_push($results, $result);
+            } else {
+                $result = [];
+            }
+        } while ($result !== []);
+
+        $results = Arr::collapse($results);
+
+        Cache::put($key, $results, now()->addMinutes(5));
+
+        return cache()->get($key);
     }
 
     /**

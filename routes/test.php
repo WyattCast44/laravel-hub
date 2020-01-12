@@ -27,7 +27,9 @@ Route::get('/1', function () {
 });
 
 Route::get('/2', function () {
-    $client = new Client;
+    $token = auth()->user()->auth_token;
 
-    dd($client);
+    $client = new Client($token);
+
+    $response = $client->getUserRepos('wyattcast44');
 });

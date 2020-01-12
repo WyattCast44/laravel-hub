@@ -39,21 +39,30 @@
                 <form action="{{ route('app.packages.store') }}" method="post">
                     @csrf
                 
-                    @foreach ($repos as $repo)
+                    <ul class="" style="columns:2">
 
-                        <div class="block"> 
-                            <label class="inline-flex items-center mb-2">
-                            <input type="checkbox" class="form-checkbox text-red-500 border-gray-400" name="repos[]" value="{{ $repo->full_name }}">
-                                <span class="ml-2 text-gray-700 align-middle">
-                                    {{ $repo->full_name }}
-                                    <a href="{{ $repo->html_url }}" class="" target="_blank">
-                                        @svg('external-link', ' w-4')
-                                    </a>
-                                </span>
-                            </label>
-                        </div>
-                        
-                    @endforeach
+                        <li>
+                            @foreach ($repos as $repo)
+
+                                <div class="block"> 
+                                    
+                                    <label class="inline-flex items-center mb-2">
+                                    <input type="checkbox" class="form-checkbox text-red-500 border-gray-400" name="repos[]" value="{{ $repo['full_name'] }}">
+                                        <span class="ml-2 text-gray-700 align-middle">
+                                            {{ $repo['full_name'] }}
+                                            <a href="{{ $repo['html_url'] }}" class="" target="_blank">
+                                                @svg('external-link', ' w-4')
+                                            </a>
+                                        </span>
+                                    </label>
+                                </div>
+                                
+                            @endforeach
+                        </li>
+
+                    </ul>
+
+                    
 
                     <button type="submit" class="mt-8">Submit</button>
 

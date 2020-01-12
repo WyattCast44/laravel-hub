@@ -26,9 +26,7 @@ class PackagesController extends Controller
     {
         $repos = auth()->user()->getRepos();
 
-        $unsyncedRepos = collect();
-
-        $syncedRepos = collect();
+        //dd($repos);
 
         return view('packages.create', [
             'repos' => $repos,
