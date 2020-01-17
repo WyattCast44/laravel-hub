@@ -17,15 +17,15 @@
 
                 <div class="ml-5">
 
-                    <a href="{{ route('app.packages.index') }}" class="text-lg hover:no-underline hover:text-red-700">
+                    <a href="{{ route('app.packages.index') }}" class="text-lg hover:no-underline hover:text-red-500 text-gray-600">
                         Packages
                     </a>
 
-                    <a href="{{ route('app.templates.index') }}" class="text-lg hover:no-underline hover:text-red-700 mx-2">
+                    <a href="{{ route('app.templates.index') }}" class="text-lg hover:no-underline hover:text-red-500 mx-2 text-gray-600">
                         Templates
                     </a>
 
-                    <a href="{{ route('search') }}" class="text-lg hover:no-underline hover:text-red-700 mx-2">
+                    <a href="{{ route('search') }}" class="text-lg hover:no-underline hover:text-red-500 mx-2 text-gray-600">
                         Search
                     </a>
                     
