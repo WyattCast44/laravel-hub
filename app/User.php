@@ -63,6 +63,14 @@ class User extends Authenticatable
     /**
      * Misc
      */
+    public function favorite($model)
+    {
+        return $this->favorites()->create([
+            'favoritable_id' => $model->id,
+            'favoritable_type' => get_class($model),
+        ]);
+    }
+
     public function getRepos()
     {
         $client = new Client($this->auth_token);
