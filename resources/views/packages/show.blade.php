@@ -20,6 +20,12 @@
 
             Sidebar
 
+            <form action="{{ route('app.packages.favorite', $package) }}" method="post">
+                <button type="submit" class="rounded bg-red-500 text-white font-semibold w-full py-3 block text-center hover:no-underline hover:shadow hover:bg-red-600">
+                    Favorite 🔥
+                </button>
+            </form>
+
         </div>
 
     </div>

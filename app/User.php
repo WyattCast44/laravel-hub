@@ -71,6 +71,22 @@ class User extends Authenticatable
         ]);
     }
 
+    public function unfavorite($model)
+    {
+        return $this->favorites()->where([
+            ['favoritable_id', $model->id],
+            ['favoritable_type', get_class($model)],
+        ])->delete();
+    }
+
+    public function hasFavorited($model)
+    {
+        return $this->favorites()->where([
+            ['favoritable_id', $model->id],
+            ['favoritable_type', get_class($model)],
+        ])->get()->count() > 0;
+    }
+
     public function getRepos()
     {
         $client = new Client($this->auth_token);

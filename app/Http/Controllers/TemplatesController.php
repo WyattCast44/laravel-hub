@@ -14,7 +14,7 @@ class TemplatesController extends Controller
 
     public function index()
     {
-        $templates = Template::with(['author'])->latest()->paginate();
+        $templates = Template::with(['user'])->latest()->paginate();
 
         return view('templates.index', [
             'templates' => $templates,

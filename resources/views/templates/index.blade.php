@@ -12,7 +12,7 @@
                 {{ $template->description }}
             </p>
             <p class="text-sm text-gray-500 my-2">
-                Added by <a href="{{ route('app.users.show', $template->author) }}">{{ $template->user->username }}</a> {{ $template->created_at->diffForHumans() }}
+                Added by <a href="{{ route('app.users.show', $template->user) }}">{{ $template->user->username }}</a> {{ $template->created_at->diffForHumans() }}
             </p>
         </div>
     @endforeach

@@ -29,6 +29,8 @@ Route::get('/templates', 'TemplatesController@index')->name('app.templates.index
 Route::post('/templates', 'TemplatesController@store')->name('app.templates.store');
 Route::get('/templates/create', 'TemplatesController@create')->name('app.templates.create');
 Route::get('/templates/{template}', 'TemplatesController@show')->name('app.templates.show');
+Route::post('/templates/{template}/favorites', 'TemplatesFavoritesController@store')->name('app.templates.favorites.store');
+Route::delete('/templates/{template}/favorites', 'TemplatesFavoritesController@delete')->name('app.templates.favorites.delete');
 
 // Webhooks
 Route::webhooks('/github-webhooks');
