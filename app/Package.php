@@ -12,33 +12,26 @@ class Package extends Model
         'meta' => 'array'
     ];
 
-    /**
-     * Get the field used for route
-     * model binding
-     */
     public function getRouteKeyName()
     {
         return 'name';
     }
 
     /**
-     * Get the package owner
-     */
-    public function user()
-    {
-        return $this->belongsTo(User::class);
-    }
-
-    /**
-     * Get all of the package's favorites.
+     * Relationships
      */
     public function favorites()
     {
         return $this->morphMany(Favorite::class, 'favoritable');
     }
 
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
     /**
-     * Build up the route requested
+     * Misc
      */
     public function route($method = 'show')
     {
@@ -46,14 +39,5 @@ class Package extends Model
             'vendor' => $this->vendor,
             'package' => $this,
         ]);
-    }
-
-    public function github()
-    {
-        // I want this to query github and get data from that
-        // and cache the response for some set time.
-        // The main reason is I dont want to store the readme
-        // for more than the cache time.
-        return;
     }
 }

@@ -22,39 +22,33 @@ class User extends Authenticatable
         'password', 'remember_token', 'auth_token'
     ];
 
-    /**
-     * Get the field used for route model
-    * binding
-     */
     public function getRouteKeyName()
     {
         return 'username';
     }
 
     /**
-     * Get the users packages
-     */
-    public function packages()
-    {
-        return $this->hasMany(Package::class);
-    }
-
-    /**
-     * Get the users templates
-     */
-    public function templates()
-    {
-        return $this->hasMany(Template::class);
-    }
-
-    /**
-     * Get the user's favorites.
+     * Relationships
      */
     public function favorites()
     {
         return $this->hasMany(Favorite::class);
     }
 
+    public function packages()
+    {
+        return $this->hasMany(Package::class);
+    }
+
+    public function templates()
+    {
+        return $this->hasMany(Template::class);
+    }
+
+
+    /**
+     * Accessors, mutators
+     */
     public function getAvatarAttribute($value)
     {
         return ($value === null) ? $this->getGravatarUrl() :  $value;
@@ -67,6 +61,9 @@ class User extends Authenticatable
         return "https://www.gravatar.com/avatar/{$hash}?s=200";
     }
 
+    /**
+     * Misc
+     */
     public function getRepos()
     {
         $client = new Client($this->auth_token);
