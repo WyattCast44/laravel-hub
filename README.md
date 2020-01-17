@@ -1,8 +1,10 @@
-# Palette Hub
+![](logo.png)
 
-Palette hub is a repository of user defined palette compose files. Palette is a Laravel scaffolding tool.
+# Laravel Hub
 
-## Ideas
+Laravel hub is your home for laravel packages, template, tools and more.
+
+<!-- ## Ideas
 
 -   hub.com/username/template/version?
 
@@ -45,4 +47,4 @@ Palette hub is a repository of user defined palette compose files. Palette is a 
 
 # Palette
 
--   Make an interactiver cli command that asks you for the name of the project. Then asks you for the vendor name of the template. Then builds an interactive menu to seach published templates under that vendor
+-   Make an interactiver cli command that asks you for the name of the project. Then asks you for the vendor name of the template. Then builds an interactive menu to seach published templates under that vendor -->
