@@ -14,10 +14,17 @@ class TemplatesController extends Controller
 
     public function index()
     {
-        $templates = Template::with(['user'])->get();
+        $templates = Template::with(['author'])->paginate();
 
         return view('templates.index', [
             'templates' => $templates,
+        ]);
+    }
+
+    public function show(Template $template)
+    {
+        return view('templates.show', [
+            'template' => $template,
         ]);
     }
 

@@ -15,10 +15,12 @@ class CreateTemplatesTable extends Migration
     {
         Schema::create('templates', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->unsignedBigInteger('user_id');
+            $table->string('display_name')->index();
             $table->string('name')->index();
             $table->text('description');
             $table->text('content');
-            $table->unsignedBigInteger('user_id');
+            $table->boolean('public')->default(true);
             $table->unsignedBigInteger('views')->default(0);
             $table->unsignedBigInteger('downloads')->default(0);
             $table->timestamps();

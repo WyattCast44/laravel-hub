@@ -1,6 +1,7 @@
 <?php
 
 use App\Package;
+use App\Template;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -13,5 +14,6 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         factory(Package::class, 10)->create();
+        factory(Template::class, 10)->create();
     }
 }

@@ -26,6 +26,7 @@ Route::get('/packages/{vendor}/{package}', 'PackagesController@show')->name('app
 
 // Templates
 Route::get('/templates', 'TemplatesController@index')->name('app.templates.index');
+Route::get('/templates/{template}', 'TemplatesController@show')->name('app.templates.show');
 Route::get('/templates/create', 'TemplatesController@create')->name('app.templates.create');
 
 // Webhooks
