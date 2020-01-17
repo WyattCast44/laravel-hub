@@ -24,15 +24,6 @@ class Template extends Model
     /**
      * Misc
      */
-    public function favorite(User $user = null)
-    {
-        if ($user === null) {
-            $user = auth()->user();
-        }
-
-        return $user->favorites();
-    }
-
     public function incrementViewCount()
     {
         $this->increment('views');
