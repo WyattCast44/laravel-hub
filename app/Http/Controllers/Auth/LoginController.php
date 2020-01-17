@@ -60,7 +60,7 @@ class LoginController extends Controller
         }
         
         $this->loginUser($user);
-
+        
         return redirect('/');
     }
 
