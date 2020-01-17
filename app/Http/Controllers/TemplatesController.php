@@ -50,10 +50,8 @@ class TemplatesController extends Controller
             'content' => $request->content,
         ]);
 
-        $message = 'Template created!';
-        
-        flash('status', 'success', $message);
+        flash('status', 'success', 'Template created!');
 
-        return redirect()->route('app.templates.index');
+        return redirect()->route('app.templates.show', $template);
     }
 }
