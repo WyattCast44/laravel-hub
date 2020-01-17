@@ -11,11 +11,22 @@ class PackagesPage extends Component
     {
         return view('livewire.packages-page', [
             'packages' => $this->packages(),
+            'filters' => $this->filters(),
         ]);
     }
 
     public function packages()
     {
-        return Package::paginate();
+        $packages = Package::paginate();
+
+        return $packages;
+    }
+
+    public function filters()
+    {
+        return collect([
+            'Official',
+            'Community',
+        ]);
     }
 }

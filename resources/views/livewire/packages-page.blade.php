@@ -13,7 +13,16 @@
 
                 <div class="border-solid border-b mt-2 mb-5 pb-5">
                    
-                    <div>
+                    @foreach ($filters as $filter)
+                        <div>
+                            <label class="inline-flex items-center">
+                                <input type="checkbox" class="form-checkbox text-red-500" checked>
+                                <span class="ml-2">{{ $filter }} <span class="text-xs tracking-tighter">(13)</span></span>
+                            </label>
+                        </div>
+                    @endforeach
+
+                    {{-- <div>
                         <label class="inline-flex items-center">
                             <input type="checkbox" class="form-checkbox text-red-500" checked>
                             <span class="ml-2">Official <span class="text-xs tracking-tighter">(13)</span></span>
@@ -25,7 +34,7 @@
                             <input type="checkbox" class="form-checkbox text-red-500" checked>
                             <span class="ml-2">Community <span class="text-xs tracking-tighter">(2,201)</span></span>
                         </label>
-                    </div>
+                    </div> --}}
                     
                 </div>
 
