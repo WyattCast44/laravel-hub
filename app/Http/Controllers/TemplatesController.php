@@ -14,7 +14,7 @@ class TemplatesController extends Controller
 
     public function index()
     {
-        $templates = Template::with(['author'])->paginate();
+        $templates = Template::with(['author'])->latest()->paginate();
 
         return view('templates.index', [
             'templates' => $templates,
@@ -33,8 +33,23 @@ class TemplatesController extends Controller
         return view('templates.create');
     }
 
-    public function store()
+    public function store(Request $request)
     {
+        $this->validate($request, [
+            'display_name' => 'required|string|max:255',
+            'name' => 'required|string|max:255',
+            'description' => 'required|string',
+            'content' => 'required|string',
+        ]);
+
+        $template = Template::create([
+            'user_id' => auth()->user()->id,
+            'display_name' => $request->display_name,
+            'name' => $request->name,
+            'description' => $request->description,
+            'content' => $request->content,
+        ]);
+
         $message = 'Template created!';
         
         flash('status', 'success', $message);

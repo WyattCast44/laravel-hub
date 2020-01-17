@@ -2,7 +2,7 @@
 
 @section('content')
 
-@include('partials.yaml-editor')
+@include('partials.yaml-editor-scripts')
 
 <div class="container mx-auto my-16 flex">
 
@@ -40,11 +40,13 @@
     <script>
 
         document.addEventListener("turbolinks:load", function() {
-            var editor = ace.edit("yaml-editor");
-            var YamlMode = ace.require("ace/mode/yaml").Mode;
-            editor.session.setMode(new YamlMode());
-            editor.setReadOnly(true);
-        })
+
+            window.editor = ace.edit("yaml-editor");
+            let YamlMode = ace.require("ace/mode/yaml").Mode;
+            window.editor.getSession().setMode(new YamlMode());
+            window.editor.setReadOnly(true);
+
+        });
         
     </script>
 @endpush
