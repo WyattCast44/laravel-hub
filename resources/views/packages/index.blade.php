@@ -2,7 +2,9 @@
 
 @section('page')
 
-    @foreach ($packages as $package)
+    @livewire('package-list')
+
+    {{-- @foreach ($packages as $package)
         <div class="rounded  p-6 bg-white mb-3 shadow hover:shadow-md">
             <h3 class="text-lg font-semibold">
                 <a href="{{ $package->route('show') }}">{{ $package->display_name }}</a>
@@ -21,6 +23,6 @@
 
         {{ $packages->links() }}
 
-    </div>
+    </div> --}}
 
 @endsection

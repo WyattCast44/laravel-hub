@@ -20,7 +20,12 @@ Route::get('/users/{user}/favorites', 'UserFavoritesController@show')->name('app
 Route::get('/users/{user}/templates', 'UserTemplatesController@show')->name('app.users.templates.show');
 
 // Packages
-Route::get('/packages', 'PackagesController@index')->name('app.packages.index');
+Route::livewire('/packages', 'packages-page')
+    ->layout('layouts.app')
+    ->section('content')
+    ->name('app.packages.index');
+
+// Route::get('/packages', 'PackagesController@index')->name('app.packages.index');
 Route::post('/packages', 'PackagesController@store')->name('app.packages.store');
 Route::get('/packages/create', 'PackagesController@create')->name('app.packages.create');
 Route::get('/packages/{vendor}/{package}', 'PackagesController@show')->name('app.packages.show');
