@@ -20,8 +20,13 @@
                     <a href="{{ route('app.packages.index') }}" class="text-lg hover:no-underline hover:text-red-700">
                         Packages
                     </a>
+
                     <a href="{{ route('app.templates.index') }}" class="text-lg hover:no-underline hover:text-red-700 mx-2">
                         Templates
+                    </a>
+
+                    <a href="{{ route('search') }}" class="text-lg hover:no-underline hover:text-red-700 mx-2">
+                        Search
                     </a>
                     
                 </div>

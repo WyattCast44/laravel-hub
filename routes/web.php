@@ -11,6 +11,7 @@ Route::get('/settings', 'UserSettingsController@show')->name('app.settings.index
 // General
 Route::get('/', 'WelcomeController')->name('index');
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/search', 'SearchController@index')->name('search');
 
 // Users
 Route::get('/users/{user}', 'UserProfilesController@show')->name('app.users.show');
