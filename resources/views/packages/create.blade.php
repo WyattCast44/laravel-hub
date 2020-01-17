@@ -62,8 +62,6 @@
 
                     </ul>
 
-                    
-
                     <button type="submit" class="mt-8">Submit</button>
 
                 </form>

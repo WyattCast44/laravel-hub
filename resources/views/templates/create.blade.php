@@ -17,7 +17,9 @@
 
         <div class="">
             
-            <form action="">
+            <form action="{{ route('app.templates.store') }}" method="POST">
+
+                @csrf
 
                 <!-- Display name -->
                 <label for="display_name" class="text-gray-700 block font-semibold pl-1">
@@ -54,6 +56,13 @@
                     >name: my-name
 laravel: master # master, dev, auth</div>
                     <span class="text-sm text-gray-500 block pl-1">Required.</span> 
+                </div>
+
+                <div class="mt-6">
+                    <button type="submit" class="rounded bg-red-500 text-white font-semibold w-full py-3 block text-center hover:no-underline hover:shadow hover:bg-red-600">
+                        Create Template
+                    </button>
+            
                 </div>
 
             </form>

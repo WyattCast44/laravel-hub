@@ -26,8 +26,6 @@ class PackagesController extends Controller
     {
         $repos = auth()->user()->getRepos();
 
-        //dd($repos);
-
         return view('packages.create', [
             'repos' => $repos,
         ]);

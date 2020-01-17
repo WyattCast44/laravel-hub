@@ -26,8 +26,9 @@ Route::get('/packages/{vendor}/{package}', 'PackagesController@show')->name('app
 
 // Templates
 Route::get('/templates', 'TemplatesController@index')->name('app.templates.index');
-Route::get('/templates/{template}', 'TemplatesController@show')->name('app.templates.show');
+Route::post('/templates', 'TemplatesController@store')->name('app.templates.store');
 Route::get('/templates/create', 'TemplatesController@create')->name('app.templates.create');
+Route::get('/templates/{template}', 'TemplatesController@show')->name('app.templates.show');
 
 // Webhooks
 Route::webhooks('/github-webhooks');

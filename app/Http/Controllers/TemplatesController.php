@@ -32,4 +32,13 @@ class TemplatesController extends Controller
     {
         return view('templates.create');
     }
+
+    public function store()
+    {
+        $message = 'Template created!';
+        
+        flash('status', 'success', $message);
+
+        return redirect()->route('app.templates.index');
+    }
 }

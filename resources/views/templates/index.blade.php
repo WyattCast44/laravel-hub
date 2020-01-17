@@ -5,7 +5,7 @@
     @foreach ($templates as $template)
         <div class="rounded  p-6 bg-white mb-3 shadow hover:shadow-md">
             <h3 class="text-lg font-semibold">
-                <a href="#">{{ $template->display_name }}</a>
+                <a href="{{ route('app.templates.show', $template) }}">{{ $template->display_name }}</a>
                 <span class="text-xs text-gray-600 lowercase">{{ $template->author->username }}/{{ $template->name }}</span>
             </h3>
             <p class="my-3 text-gray-600">
