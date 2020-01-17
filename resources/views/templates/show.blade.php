@@ -41,19 +41,15 @@
 
     document.addEventListener("DOMContentLoaded", function () {
 
-        document.addEventListener("turbolinks:load", function () {
-
-            window.editor = ace.edit("editor", {
-                minLines: 2,
-                maxLines: 100,
-                autoScrollEditorIntoView: true               
-            });
-
-            let YamlMode = ace.require("ace/mode/yaml").Mode;
-            window.editor.getSession().setMode(new YamlMode());
-            window.editor.setReadOnly(true);
-
+        window.editor = ace.edit("editor", {
+            minLines: 2,
+            maxLines: 100,
+            autoScrollEditorIntoView: true               
         });
+
+        let YamlMode = ace.require("ace/mode/yaml").Mode;
+        window.editor.getSession().setMode(new YamlMode());
+        window.editor.setReadOnly(true);
 
     });
 

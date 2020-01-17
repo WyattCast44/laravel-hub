@@ -79,24 +79,20 @@ laravel: master</div>
 
         document.addEventListener("DOMContentLoaded", function () {
 
-            document.addEventListener("turbolinks:load", function () {
+            window.editor = ace.edit("editor", {
+                minLines: 6,
+                maxLines: 100,
+                autoScrollEditorIntoView: true               
+            });
 
-                window.editor = ace.edit("editor", {
-                    minLines: 6,
-                    maxLines: 100,
-                    autoScrollEditorIntoView: true               
-                });
+            let YamlMode = ace.require("ace/mode/yaml").Mode;
+            window.editor.getSession().setMode(new YamlMode());
 
-                let YamlMode = ace.require("ace/mode/yaml").Mode;
-                window.editor.getSession().setMode(new YamlMode());
+            let content = document.querySelector("#content");
+            content.value = window.editor.getSession().getValue();
 
-                let content = document.querySelector("#content");
+            window.editor.getSession().on('change', function () {
                 content.value = window.editor.getSession().getValue();
-
-                window.editor.getSession().on('change', function () {
-                    content.value = window.editor.getSession().getValue();
-                });
-
             });
 
         });
