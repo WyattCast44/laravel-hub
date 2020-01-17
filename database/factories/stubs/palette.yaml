@@ -1,2 +1,10 @@
 name: Palette
 laravel: master
+packages:
+  - spatie/icalendar-generator
+  - laravel/cashier
+  - laravel/dusk
+    - php artisan dusk:install
+  - laravel/passport
+    - php artisan migrate
+    - php artisan passport:install

@@ -43,7 +43,7 @@
                     <label for="description" class="text-gray-700 block font-semibold pl-1">
                         Description
                     </label>
-                    <textarea class="form-textarea my-2 block w-full bg-gray-200 placeholder-gray-600" rows="3" placeholder="This template is used to scaffold..." name="description"></textarea>
+                    <textarea class="form-textarea my-2 block w-full bg-gray-200 placeholder-gray-600" rows="3" placeholder="This template is used to scaffold..." name="description" draggable="true"></textarea>
                     <span class="text-sm text-gray-500 block pl-1">Required. Briefly explain what this template is used for</span> 
                 </div>
 
@@ -52,11 +52,11 @@
                     <label for="content" class="text-gray-700 block font-semibold pl-1">
                         Content
                     </label>
-                    <div id="yaml-editor" class="resize-y form-textarea my-2 block w-full bg-gray-200 placeholder-gray-600" style="min-height: 750px" data-lpignore="true"
+                    <div id="editor" class="resize-y form-textarea my-2 block w-full bg-gray-200 placeholder-gray-600" data-lpignore="true"
                     >name: Laravel
 laravel: master</div>
                     <span class="text-sm text-gray-500 block pl-1">Required.</span> 
-                    <textarea name="content" id="content" class="block form-textarea my-6"></textarea>
+                    <textarea name="content" id="content" class="hidden"></textarea>
                 </div>
 
                 <div class="mt-6">
@@ -77,21 +77,30 @@ laravel: master</div>
 @push('footer')
     <script>
 
-        document.addEventListener("turbolinks:load", function() {
+        document.addEventListener("DOMContentLoaded", function () {
 
-            window.editor = ace.edit("yaml-editor");
-            let YamlMode = ace.require("ace/mode/yaml").Mode;
-            window.editor.getSession().setMode(new YamlMode());
-            
-            let content = document.querySelector("#content");
-            content.value = window.editor.getSession().getValue();
+            document.addEventListener("turbolinks:load", function () {
 
-            window.editor.getSession().on('change', function() {
+                window.editor = ace.edit("editor", {
+                    minLines: 6,
+                    maxLines: 100,
+                    autoScrollEditorIntoView: true               
+                });
+
+                let YamlMode = ace.require("ace/mode/yaml").Mode;
+                window.editor.getSession().setMode(new YamlMode());
+
+                let content = document.querySelector("#content");
                 content.value = window.editor.getSession().getValue();
+
+                window.editor.getSession().on('change', function () {
+                    content.value = window.editor.getSession().getValue();
+                });
+
             });
 
-        })
-        
+        });
+
     </script>
 @endpush
 

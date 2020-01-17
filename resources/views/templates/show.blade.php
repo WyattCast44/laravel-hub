@@ -14,7 +14,7 @@
 
             <!-- YAML Code Block -->
             <div 
-                id="yaml-editor" 
+                id="editor" 
                 class="resize-y form-textarea my-2 block w-full bg-gray-200 placeholder-gray-600" 
                 style="min-height: 250px" 
                 data-lpignore="true"
@@ -37,18 +37,27 @@
 </div>
 
 @push('footer')
-    <script>
+<script>
 
-        document.addEventListener("turbolinks:load", function() {
+    document.addEventListener("DOMContentLoaded", function () {
 
-            window.editor = ace.edit("yaml-editor");
+        document.addEventListener("turbolinks:load", function () {
+
+            window.editor = ace.edit("editor", {
+                minLines: 2,
+                maxLines: 100,
+                autoScrollEditorIntoView: true               
+            });
+
             let YamlMode = ace.require("ace/mode/yaml").Mode;
             window.editor.getSession().setMode(new YamlMode());
             window.editor.setReadOnly(true);
 
         });
-        
-    </script>
+
+    });
+
+</script>
 @endpush
 
 @endsection
