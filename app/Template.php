@@ -9,35 +9,32 @@ class Template extends Model
     protected $guarded = [];
 
     /**
-     * The templates author
-     */
-    public function author()
-    {
-        return $this->belongsTo(User::class, 'user_id');
-    }
-
-    /**
-     * Get all of the templates's favorites.
+     * Relationships
      */
     public function favorites()
     {
         return $this->morphMany(Favorite::class, 'favoritable');
     }
 
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
     /**
-     * Increment the view count
+     * Misc
      */
     public function incrementViewCount()
     {
         $this->increment('views');
 
-        return;
+        return $this;
     }
 
     public function incrementDownloadCount()
     {
         $this->increment('downloads');
 
-        return;
+        return $this;
     }
 }

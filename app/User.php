@@ -45,7 +45,6 @@ class User extends Authenticatable
         return $this->hasMany(Template::class);
     }
 
-
     /**
      * Accessors, mutators
      */

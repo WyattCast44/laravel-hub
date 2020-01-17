@@ -6,13 +6,13 @@
         <div class="rounded  p-6 bg-white mb-3 shadow hover:shadow-md">
             <h3 class="text-lg font-semibold">
                 <a href="{{ route('app.templates.show', $template) }}">{{ $template->display_name }}</a>
-                <span class="text-xs text-gray-600 lowercase">{{ $template->author->username }}/{{ $template->name }}</span>
+                <span class="text-xs text-gray-600 lowercase">{{ $template->user->username }}/{{ $template->name }}</span>
             </h3>
             <p class="my-3 text-gray-600">
                 {{ $template->description }}
             </p>
             <p class="text-sm text-gray-500 my-2">
-                Added by <a href="{{ route('app.users.show', $template->author) }}">{{ $template->author->username }}</a> {{ $template->created_at->diffForHumans() }}
+                Added by <a href="{{ route('app.users.show', $template->author) }}">{{ $template->user->username }}</a> {{ $template->created_at->diffForHumans() }}
             </p>
         </div>
     @endforeach
