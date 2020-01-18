@@ -6,7 +6,7 @@
     <!-- Main nav -->
     <nav class="bg-white py-6 shadow">
     
-        <div class="container mx-auto flex items-center justify-between">
+        <div class="container mx-auto flex items-center justify-between px-4 md:px-0">
             
             <!-- Left nav -->
             <div class="flex items-center">
@@ -15,7 +15,7 @@
                     📦 Laravel Hub
                 </a>
 
-                <div class="ml-5">
+                <div class="ml-5 hidden md:block">
 
                     <a href="{{ route('app.packages.index') }}" class="text-lg hover:no-underline hover:text-red-500 text-gray-600">
                         Packages

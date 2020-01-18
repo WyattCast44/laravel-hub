@@ -2,29 +2,29 @@
 
 @section('content')
 
-<div class="container mx-auto my-16 flex">
+<div class="container mx-auto my-10 md:my-16 flex flex-col md:flex-row">
 
-    <div class="w-2/12 mr-8">
+    <div class="md:w-2/12 md:mr-8">
         
-        <div class="flex flex-col items-center">
+        <div class="flex flex-col items-center w-full">
 
             <div class="w-full h-auto flex justify-center">
-                <img src="{{ $user->avatar }}" alt="{{ $user->username }}" class="rounded-lg">
+                <img src="{{ $user->avatar }}" alt="{{ $user->username }}" class="rounded-lg w-32 md:w-full">
             </div>
 
             <h2 class="font-semibold text-2xl my-4 text-center leading-tight">
                 {{ $user->name }}
-                <span class="font-light text-xl">{{$user->username }}</span>
+                <span class="font-light text-xl block">{{$user->username }}</span>
             </h2>
 
         </div>
         
     </div>
 
-    <div class="flex-1">
+    <div class="flex-1 mt-8 md:mt-0 px-4 md:px-0">
         
         <div class="mb-8">
-            <nav class="flex font-semibold">
+            <nav class="flex font-semibold hidden md:block">
 
                 <a href="{{ route('app.users.show', $user) }}" class="px-4 border-b-2 pb-3 hover:border-red-500 hover:no-underline @routeIs('app.users.show') border-red-500 @endrouteIs">
                     Overview
