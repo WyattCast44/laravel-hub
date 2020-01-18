@@ -85,7 +85,7 @@
                     Favorites
                 </a>
 
-                <span class="flex-grow px-4 border-b-2 pb-3"></span>
+                <span class="flex-grow px-4 border-b-2 pb-3 block"></span>
 
             </nav>
         </div>
