@@ -25,7 +25,7 @@
                         Templates
                     </a>
 
-                    <a href="{{ route('search') }}" class="text-lg hover:no-underline hover:text-red-500 mx-2 text-gray-600">
+                    <a href="{{ route('search') }}" class="text-lg hover:no-underline hover:text-red-500 text-gray-600">
                         Search
                     </a>
                     

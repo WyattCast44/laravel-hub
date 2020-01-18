@@ -15,28 +15,17 @@ class PackagesController extends Controller
 
     public function create()
     {
-        $repos = auth()->user()->getRepos();
-
-        return view('packages.create', [
-            'repos' => $repos,
-        ]);
+        return view('packages.create');
     }
 
     public function store(Request $request)
     {
         $this->validate($request, [
-            'repos' => 'required|array',
+            'type' => 'required|in:php,js,other',
+            'url' => 'required|string',
         ]);
 
-        $repos = collect($request->repos)->each(function ($repo) {
-            ImportGitHubRepo::dispatch($repo);
-        });
-
-        $message = ($repos->count() > 1)
-                    ? "Successfully submitted {$repos->count()} packages."
-                    : "Successfully submitted {$repos->first()}.";
-
-        flash('status', 'success', $message);
+        dd($request);
 
         return redirect()->route('app.packages.index');
     }
@@ -48,3 +37,11 @@ class PackagesController extends Controller
         ]);
     }
 }
+
+// $repos = collect($request->repos)->each(function ($repo) {
+//     ImportGitHubRepo::dispatch($repo);
+// });
+// $message = ($repos->count() > 1)
+//             ? "Successfully submitted {$repos->count()} packages."
+//             : "Successfully submitted {$repos->first()}.";
+// flash('status', 'success', $message);

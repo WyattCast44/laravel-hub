@@ -6,63 +6,61 @@
     
     <div class="bg-white rounded-lg py-10 px-10 border-solid border shadow">
         
-        <h2 class="text-3xl font-semibold font-header mb-6 text-gray-700">Submit Your Package</h2>
+        <div class="border-b pb-2">
+            <h2 class="text-3xl font-semibold font-header mb-2 text-gray-700">Submit Your Package</h2>
+            <p class="text-gray-600">
+                Share your package with the community. Please only submit packages that you own or created.
+            </p>
+        </div>
 
         <div>
-
-            <!-- Selectors -->
-            {{-- <div class="flex -mx-2">
-
-                <div class="w-1/3 px-2">
-                    <a href="#" class="flex flex-col items-center py-6 justify-center rounded shadow border-solid border bg-white hover:bg-red-100 hover:no-underline">
-                        @svg('edit', 'block h-8')
-                        <span class="block font-semibold">
-                            Submit Manually
-                        </span>
-                    </a>
-                </div>
-
-                <div class="w-1/3 px-2">
-                    <a href="#" class="flex flex-col items-center py-6 justify-center rounded shadow border-solid border bg-white hover:bg-red-100 hover:no-underline">
-                        @svg('github', 'block h-8')
-                        <span class="block font-semibold">
-                            Import from GitHub
-                        </span>
-                    </a>
-                </div>
-
-            </div> --}}
     
             <!-- Form -->
             <div class="mt-8">
     
                 <form action="{{ route('app.packages.store') }}" method="post">
-                    @csrf
                 
-                    <ul class="" style="columns:2">
+                    @csrf
 
-                        <li>
-                            @foreach ($repos as $repo)
+                    <!-- Github Url -->
+                    <label class="block mt-3">
+                        <span class="text-gray-700 font-semibold">1. GitHub URL</span>
+                        <input class="form-input mt-3 block w-3/4" placeholder="https://github.com/user/repo" name="url" required autofocus>
+                    </label>
 
-                                <div class="block"> 
-                                    
-                                    <label class="inline-flex items-center mb-2">
-                                    <input type="checkbox" class="form-checkbox text-red-500 border-gray-400" name="repos[]" value="{{ $repo['full_name'] }}">
-                                        <span class="ml-2 text-gray-700 align-middle">
-                                            {{ $repo['full_name'] }}
-                                            <a href="{{ $repo['html_url'] }}" class="" target="_blank">
-                                                @svg('external-link', ' w-4')
-                                            </a>
-                                        </span>
-                                    </label>
-                                </div>
-                                
-                            @endforeach
-                        </li>
+                    <!-- Type -->
+                    <div class="mt-6">
 
-                    </ul>
+                        <span class="text-gray-700 font-semibold">2. Package Type</span>
+                    
+                        <div class="mt-3">
 
-                    <button type="submit" class="mt-8">Submit</button>
+                            <label class="inline-flex items-center">
+                                <input type="radio" class="form-radio border-gray-600 text-red-500" name="type" value="php">
+                                <span class="ml-2">PHP</span>
+                            </label>
+                            <label class="inline-flex items-center ml-6">
+                                <input type="radio" class="form-radio border-gray-600 text-red-500" name="type" value="js">
+                                <span class="ml-2">Javascript</span>
+                            </label>
+                            <label class="inline-flex items-center ml-6">
+                                <input type="radio" class="form-radio border-gray-600 text-red-500" name="type" value="other">
+                                <span class="ml-2">Other</span>
+                            </label>
+
+                        </div>
+
+                    </div>
+
+                    <div class="mt-8 border-t pt-5 flex justify-end items-center">
+
+                        <a href="{{ route('app.packages.index') }}" class="mr-4">Cancel</a>
+
+                        <button class="rounded bg-red-500 text-white font-semibold px-4 py-3 text-center hover:no-underline hover:shadow hover:bg-red-600">
+                            Submit Package
+                        </button>            
+
+                    </div>
 
                 </form>
     
@@ -70,7 +68,6 @@
 
         </div>
         
-
     </div>
 
 </div>
