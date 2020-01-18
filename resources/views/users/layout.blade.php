@@ -8,8 +8,8 @@
         
         <div class="flex flex-col items-center w-full">
 
-            <div class="w-full h-auto flex justify-center">
-                <img src="{{ $user->avatar }}" alt="{{ $user->username }}" class="rounded-lg w-32 md:w-full">
+            <div class="flex justify-center w-32 h-32 md:w-full md:h-auto">
+                <img src="{{ $user->avatar }}" alt="{{ $user->username }}" class="rounded-lg md:w-full">
             </div>
 
             <h2 class="font-semibold text-2xl my-4 text-center leading-tight">
