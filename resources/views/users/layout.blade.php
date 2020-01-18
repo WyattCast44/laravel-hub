@@ -2,7 +2,44 @@
 
 @section('content')
 
-<div class="container mx-auto my-10 md:my-16 flex flex-col md:flex-row">
+<div class="container mx-auto my-6 md:my-16 flex flex-col md:flex-row px-4 md:px-0">
+
+    <label class="block md:hidden mb-10">
+        <span class="text-gray-500 uppercase text-sm text-center block">Menu</span>
+
+        <select class="form-select block w-full mt-1" onchange="navigate(this)">
+            
+            <option 
+                value="{{ route('app.users.show', $user) }}" 
+                @if (request()->routeIs('app.users.show')) {{ 'selected' }} @endif
+                >
+                Overview
+            </option>
+
+            <option 
+                value="{{ route('app.users.packages.show', $user) }}" 
+                @if (request()->routeIs('app.users.packages.show')) {{ 'selected' }} @endif
+                >
+                Packages
+            </option>
+
+            <option 
+                value="{{ route('app.users.templates.show', $user) }}" 
+                @if (request()->routeIs('app.users.templates.show')) {{ 'selected' }} @endif
+                >
+                Templates
+            </option>
+
+            <option 
+                value="{{ route('app.users.favorites.show', $user) }}" 
+                @if (request()->routeIs('app.users.favorites.show')) {{ 'selected' }} @endif
+                >
+                Favorites
+            </option>
+
+            
+        </select>
+    </label>
 
     <!-- User details -->
     <div class="md:w-2/12 md:mr-8">
@@ -29,43 +66,6 @@
         
         <!-- Nav -->
         <div class="mb-8">
-
-            <label class="block md:hidden">
-                <span class="text-gray-500 uppercase text-sm text-center block">Menu</span>
-
-                <select class="form-select block w-full mt-1" onchange="navigate(this)">
-                    
-                    <option 
-                        value="{{ route('app.users.show', $user) }}" 
-                        @if (request()->routeIs('app.users.show')) {{ 'selected' }} @endif
-                        >
-                        Overview
-                    </option>
-
-                    <option 
-                        value="{{ route('app.users.packages.show', $user) }}" 
-                        @if (request()->routeIs('app.users.packages.show')) {{ 'selected' }} @endif
-                        >
-                        Packages
-                    </option>
-
-                    <option 
-                        value="{{ route('app.users.templates.show', $user) }}" 
-                        @if (request()->routeIs('app.users.templates.show')) {{ 'selected' }} @endif
-                        >
-                        Templates
-                    </option>
-
-                    <option 
-                        value="{{ route('app.users.favorites.show', $user) }}" 
-                        @if (request()->routeIs('app.users.favorites.show')) {{ 'selected' }} @endif
-                        >
-                        Favorites
-                    </option>
-
-                    
-                </select>
-            </label>
 
             <nav class="flex font-semibold hidden md:block">
 
