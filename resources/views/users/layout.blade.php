@@ -4,8 +4,8 @@
 
 <div class="container mx-auto my-6 md:my-16 flex flex-col md:flex-row px-4 md:px-0">
 
-    <label class="block md:hidden mb-10">
-        <span class="text-gray-500 uppercase text-sm text-center block">Menu</span>
+    <label class="block md:hidden mb-8">
+        <span class="text-gray-500 uppercase text-xs text-center block">Menu</span>
 
         <select class="form-select block w-full mt-1" onchange="navigate(this)">
             
