@@ -67,7 +67,7 @@
         <!-- Nav -->
         <div class="mb-8">
 
-            <nav class="flex font-semibold hidden md:block">
+            <nav class="flex font-semibold hidden md:flex">
 
                 <a href="{{ route('app.users.show', $user) }}" class="px-4 border-b-2 pb-3 hover:border-red-500 hover:no-underline @routeIs('app.users.show') border-red-500 @endrouteIs">
                     Overview
@@ -85,7 +85,7 @@
                     Favorites
                 </a>
 
-                <span class="flex-grow px-4 border-b-2 pb-3 block"></span>
+                <div class="flex-grow px-4 border-b-2 pb-3"></div>
 
             </nav>
         </div>
