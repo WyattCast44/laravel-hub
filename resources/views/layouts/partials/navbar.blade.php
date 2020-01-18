@@ -42,7 +42,7 @@
 
                         <button class="text-red-500 flex items-center" x-on:click="open = true">
                             <img src="{{ auth()->user()->avatar }}" alt="{{ auth()->user()->name }}" class="rounded-lg w-8 h-8 shadow">
-                            <span class="ml-1 text-xl">&triangledown;</span>
+                            <span class="ml-1 text-lg md:text-xl">&triangledown;</span>
                         </button>     
 
                         <div x-show="open" x-on:click.away="open = false" class="absolute shadow-lg border border-solid right-0 rounded-lg bg-white w-48 flex flex-col pb-2" style="top:38px">

@@ -32,13 +32,40 @@
 
             <label class="block md:hidden">
                 <span class="text-gray-500 uppercase text-sm text-center block">Menu</span>
-                <select class="form-select block w-full mt-1">
-                  <option>Overview</option>
-                  <option>Packages</option>
-                  <option>Templates</option>
-                  <option>Favorites</option>
+
+                <select class="form-select block w-full mt-1" onchange="navigate(this)">
+                    
+                    <option 
+                        value="{{ route('app.users.show', $user) }}" 
+                        @if (request()->routeIs('app.users.show')) {{ 'selected' }} @endif
+                        >
+                        Overview
+                    </option>
+
+                    <option 
+                        value="{{ route('app.users.packages.show', $user) }}" 
+                        @if (request()->routeIs('app.users.packages.show')) {{ 'selected' }} @endif
+                        >
+                        Packages
+                    </option>
+
+                    <option 
+                        value="{{ route('app.users.templates.show', $user) }}" 
+                        @if (request()->routeIs('app.users.templates.show')) {{ 'selected' }} @endif
+                        >
+                        Templates
+                    </option>
+
+                    <option 
+                        value="{{ route('app.users.favorites.show', $user) }}" 
+                        @if (request()->routeIs('app.users.favorites.show')) {{ 'selected' }} @endif
+                        >
+                        Favorites
+                    </option>
+
+                    
                 </select>
-              </label>
+            </label>
 
             <nav class="flex font-semibold hidden md:block">
 
@@ -74,17 +101,14 @@
 
 </div>
 
+    @push('footer')
+
+        <script>
+            function navigate(el) {
+                window.location.href = el.value;
+            }
+        </script>
+        
+    @endpush
+
 @endsection
-
-<!-- 
-
-    We want to list the 
-    - Username
-    - Image
-    - Github profile
-    - Other profiles
-    - repos
-    - templates
-    - favorites?
-
--->
