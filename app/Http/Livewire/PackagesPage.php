@@ -17,7 +17,7 @@ class PackagesPage extends Component
 
     public function packages()
     {
-        $packages = Package::paginate();
+        $packages = Package::with(['user'])->paginate();
 
         return $packages;
     }

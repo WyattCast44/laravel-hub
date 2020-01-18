@@ -12,15 +12,6 @@ class PackagesController extends Controller
     {
         $this->middleware('auth')->only(['create', 'store']);
     }
-    
-    public function index()
-    {
-        $packages = Package::with(['user'])->paginate();
-
-        return view('packages.index', [
-            'packages' => $packages,
-        ]);
-    }
 
     public function create()
     {
