@@ -25,7 +25,7 @@ class PackagesController extends Controller
             'url' => 'required|string',
         ]);
 
-        dd($request);
+        flash('status', 'success', 'Package submitted!');
 
         return redirect()->route('app.packages.index');
     }
