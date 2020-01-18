@@ -60,6 +60,10 @@
                                 My Templates
                             </a>
 
+                            <a href="{{ route('app.users.favorites.show', auth()->user()) }}" class="px-4 py-1 hover:bg-gray-200 hover:no-underline">
+                                My Favorites
+                            </a>
+
                             <a href="{{ route('app.settings.index') }}" class="px-4 py-1 hover:bg-gray-200 hover:no-underline">
                                 Settings
                             </a>
