@@ -36,6 +36,7 @@ return [
         'redirect' => '/login/callback',
         'scopes' => [
             'user:email',
+            'read:org',
         ],
     ],
 
