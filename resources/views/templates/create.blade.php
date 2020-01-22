@@ -4,9 +4,9 @@
 
 @include('partials.yaml-editor-scripts')
 
-<div class="container mx-auto my-16" style="max-width: 1000px">
+<div class="mx-6 md:mx-auto my-10 md:my-16" style="max-width: 1000px">
     
-    <div class="bg-white rounded-lg py-10 px-10 border-solid border shadow mb-32">
+    <div class="bg-white rounded-lg p-10 border-solid border shadow">
         
         <h2 class="text-3xl font-semibold font-header mb-2 text-gray-700">Create Template</h2>
 
@@ -25,7 +25,7 @@
                 <label for="display_name" class="text-gray-700 block font-semibold pl-1">
                     Display Name
                 </label>
-                <input class="form-input block w-full my-2 bg-gray-200 placeholder-gray-600" placeholder="Laravel Avengers Package..." autofocus name="display_name">
+                <input class="form-input block w-full my-2 placeholder-gray-600" placeholder="Laravel Avengers Package..." autofocus name="display_name">
                 <span class="text-sm text-gray-500 block pl-1">Required. This will show when users are searching the package page</span>
                     
                 
@@ -34,7 +34,7 @@
                     <label for="name" class="text-gray-700 block font-semibold pl-1">
                         Name
                     </label>
-                    <input class="form-input block w-full my-2 bg-gray-200 placeholder-gray-600" placeholder="fractal-api-base" name="name">
+                    <input class="form-input block w-full my-2 placeholder-gray-600" placeholder="fractal-api-base" name="name">
                     <span class="text-sm text-gray-500 block pl-1">Required. This will show when users are searching the package page</span> 
                 </div>
 
@@ -43,7 +43,7 @@
                     <label for="description" class="text-gray-700 block font-semibold pl-1">
                         Description
                     </label>
-                    <textarea class="form-textarea my-2 block w-full bg-gray-200 placeholder-gray-600" rows="3" placeholder="This template is used to scaffold..." name="description" draggable="true"></textarea>
+                    <textarea class="form-textarea my-2 block w-full placeholder-gray-600" rows="3" placeholder="This template is used to scaffold..." name="description" draggable="true"></textarea>
                     <span class="text-sm text-gray-500 block pl-1">Required. Briefly explain what this template is used for</span> 
                 </div>
 
