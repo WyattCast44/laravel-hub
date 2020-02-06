@@ -85,6 +85,10 @@
 
                 @endauth
 
+                <button class="block md:hidden">
+                    @svg('menu', 'fill-current text-red-500')
+                </button>
+
             </div>
 
         </div>
@@ -92,5 +96,7 @@
     </nav>
 
     @include('partials.flash')
+
+    @include('layouts.partials.mobile-menu')
     
 </header>
