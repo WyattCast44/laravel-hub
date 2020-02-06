@@ -28,22 +28,24 @@
         
         <div class="bg-white rounded-lg py-10 px-10 border-solid border shadow flex-1">
 
-            @if (auth()->user()->hasFavorited($template))
-                <form action="{{ route('app.templates.favorites.delete', $template) }}" method="post">
-                    @csrf
-                    @method('DELETE')
-                    <button type="submit" class="rounded bg-red-500 text-white font-semibold w-full py-3 block text-center hover:no-underline hover:shadow hover:bg-red-600">
-                        Unfavorite
-                    </button>
-                </form>
-            @else
-                <form action="{{ route('app.templates.favorites.store', $template) }}" method="post">
-                    @csrf
-                    <button type="submit" class="rounded bg-red-500 text-white font-semibold w-full py-3 block text-center hover:no-underline hover:shadow hover:bg-red-600">
-                        Favorite 🔥
-                    </button>
-                </form>
-            @endif
+            @auth
+                @if (auth()->user()->hasFavorited($template))
+                    <form action="{{ route('app.templates.favorites.delete', $template) }}" method="post">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="rounded bg-red-500 text-white font-semibold w-full py-3 block text-center hover:no-underline hover:shadow hover:bg-red-600">
+                            Unfavorite
+                        </button>
+                    </form>
+                @else
+                    <form action="{{ route('app.templates.favorites.store', $template) }}" method="post">
+                        @csrf
+                        <button type="submit" class="rounded bg-red-500 text-white font-semibold w-full py-3 block text-center hover:no-underline hover:shadow hover:bg-red-600">
+                            Favorite 🔥
+                        </button>
+                    </form>
+                @endif
+            @endauth
 
         </div>
 
