@@ -36,6 +36,24 @@
             <!-- Right nav -->
             <div class="flex items-center">
 
+                <!-- Mobile Nav -->
+                <div x-data="{ open: false }">
+                    <button class="block md:hidden" x-on:click="{ open = true }">
+                        @svg('menu', 'fill-current text-red-500')
+                    </button>
+                    
+                    <nav class="absolute top-0 left-0 right-0 bottom-0 bg-gray-300 z-50 flex flex-col justify-center items-center text-xl" x-show="open">
+                        <a href="{{ route('index') }}" class="block w-full mx-10 text-center py-2">Home</a>
+                        <a href="{{ route('app.packages.index') }}" class="block w-full mx-10 text-center py-2">Packages</a>
+                        <a href="{{ route('app.templates.index') }}" class="block w-full mx-10 text-center py-2">Templates</a>
+                        <a href="{{ route('search') }}" class="block w-full mx-10 text-center py-2">Search</a>
+                        <a href="{{ route('auth.login') }}" class="block w-full mx-10 text-center py-2">Login/Register</a>
+                        <button class="absolute top-0 mx-8 my-2 p-2 text-2xl leading-none right-0" x-on:click="{ open = false }">
+                            @svg('x', 'fill-current text-red-500')
+                        </button>
+                    </nav>
+                </div>                
+
                 @auth
 
                     <div class="flex items-center relative" x-data="{ open: false }">
@@ -84,25 +102,6 @@
                     </a>
 
                 @endauth
-
-                
-                <!-- Mobile Nav -->
-                <div x-data="{ open: false }">
-                    <button class="block md:hidden" x-on:click="{ open = true }">
-                        @svg('menu', 'fill-current text-red-500')
-                    </button>
-                    
-                    <nav class="absolute top-0 left-0 right-0 bottom-0 bg-gray-300 z-50 flex flex-col justify-center items-center text-xl" x-show="open">
-                        <a href="{{ route('index') }}" class="block w-full mx-10 text-center py-2">Home</a>
-                        <a href="{{ route('app.packages.index') }}" class="block w-full mx-10 text-center py-2">Packages</a>
-                        <a href="{{ route('app.templates.index') }}" class="block w-full mx-10 text-center py-2">Templates</a>
-                        <a href="{{ route('search') }}" class="block w-full mx-10 text-center py-2">Search</a>
-                        <a href="{{ route('auth.login') }}" class="block w-full mx-10 text-center py-2">Login/Register</a>
-                        <button class="absolute top-0 mx-8 my-2 p-2 text-2xl leading-none right-0" x-on:click="{ open = false }">
-                            @svg('x', 'fill-current text-red-500')
-                        </button>
-                    </nav>
-                </div>
 
             </div>
 
