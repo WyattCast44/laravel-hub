@@ -38,7 +38,7 @@
 
                 <!-- Mobile Nav -->
                 <div x-data="{ open: false }">
-                    <button class="block md:hidden" x-on:click="{ open = true }">
+                    <button class="block md:hidden mr-3" x-on:click="{ open = true }">
                         @svg('menu', 'fill-current text-red-500')
                     </button>
                     
