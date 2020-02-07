@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Package;
+use App\Rules\IsGitHubUrl;
 use Illuminate\Http\Request;
-use App\Jobs\ImportGitHubRepo;
 
 class PackagesController extends Controller
 {
@@ -22,8 +22,10 @@ class PackagesController extends Controller
     {
         $this->validate($request, [
             'type' => 'required|in:php,js,other',
-            'url' => 'required|string',
+            'url' => ['required', 'string', new IsGitHubUrl],
         ]);
+
+        // https://github.com/WyattCast44/lambo
 
         flash('status', 'success', 'Package submitted!');
 

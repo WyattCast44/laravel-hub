@@ -4,8 +4,9 @@
 
 @include('partials.yaml-editor-scripts')
 
-<div class="container mx-auto my-16 flex">
+<div class="container mx-auto my-16 flex flex-col md:flex-row">
 
+    <!-- Main Content -->
     <div class="bg-white rounded-lg py-10 px-10 border-solid border shadow flex-1 mr-8">
     
         <h2 class="text-3xl font-semibold font-header mb-6 text-gray-700">{{ $template->display_name }}</h2>
@@ -24,6 +25,7 @@
             
     </div>
 
+    <!-- Sidebar -->
     <div class="w-3/12">
         
         <div class="bg-white rounded-lg py-10 px-10 border-solid border shadow flex-1">

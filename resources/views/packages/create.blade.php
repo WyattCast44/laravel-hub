@@ -25,8 +25,12 @@
                     <!-- Github Url -->
                     <label class="block mt-3">
                         <span class="text-gray-700 font-semibold">1. GitHub URL</span>
-                        <input class="form-input mt-3 block w-3/4" placeholder="https://github.com/user/repo" name="url" required autofocus>
+                        <input type="url" class="form-input mt-3 block w-3/4" placeholder="https://github.com/user/repo" name="url" required autofocus>
                     </label>
+
+                    @error('url')
+                        @include('partials.error')
+                    @enderror
 
                     <!-- Type -->
                     <div class="mt-6">
@@ -51,6 +55,10 @@
                         </div>
 
                     </div>
+
+                    @error('type')
+                        @include('partials.error')
+                    @enderror
 
                     <div class="mt-8 border-t pt-5 flex justify-end items-center">
 
