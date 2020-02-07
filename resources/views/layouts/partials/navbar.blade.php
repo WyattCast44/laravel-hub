@@ -45,7 +45,7 @@
                             <span class="ml-1 text-lg md:text-xl">&triangledown;</span>
                         </button>     
 
-                        <div x-show="open" x-on:click.away="open = false" class="absolute shadow-lg border border-solid right-0 rounded-lg bg-white w-48 flex flex-col pb-2" style="top:38px">
+                        <div x-show="open" x-on:click.away="open = false" class="absolute shadow-lg border border-solid right-0 rounded-lg bg-white w-48 flex flex-col pb-2 z-50" style="top:38px">
 
                             <a href="{{ route('app.users.show', auth()->user()) }}" class="tracking-tighter text-gray-900 hover:no-underline px-4 py-3 border-b border-solid break-words">
                                 <span class="text-sm text-gray-500 block">Signed in as</span>
