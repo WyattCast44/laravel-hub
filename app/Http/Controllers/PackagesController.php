@@ -22,12 +22,12 @@ class PackagesController extends Controller
     {
         $this->validate($request, [
             'type' => 'required|in:php,js,other',
-            'url' => ['required', 'string', new IsGitHubUrl, new IsValidGitHubRepoUrl],
+            'url' => ['required', 'string', new IsGitHubUrl],
         ]);
 
         $url = $request->url;
 
-        flash('status', 'success', 'Package submitted!');
+        flash('status', 'success', 'Package submitted! We are processing it now.');
 
         return redirect()->route('app.packages.index');
     }
