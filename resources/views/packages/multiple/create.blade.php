@@ -7,9 +7,9 @@
     <div class="bg-white rounded-lg py-10 px-10 border-solid border shadow">
         
         <div class="border-b pb-2">
-            <h2 class="text-3xl font-semibold font-header mb-2 text-gray-700">Submit Your Package</h2>
+            <h2 class="text-3xl font-semibold font-header mb-2 text-gray-700">Submit Multiple Packages</h2>
             <p class="text-gray-600">
-                Share your package with the community. Please only submit packages that you own or created.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae repellendus magnam quisquam dolor nulla fuga sunt rerum itaque! Nulla incidunt corporis nihil quaerat commodi temporibus veniam provident cumque voluptates eveniet?
             </p>
         </div>
 
@@ -63,7 +63,7 @@
                     <div class="mt-8 border-t pt-5 flex justify-between items-center">
 
                         <div>
-                            <a href="{{ route('app.packages.multiple.create') }}" class="mr-4">Submit Multiple</a>
+                            <a href="{{ route('app.packages.index') }}" class="mr-4">Submit Multiple</a>
                         </div>
 
                         <div>

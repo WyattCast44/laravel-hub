@@ -25,6 +25,7 @@ Route::get('/users/{user}/templates', 'UserTemplatesController@show')->name('app
 // Packages
 Route::livewire('/packages', 'packages-page')->layout('layouts.app')->section('content')->name('app.packages.index');
 Route::post('/packages', 'PackagesController@store')->name('app.packages.store');
+Route::get('/packages/multiple/create', 'MultiplePackagesController@create')->name('app.packages.multiple.create');
 Route::get('/packages/create', 'PackagesController@create')->name('app.packages.create');
 Route::get('/packages/{vendor}/{package}', 'PackagesController@show')->name('app.packages.show');
 
