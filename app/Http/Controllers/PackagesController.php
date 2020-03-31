@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Jobs\ProccessSubmittedPackage;
 use App\Package;
 use App\Rules\IsGitHubUrl;
 use Illuminate\Http\Request;
@@ -26,6 +27,8 @@ class PackagesController extends Controller
         ]);
 
         $url = $request->url;
+
+        ProccessSubmittedPackage::dispatch($url);
 
         flash('status', 'success', 'Package submitted! We are processing it now.');
 
