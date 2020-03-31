@@ -16,6 +16,30 @@ use App\Exceptions\FailedActionException;
 trait ConsumesExternalServices
 {
     /**
+     * The Guzzle HTTP Client instance.
+     *
+     * @var \GuzzleHttp\Client
+     */
+    public $guzzle;
+
+    /**
+     * Number of seconds a request is retried.
+     *
+     * @var int
+     */
+    public $timeout = 30;
+
+    /**
+     * Get the timeout
+     *
+     * @return  int
+     */
+    public function getTimeout()
+    {
+        return $this->timeout;
+    }
+    
+    /**
      * Make a GET request to Forge servers and return the response.
      *
      * @param  string $uri

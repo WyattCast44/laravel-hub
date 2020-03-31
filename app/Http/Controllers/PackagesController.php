@@ -22,10 +22,10 @@ class PackagesController extends Controller
     {
         $this->validate($request, [
             'type' => 'required|in:php,js,other',
-            'url' => ['required', 'string', new IsGitHubUrl],
+            'url' => ['required', 'string', new IsGitHubUrl, new IsValidGitHubRepoUrl],
         ]);
 
-        // https://github.com/WyattCast44/lambo
+        $url = $request->url;
 
         flash('status', 'success', 'Package submitted!');
 

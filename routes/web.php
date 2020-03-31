@@ -7,6 +7,7 @@ Route::get('login', 'Auth\LoginController@redirectToProvider')->name('auth.login
 
 // Settings
 Route::get('/settings', 'UserSettingsController@show')->name('app.settings.index');
+Route::delete('/settings/account', 'UserSettingsController@delete')->name('app.settings.account.delete');
 
 // General
 Route::get('/', 'WelcomeController')->name('index');

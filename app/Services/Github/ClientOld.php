@@ -7,9 +7,23 @@ use GuzzleHttp\Client as HttpClient;
 use Illuminate\Support\Facades\Cache;
 use App\Traits\ConsumesExternalServices;
 
-class Client
+class ClientOld
 {
     use ConsumesExternalServices;
+
+    /**
+     * The Guzzle HTTP Client instance.
+     *
+     * @var \GuzzleHttp\Client
+     */
+    public $guzzle;
+
+    /**
+     * Number of seconds a request is retried.
+     *
+     * @var int
+     */
+    public $timeout = 30;
 
     public function __construct($token = null, HttpClient $guzzle = null)
     {
@@ -44,11 +58,50 @@ class Client
         return $this;
     }
 
-    public function isValidRepoUrl(string $url)
+    /**
+     * Get the timeout
+     *
+     * @return  int
+     */
+    public function getTimeout()
     {
-        $url = $url . $url;
+        return $this->timeout;
+    }
+
+    /**
+     * Get an array of the usernames public repos
+     *
+     * @param string $username
+     * @return array
+     */
+    public function getUserRepos($username)
+    {
+        $key= "github:{$username}:repos";
         
-        $this->get("repos/");
+        if (cache()->has($key)) {
+            return cache()->get($key);
+        }
+
+        $page = 1;
+        $result = [];
+        $results = [];
+
+        do {
+            $result = $this->get("users/{$username}/repos?page={$page}");
+            
+            if (gettype($result) === "array") {
+                $page = $page + 1;
+                array_push($results, $result);
+            } else {
+                $result = [];
+            }
+        } while ($result !== []);
+
+        $results = Arr::collapse($results);
+
+        Cache::put($key, $results, now()->addMinutes(5));
+
+        return cache()->get($key);
     }
 
     /**

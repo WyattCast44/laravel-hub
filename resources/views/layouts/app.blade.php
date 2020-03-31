@@ -13,6 +13,7 @@
     <script src="{{ asset('js/app.js') }}" defer></script>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     @gitdown
+    @livewireStyles
     @stack('head')
 </head>
 <body class="antialiased font-sans text-base text-gray-800 bg-gray-100">
@@ -21,7 +22,7 @@
 
     @yield('content')
 
-    @livewireAssets
+    @livewireScripts
     @stack('footer')
 </body>
 </html>
