@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+
 // Auth
 Route::post('logout', 'Auth\LogoutController')->name('auth.logout');
 Route::get('login/callback', 'Auth\LoginController@handleProviderCallback');

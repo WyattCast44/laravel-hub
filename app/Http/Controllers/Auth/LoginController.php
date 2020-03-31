@@ -57,6 +57,8 @@ class LoginController extends Controller
         
         if ($user === null) {
             $user = $this->registerNewUser($githubUser);
+            
+            flash('status', 'success', "Hello {$user->name}, your account has been created!");
         }
         
         $this->loginUser($user);
