@@ -13,7 +13,6 @@ Route::delete('/settings/account', 'UserSettingsController@delete')->name('app.s
 
 // General
 Route::get('/', 'WelcomeController')->name('index');
-Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/search', 'SearchController@index')->name('search');
 
 // Users
