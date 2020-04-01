@@ -4,13 +4,13 @@ namespace App;
 
 use App\Services\GitHub\Client;
 use Laravel\Sanctum\HasApiTokens;
-use Illuminate\Support\Facades\Cache;
+use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
-    use Notifiable, HasApiTokens;
+    use Notifiable, HasApiTokens, HasRoles;
 
     protected $guarded = [];
 
