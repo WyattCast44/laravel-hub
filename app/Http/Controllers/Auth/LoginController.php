@@ -3,9 +3,9 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
-use Socialite;
 use Illuminate\Support\Str;
 use App\Http\Controllers\Controller;
+use Laravel\Socialite\Facades\Socialite;
 use Laravel\Socialite\Two\User as SocialUser;
 
 class LoginController extends Controller
@@ -41,6 +41,8 @@ class LoginController extends Controller
     {
         try {
             $githubUser = Socialite::driver('github')->user();
+
+            logger('gh user', ['user' => $githubUser]);
         } catch (\Exception $e) {
             report($e);
 
@@ -59,6 +61,8 @@ class LoginController extends Controller
             $user = $this->registerNewUser($githubUser);
             
             flash('status', 'success', "Hello {$user->name}, your account has been created!");
+        } else {
+            $user = $this->updateUser($user, $githubUser);
         }
         
         $this->loginUser($user);
@@ -80,7 +84,23 @@ class LoginController extends Controller
             'avatar' => $user->avatar,
             'auth_provider' => 'github',
             'auth_token' => $user->token,
+            'bio' => $user->user['bio'],
+            'blog' => $user->user['blog'],
             'meta' => json_encode($user->user),
+        ]);
+
+        return $user;
+    }
+
+    protected function updateUser(User $user, SocialUser $githubUser)
+    {
+        $user->update([
+            'name' => $githubUser->name,
+            'email' => $githubUser->email,
+            'avatar' => $githubUser->avatar,
+            'bio' => $githubUser->user['bio'],
+            'blog' => $githubUser->user['blog'],
+            'meta' => json_encode($githubUser->user),
         ]);
 
         return $user;
