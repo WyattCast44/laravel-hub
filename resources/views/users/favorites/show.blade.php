@@ -3,16 +3,20 @@
 @section('page')
 
 <ul>
+    
+    @forelse ($favorites as $favorite)
 
-    @foreach ($favorites as $favorite)
-
-        <li class="border-b border-solid py-4">
+        <li class="py-4 border-b border-solid">
             
             {{ $favorite->favoritable->name }}
         
         </li>
+
+    @empty
+
+        @include('users.favorites.partials.no-favorites')
                 
-    @endforeach
+    @endforelse
 
 </ul>
 
