@@ -43,14 +43,25 @@
                     </button>
                     
                     <nav class="absolute top-0 left-0 right-0 bottom-0 bg-gray-300 z-50 flex flex-col justify-center items-center text-xl" x-show="open">
+                        
                         <a href="{{ route('index') }}" class="block w-full mx-10 text-center py-2">Home</a>
                         <a href="{{ route('app.packages.index') }}" class="block w-full mx-10 text-center py-2">Packages</a>
                         <a href="{{ route('app.templates.index') }}" class="block w-full mx-10 text-center py-2">Templates</a>
                         <a href="{{ route('search') }}" class="block w-full mx-10 text-center py-2">Search</a>
-                        <a href="{{ route('auth.login') }}" class="block w-full mx-10 text-center py-2">Login/Register</a>
+                        
+                        @auth
+                            <form action="{{ route('auth.logout') }}" method="post" class="block w-full mx-10 text-center py-2">
+                                @csrf
+                                <button type="submit" class="text-red-500">Logout</a>
+                            </form>
+                        @else
+                            <a href="{{ route('auth.login') }}" class="block w-full mx-10 text-center py-2 ">Login/Register</a>
+                        @endauth
+
                         <button class="absolute top-0 mx-8 my-2 p-2 text-2xl leading-none right-0" x-on:click="{ open = false }">
                             @svg('x', 'fill-current text-red-500')
                         </button>
+
                     </nav>
                 </div>                
 
@@ -97,7 +108,7 @@
                     
                 @else    
                     
-                    <a href="{{ route('auth.login') }}" class="leading-tight text-lg hover:no-underline hover:text-red-700">
+                    <a href="{{ route('auth.login') }}" class="leading-tight text-lg hover:no-underline hover:text-red-700 hidden md:inline-block">
                         Login/Register
                     </a>
 
@@ -111,6 +122,4 @@
 
     @include('partials.flash')
 
-    @include('layouts.partials.mobile-menu')
-    
 </header>
