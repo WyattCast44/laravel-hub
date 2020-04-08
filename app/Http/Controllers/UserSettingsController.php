@@ -18,9 +18,11 @@ class UserSettingsController extends Controller
 
     public function resync()
     {
-        auth()->user()->syncWithGitHub();
-
-        flash('status', 'success', 'Your account has resynced with GitHub!');
+        if (auth()->user()->syncWithGitHub()) {
+            flash('status', 'success', 'Your account has resynced with GitHub!');
+        } else {
+            flash('status', 'error', 'An error occurred while syncing with GitHub, please try again.');
+        }
 
         return redirect()->route('app.settings.index');
     }
