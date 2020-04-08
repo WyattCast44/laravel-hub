@@ -4,7 +4,7 @@
 
 <div class="container mx-auto my-12">
     
-    <div class="overflow-hidden bg-white rounded-lg shadow">
+    <div class="bg-white rounded-lg shadow ">
         <div class="px-4 py-5 sm:px-6">
             <div class="lg:flex lg:items-center lg:justify-between">
                 <div class="flex-1 min-w-0">
