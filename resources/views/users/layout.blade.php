@@ -50,7 +50,7 @@
             <div class="flex flex-col justify-center md:w-full md:h-auto">
                 <img src="{{ $user->avatar }}" alt="{{ $user->username }}" class="w-40 h-40 border-t border-l border-r rounded-t-lg md:w-full md:h-auto">
                 <div class="w-40 px-2 py-1 text-sm text-center text-gray-700 bg-white border-b border-l border-r rounded-b-lg md:w-full">
-                    Working from 🏠 or a really long bio
+                    {{ ($user->bio) ? $user->bio : '🙂' }}
                 </div>
             </div>
 
