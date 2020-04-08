@@ -1,7 +1,7 @@
 <?php
 
-use App\Services\GitHub;
 use Illuminate\Support\Facades\Route;
+use App\Actions\CreateGitHubOrganizationUser;
 
 // Auth
 Route::post('logout', 'Auth\LogoutController')->name('auth.logout');
@@ -38,15 +38,8 @@ Route::get('/templates/{template}', 'TemplatesController@show')->name('app.templ
 Route::post('/templates/{template}/favorites', 'TemplatesFavoritesController@store')->name('app.templates.favorites.store');
 Route::delete('/templates/{template}/favorites', 'TemplatesFavoritesController@delete')->name('app.templates.favorites.delete');
 
-// Webhooks
-Route::webhooks('/github-webhooks');
+Route::get('/test', function (CreateGitHubOrganizationUser $action) {
+    $username = 'livewire';
 
-// Route::get('/test', function () {
-//     $user = auth()->user();
-
-//     $client = resolve(GitHub::class);
-
-//     $res = $client->user('wyattcast44');
-
-//     dd($res);
-// });
+    dd($action->execute($username));
+});

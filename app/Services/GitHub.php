@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use Illuminate\Support\Str;
 use GitHub\Client as GitHubClient;
 
 /**
@@ -38,5 +39,33 @@ class GitHub
     public function repo($username, $reponame)
     {
         return $this->api('repo')->show($username, $reponame);
+    }
+
+    /**
+     * Return true if the given url is valid, publicly
+     * accessible repo
+     *
+     * @param [string] $url
+     * @return boolean
+     */
+    public function isValidRepoUrl($url)
+    {
+        if (! Str::startsWith($url, 'https://github.com')) {
+            return false;
+        }
+
+        $parts = explode('/', Str::after($url, 'https://github.com/'));
+        
+        if (count($parts) != 2) {
+            return false;
+        }
+
+        try {
+            $this->repo($parts[0], $parts[1]);
+
+            return true;
+        } catch (\Exception $e) {
+            return false;
+        }
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Rules;
 
+use App\Services\GitHub;
 use Illuminate\Support\Str;
 use Illuminate\Contracts\Validation\Rule;
 
@@ -16,11 +17,7 @@ class IsValidGitHubRepoUrl implements Rule
      */
     public function passes($attribute, $value)
     {
-        if (Str::startsWith($value, 'https://github.com')) {
-            return true;
-        }
-
-        return false;
+        return app(GitHub::class)->isValidRepoUrl($value);
     }
 
     /**

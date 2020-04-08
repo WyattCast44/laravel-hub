@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "74434e15100ebdb76b2c55a2bb6b5bc3",
+    "content-hash": "98608fcbf5b16c6e9bb8512c28953ad9",
     "packages": [
         {
             "name": "brick/math",
@@ -2952,6 +2952,80 @@
                 "spatie"
             ],
             "time": "2020-03-03T21:31:02+00:00"
+        },
+        {
+            "name": "spatie/laravel-queueable-action",
+            "version": "2.5.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spatie/laravel-queueable-action.git",
+                "reference": "629f7234c394f3422d5bb8022121e0c88fbb6f94"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spatie/laravel-queueable-action/zipball/629f7234c394f3422d5bb8022121e0c88fbb6f94",
+                "reference": "629f7234c394f3422d5bb8022121e0c88fbb6f94",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": "^6.0|^7.0",
+                "php": "^7.2"
+            },
+            "require-dev": {
+                "mockery/mockery": "^1.2",
+                "orchestra/testbench": "^4.0|^5.0",
+                "phpunit/phpunit": "^8.4"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Spatie\\QueueableAction\\QueueableActionServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Spatie\\QueueableAction\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Brent Roose",
+                    "email": "brent@spatie.be",
+                    "homepage": "https://spatie.be",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Alex Vanderbist",
+                    "email": "alex@spatie.be",
+                    "homepage": "https://spatie.be",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Sebastian De Deyne",
+                    "email": "sebastian@spatie.be",
+                    "homepage": "https://spatie.be",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Freek Van der Herten",
+                    "email": "freek@spatie.be",
+                    "homepage": "https://spatie.be",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Queueable action support in Laravel",
+            "homepage": "https://github.com/spatie/laravel-queueable-action",
+            "keywords": [
+                "laravel-queueable-action",
+                "spatie"
+            ],
+            "time": "2020-03-03T14:51:13+00:00"
         },
         {
             "name": "spatie/laravel-webhook-client",
