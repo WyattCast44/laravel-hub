@@ -4,8 +4,8 @@
 
         <div x-show="show">
             @if (session('status')['type'] == "success")
-                <div class="bg-green-200 py-2 text-sm text-green-600">
-                    <div class="container mx-auto flex items-center justify-between">
+                <div class="px-2 py-2 text-sm text-green-600 bg-green-200">
+                    <div class="container flex items-center justify-between mx-auto">
                         <p>
                             {{ (string) session('status')['message'] }}
                         </p>
@@ -15,8 +15,8 @@
                     </div>
                 </div>
             @else
-                <div class="bg-red-200 py-2 text-red-700 text-sm">
-                    <div class="container mx-auto flex items-center justify-between">
+                <div class="py-2 text-sm text-red-700 bg-red-200">
+                    <div class="container flex items-center justify-between mx-auto">
                         <p>
                             {{ (string) session('status')['message'] }}
                         </p>
