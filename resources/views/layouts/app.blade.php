@@ -16,7 +16,7 @@
     @livewireStyles
     @stack('head')
 </head>
-<body class="antialiased font-sans text-base text-gray-800 bg-gray-100">
+<body class="font-sans text-base antialiased text-gray-800 bg-gray-100">
 
     @include('layouts.partials.navbar')
 

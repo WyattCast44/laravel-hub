@@ -58,6 +58,7 @@ class ProcessSubmittedPackage
             'display_name' => $repo['name'],
             'description' => $repo['description'],
             'repo_url' => $repo['html_url'],
+            'official' => ($owner_username == "laravel") ? true : false,
         ]);
 
         return $package;

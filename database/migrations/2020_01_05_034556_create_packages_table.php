@@ -23,6 +23,7 @@ class CreatePackagesTable extends Migration
             $table->string('install_command')->index()->nullable();
             $table->text('repo_url')->nullable();
             $table->text('package_url')->nullable();
+            $table->boolean('official')->default(false);
             $table->json('meta')->nullable();
             $table->timestamps();
 

@@ -2,9 +2,9 @@
 
 @section('content')
 
-<div class="container mx-2 mx-auto my-12">
+<div class="container mx-auto my-16">
     
-    <div class="bg-white rounded-lg shadow ">
+    <div class="bg-white rounded-lg shadow">
         <div class="px-4 py-5 sm:px-6">
             <div class="lg:flex lg:items-center lg:justify-between">
                 <div class="flex-1 min-w-0">
@@ -12,27 +12,15 @@
                         {{ $package->name }}
                     </h2>
                     <div class="flex flex-col mt-1 sm:mt-0 sm:flex-row sm:flex-wrap">
+                        @if($package->official)
+                            <div class="flex items-center mt-2 text-sm leading-5 text-gray-500 sm:mr-6">
+                                @svg('check-circle', 'w-5 h-5 mr-1.5 text-green-500')
+                                Official Laravel Package
+                            </div>
+                        @endif
                         <div class="flex items-center mt-2 text-sm leading-5 text-gray-500 sm:mr-6">
-                            <svg class="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400"
-                                fill="currentColor"
-                                viewBox="0 0 20 20">
-                                <path fill-rule="evenodd"
-                                    d="M6 6V5a3 3 0 013-3h2a3 3 0 013 3v1h2a2 2 0 012 2v3.57A22.952 22.952 0 0110 13a22.95 22.95 0 01-8-1.43V8a2 2 0 012-2h2zm2-1a1 1 0 011-1h2a1 1 0 011 1v1H8V5zm1 5a1 1 0 011-1h.01a1 1 0 110 2H10a1 1 0 01-1-1z"
-                                    clip-rule="evenodd" />
-                                <path
-                                    d="M2 13.692V16a2 2 0 002 2h12a2 2 0 002-2v-2.308A24.974 24.974 0 0110 15c-2.796 0-5.487-.46-8-1.308z" />
-                            </svg>
-                            Full-time
-                        </div>
-                        <div class="flex items-center mt-2 text-sm leading-5 text-gray-500 sm:mr-6">
-                            <svg class="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400"
-                                fill="currentColor"
-                                viewBox="0 0 20 20">
-                                <path fill-rule="evenodd"
-                                    d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
-                                    clip-rule="evenodd" />
-                            </svg>
-                            Remote
+                            @svg('star', 'w-5 h-5 mr-1.5 text-yellow-400')
+                            5000 stars
                         </div>
                         <div class="flex items-center mt-2 text-sm leading-5 text-gray-500 sm:mr-6">
                             <svg class="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400"
@@ -141,60 +129,5 @@
     </div>
 
 </div>
-  
-
-
-<div class="container flex mx-auto my-16">
-
-    <div class="flex-1 px-10 py-10 mr-8 bg-white border border-solid rounded-lg shadow">
-    
-        <h2 class="mb-6 text-3xl font-semibold text-gray-700 font-header">{{ $package->display_name }}</h2>
-
-        <div class="markdown-body">
-            {{-- {!! GitDown::parseAndCache($package->meta['readme'], $seconds = 300) !!} --}}
-        </div>
-            
-    </div>
-
-    <div class="w-3/12">
-        
-        <div class="flex-1 px-10 py-10 bg-white border border-solid rounded-lg shadow">
-
-            <form action="{{ route('app.packages.favorites.store', ['vendor' => $package->vendor, 'package' => $package]) }}" method="post">
-                @csrf
-                <button type="submit" class="block w-full py-3 font-semibold text-center text-white bg-red-500 rounded hover:no-underline hover:shadow hover:bg-red-600">
-                    Favorite 🔥
-                </button>
-            </form>
-            
-            <form action="{{ route('app.packages.delete', ['vendor' => $package->vendor, 'package' => $package]) }}" method="post">
-                @csrf
-                @method('DELETE')
-                <button type="submit" class="block w-full py-3 font-semibold text-center text-white bg-red-500 rounded hover:no-underline hover:shadow hover:bg-red-600">
-                    Delete
-                </button>
-            </form>
-
-            
-
-        </div>
-
-    </div>
-
-</div>
-
-{{-- <div class="container mx-auto my-16">
-
-    Show
-    - Readme
-    - GitHub stats
-    - Hub favorites
-    - View count
-    - Packagist/NPM download count
-    - install command(s)
-    - repo links
-    - download links
-
-</div> --}}
 
 @endsection
