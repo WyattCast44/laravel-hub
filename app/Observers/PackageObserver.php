@@ -14,10 +14,7 @@ class PackageObserver
      */
     public function created(Package $package)
     {
-        // We want to check if user has been flagged,
-        // if so we want to mark these as awaiting approval
-
-        $user = $package->user;
+        //
     }
 
     /**
