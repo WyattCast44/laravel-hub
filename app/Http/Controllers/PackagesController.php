@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Jobs\ProccessSubmittedPackage;
 use App\Package;
-use App\Rules\IsGitHubUrl;
-use App\Rules\IsValidGitHubRepoUrl;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use App\Rules\IsValidGitHubRepoUrl;
+use App\Actions\ProcessSubmittedPackage;
 
 class PackagesController extends Controller
 {
@@ -20,14 +20,16 @@ class PackagesController extends Controller
         return view('packages.create');
     }
 
-    public function store(Request $request)
+    public function store(Request $request, ProcessSubmittedPackage $action)
     {
         $this->validate($request, [
             'type' => ['required', 'in:php,js,other'],
             'url' => ['required', 'string', new IsValidGitHubRepoUrl],
         ]);
 
-        // ProccessSubmittedPackage::dispatch($parts);
+        $parts = explode('/', Str::after($request->url, 'https://github.com/'));
+
+        $action->execute($parts[0], $parts[1]);
 
         flash('status', 'success', 'Package submitted! We are processing it now.');
 

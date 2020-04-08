@@ -9,7 +9,7 @@ class TemplatesFavoritesController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth')->only(['store']);
+        $this->middleware('auth')->only(['store'. 'delete']);
     }
 
     public function store(Template $template)

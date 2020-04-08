@@ -60,6 +60,6 @@ class ProcessSubmittedPackage
             'repo_url' => $repo['html_url'],
         ]);
 
-        dd($package);
+        return $package;
     }
 }

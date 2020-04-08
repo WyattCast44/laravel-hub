@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Actions\CreateGitHubOrganizationUser;
 use App\Actions\ProcessSubmittedPackage;
 
 // Auth
@@ -30,6 +29,7 @@ Route::post('/packages', 'PackagesController@store')->name('app.packages.store')
 Route::get('/packages/multiple/create', 'MultiplePackagesController@create')->name('app.packages.multiple.create');
 Route::get('/packages/create', 'PackagesController@create')->name('app.packages.create');
 Route::get('/packages/{vendor}/{package}', 'PackagesController@show')->name('app.packages.show');
+Route::post('/packages/{vendor}/{package}/favorites', 'PackageFavoritesController@store')->name('app.packages.favorites.store');
 
 // Templates
 Route::get('/templates', 'TemplatesController@index')->name('app.templates.index');
