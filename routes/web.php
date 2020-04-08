@@ -39,9 +39,9 @@ Route::get('/templates/{template}', 'TemplatesController@show')->name('app.templ
 Route::post('/templates/{template}/favorites', 'TemplatesFavoritesController@store')->name('app.templates.favorites.store');
 Route::delete('/templates/{template}/favorites', 'TemplatesFavoritesController@delete')->name('app.templates.favorites.delete');
 
-Route::get('/test', function (ProcessSubmittedPackage $action) {
-    $username = 'livewire';
-    $package = 'livewire';
+// Route::get('/test', function (ProcessSubmittedPackage $action) {
+//     $username = 'livewire';
+//     $package = 'livewire';
 
-    dd($action->execute($username, $package));
-});
+//     dd($action->execute($username, $package));
+// });
