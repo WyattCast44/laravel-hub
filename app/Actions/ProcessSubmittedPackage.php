@@ -51,6 +51,8 @@ class ProcessSubmittedPackage
                 ->execute($owner_username);
         }
 
+        $owner = User::where('username', $owner_username)->first();
+
         $package = Package::create([
             'user_id' => $owner->id,
             'vendor' => $owner_username,
