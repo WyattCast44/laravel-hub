@@ -5,7 +5,7 @@ namespace App\Services;
 use App\Package;
 use GuzzleHttp\Client;
 
-class GitHub
+class GitHubOld
 {
     protected $baseUrl = "https://api.github.com";
 
