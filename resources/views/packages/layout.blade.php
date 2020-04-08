@@ -2,71 +2,71 @@
 
 @section('content')
 
-<div class="container mx-auto my-16 flex">
+<div class="container flex mx-auto my-16">
 
     <div class="w-2/12">
         
-        <div class="mr-8 sticky" style="top:25px;">
-            <a href="{{ route('app.packages.create') }}" class="mb-5 rounded bg-red-500 text-white font-semibold w-full py-3 block text-center hover:no-underline hover:shadow hover:bg-red-600">
+        <div class="sticky mr-8" style="top:25px;">
+            <a href="{{ route('app.packages.create') }}" class="block w-full py-3 mb-5 font-semibold text-center text-white bg-red-500 rounded hover:no-underline hover:shadow hover:bg-red-600">
                 Submit Package
             </a>
     
-            <div class="mr-8 block">
+            <div class="block mr-8">
                 
                 <span class="text-gray-700">Filters</span>
 
-                <div class="border-solid border-b mt-2 mb-5 pb-5">
+                <div class="pb-5 mt-2 mb-5 border-b border-solid">
                    
                     <div>
                         <label class="inline-flex items-center">
-                            <input type="checkbox" class="form-checkbox text-red-500" checked>
+                            <input type="checkbox" class="text-red-500 form-checkbox" checked>
                             <span class="ml-2">Official <span class="text-xs tracking-tighter">(13)</span></span>
                         </label>
                     </div>
 
                     <div>
                         <label class="inline-flex items-center">
-                            <input type="checkbox" class="form-checkbox text-red-500" checked>
+                            <input type="checkbox" class="text-red-500 form-checkbox" checked>
                             <span class="ml-2">Community <span class="text-xs tracking-tighter">(2,201)</span></span>
                         </label>
                     </div>
                     
                 </div>
 
-                <span class="text-gray-700 mt-5 block">Language</span>
+                <span class="block mt-5 text-gray-700">Language</span>
 
                 <div class="mt-2">
                    
                     <div>
                         <label class="inline-flex items-center">
-                            <input type="checkbox" class="form-checkbox text-red-500">
+                            <input type="checkbox" class="text-red-500 form-checkbox">
                             <span class="ml-2">PHP</span>
                         </label>
                     </div>
 
                     <div>
                         <label class="inline-flex items-center">
-                            <input type="checkbox" class="form-checkbox text-red-500">
+                            <input type="checkbox" class="text-red-500 form-checkbox">
                             <span class="ml-2">Javascript</span>
                         </label>
                     </div>
                     
                 </div>
 
-                <span class="text-gray-700 mt-5 block">Categories</span>
+                <span class="block mt-5 text-gray-700">Categories</span>
 
                 <div class="mt-2">
                    
                     <div>
                         <label class="inline-flex items-center">
-                            <input type="checkbox" class="form-checkbox text-red-500">
+                            <input type="checkbox" class="text-red-500 form-checkbox">
                             <span class="ml-2">Database</span>
                         </label>
                     </div>
 
                     <div>
                         <label class="inline-flex items-center">
-                            <input type="checkbox" class="form-checkbox text-red-500">
+                            <input type="checkbox" class="text-red-500 form-checkbox">
                             <span class="ml-2">Models</span>
                         </label>
                     </div>
@@ -82,7 +82,7 @@
     <div class="flex-1">
 
         <!-- Filters and search -->
-        {{-- <div class="w-full flex items-end justify-between mb-8">
+        {{-- <div class="flex items-end justify-between w-full mb-8">
 
             <div>
                 
@@ -90,12 +90,12 @@
 
             </div>
 
-            <div class="flex items-center relative focus-within:text-red-500">
+            <div class="relative flex items-center focus-within:text-red-500">
 
                 <span class="relative mr-1" style="top:1px">
                     @svg('search', 'h-4 stroke-current')
                 </span>
-                <input type="text" placeholder="Search packages..." class="focus-within:border-red-500 focus:border-red-500 focus-within:outline-none focus:outline-none border-b border-solid border-gray-600 py-2 bg-gray-100 px-1 text-gray-800">
+                <input type="text" placeholder="Search packages..." class="px-1 py-2 text-gray-800 bg-gray-100 border-b border-gray-600 border-solid focus-within:border-red-500 focus:border-red-500 focus-within:outline-none focus:outline-none">
 
             </div>
 

@@ -2,15 +2,24 @@
 
 @section('content')
 
+<!-- Container -->
 <div class="container mx-auto my-16">
     
+    <!-- Package/Card Header -->
     <div class="mx-2 bg-white rounded-lg shadow md:mx-0">
         <div class="px-4 py-5 sm:px-6">
+
             <div class="lg:flex lg:items-center lg:justify-between">
+                
+                <!-- Left Side -->
                 <div class="flex-1 min-w-0">
+
+                    <!-- Package Name -->
                     <h2 class="text-2xl font-bold leading-7 text-gray-900 sm:text-3xl sm:leading-9 sm:truncate">
                         {{ $package->name }}
                     </h2>
+
+                    <!-- Package Badges -->
                     <div class="flex flex-col mt-1 sm:mt-0 sm:flex-row sm:flex-wrap">
 
                         <!-- Official Package Badge -->
@@ -29,7 +38,11 @@
                         
                     </div>
                 </div>
+                
+                <!-- Right Side -->
                 <div class="flex mt-5 lg:mt-0 lg:ml-4">
+                    
+                    <!-- Btn 1 -->
                     <span class="hidden rounded-md shadow-sm sm:block">
                         <button type="button"
                                 class="inline-flex items-center px-4 py-2 text-sm font-medium leading-5 text-gray-700 transition duration-150 ease-in-out bg-white border border-gray-300 rounded-md hover:text-gray-500 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 active:text-gray-800 active:bg-gray-50">
@@ -43,6 +56,7 @@
                         </button>
                     </span>
             
+                    <!-- Btn 2 -->
                     <span class="hidden ml-3 rounded-md shadow-sm sm:block">
                         <button type="button"
                                 class="inline-flex items-center px-4 py-2 text-sm font-medium leading-5 text-gray-700 transition duration-150 ease-in-out bg-white border border-gray-300 rounded-md hover:text-gray-500 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 active:text-gray-800 active:bg-gray-50">
@@ -57,6 +71,7 @@
                         </button>
                     </span>
             
+                    <!-- Main Btn -->
                     <span class="rounded-md shadow-sm sm:ml-3">
                         <button type="button"
                                 class="inline-flex items-center px-4 py-2 text-sm font-medium leading-5 text-white transition duration-150 ease-in-out bg-indigo-600 border border-transparent rounded-md hover:bg-indigo-500 focus:outline-none focus:shadow-outline-indigo focus:border-indigo-700 active:bg-indigo-700">
@@ -70,7 +85,8 @@
                             Publish
                         </button>
                     </span>
-            
+                    
+                    <!-- Button Dropdown -->
                     <span x-data="{ open: false }"
                         class="relative ml-3 rounded-md shadow-sm sm:hidden">
                         <button @click="open = !open"
@@ -102,6 +118,7 @@
                             </div>
                         </div>
                     </span>
+                    
                 </div>
             </div>
             
@@ -112,25 +129,25 @@
             <div>
                 <div class="sm:hidden">
                   <select class="block w-full form-select">
-                    <option>My Account</option>
-                    <option>Company</option>
-                    <option selected>Team Members</option>
-                    <option>Billing</option>
+                    <option selected>Read Me</option>
+                    <option>Screenshots</option>
+                    <option>Stats</option>
+                    <option>Reviews</option>
                   </select>
                 </div>
                 <div class="hidden sm:block">
                   <nav class="flex">
-                    <a href="#" class="px-3 py-2 text-sm font-medium leading-5 text-gray-500 rounded-md hover:text-gray-700 focus:outline-none focus:text-indigo-600 focus:bg-indigo-50 hover:no-underline hover:bg-red-50">
+                    <a href="{{ $package->route('show') }}" class="px-3 py-2 text-sm font-medium leading-5 text-gray-500 text-red-800 bg-red-200 rounded-md hover:text-gray-700 focus:outline-none focus:text-indigo-600 focus:bg-indigo-50 hover:no-underline hover:bg-red-100">
                       Read Me
                     </a>
-                    <a href="#" class="px-3 py-2 ml-4 text-sm font-medium leading-5 text-gray-500 rounded-md hover:text-gray-700 focus:outline-none focus:text-indigo-600 focus:bg-indigo-50 hover:no-underline hover:bg-red-50">
+                    <a href="{{ route('app.packages.screenshots.show', ['vendor' => $package->vendor, 'package' => $package]) }}" class="px-3 py-2 ml-4 text-sm font-medium leading-5 text-gray-500 rounded-md hover:text-gray-700 focus:outline-none focus:text-indigo-600 focus:bg-indigo-50 hover:no-underline hover:bg-red-50">
                       Screenshots
                     </a>
-                    <a href="#" class="px-3 py-2 ml-4 text-sm font-medium leading-5 text-indigo-700 bg-indigo-100 rounded-md focus:outline-none focus:text-indigo-800 focus:bg-indigo-200 hover:no-underline hover:bg-red-50">
+                    <a href="#" class="px-3 py-2 ml-4 text-sm font-medium leading-5 text-indigo-700 rounded-md focus:outline-none focus:text-indigo-800 focus:bg-indigo-200 hover:no-underline hover:bg-red-50">
                       Stats
                     </a>
                     <a href="#" class="px-3 py-2 ml-4 text-sm font-medium leading-5 text-gray-500 rounded-md hover:text-gray-700 focus:outline-none focus:text-indigo-600 focus:bg-indigo-50 hover:no-underline hover:bg-red-50">
-                      Billing
+                      Reviews
                     </a>
                   </nav>
                 </div>
@@ -140,7 +157,7 @@
         <!-- Content -->
         <div class="px-4 py-5 bg-gray-50 sm:p-6">
             
-           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolores, minus tempora. Veritatis quam ipsam doloribus provident fugiat laborum iure vero autem, quo distinctio esse quisquam adipisci quia, voluptates deleniti ducimus?
+            @yield('package-page')
 
         </div>
     </div>

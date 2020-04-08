@@ -31,6 +31,14 @@ class Package extends Model
     }
 
     /**
+     * GitHub Actions
+     */
+    public function resyncReadme()
+    {
+        //
+    }
+
+    /**
      * Misc
      */
     public function route($method = 'show')

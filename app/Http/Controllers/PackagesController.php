@@ -22,7 +22,7 @@ class PackagesController extends Controller
 
     public function show($vendor, Package $package)
     {
-        return view('packages.show', [
+        return view('packages.show.index', [
             'package' => $package,
         ]);
     }
