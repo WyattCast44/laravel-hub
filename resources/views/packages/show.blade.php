@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="container mx-auto my-12">
+<div class="container mx-2 mx-auto my-12">
     
     <div class="bg-white rounded-lg shadow ">
         <div class="px-4 py-5 sm:px-6">
