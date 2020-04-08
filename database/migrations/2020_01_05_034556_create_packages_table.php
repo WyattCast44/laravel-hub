@@ -24,6 +24,7 @@ class CreatePackagesTable extends Migration
             $table->text('repo_url')->nullable();
             $table->text('package_url')->nullable();
             $table->boolean('official')->default(false);
+            $table->unsignedBigInteger('stars_count')->default(0);
             $table->json('meta')->nullable();
             $table->timestamps();
 

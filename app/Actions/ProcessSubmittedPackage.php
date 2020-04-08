@@ -55,12 +55,14 @@ class ProcessSubmittedPackage
 
         $package = Package::create([
             'user_id' => $owner->id,
-            'vendor' => $owner_username,
             'name' => $repo['name'],
+            'vendor' => $owner_username,
             'display_name' => $repo['name'],
             'description' => $repo['description'],
             'repo_url' => $repo['html_url'],
             'official' => ($owner_username == "laravel") ? true : false,
+            'stars_count' => $repo['stargazers_count'],
+            'meta' => json_encode($repo),
         ]);
 
         return $package;

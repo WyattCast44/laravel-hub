@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Package;
 use Illuminate\Support\Str;
 use GitHub\Client as GitHubClient;
 
@@ -67,5 +68,17 @@ class GitHub
         } catch (\Exception $e) {
             return false;
         }
+    }
+
+    public function cachePackageReadme(Package $package)
+    {
+        $name = $package->name;
+        $vendor = $package->vendor;
+
+        $response = $this->api('repo')->contents()->readme($vendor, $name);
+
+        $html = base64_decode($response['content']);
+
+        return $html;
     }
 }

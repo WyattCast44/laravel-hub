@@ -4,7 +4,7 @@
 
 <div class="container mx-auto my-16">
     
-    <div class="bg-white rounded-lg shadow">
+    <div class="mx-2 bg-white rounded-lg shadow md:mx-0">
         <div class="px-4 py-5 sm:px-6">
             <div class="lg:flex lg:items-center lg:justify-between">
                 <div class="flex-1 min-w-0">
@@ -12,38 +12,21 @@
                         {{ $package->name }}
                     </h2>
                     <div class="flex flex-col mt-1 sm:mt-0 sm:flex-row sm:flex-wrap">
+
+                        <!-- Official Package Badge -->
                         @if($package->official)
                             <div class="flex items-center mt-2 text-sm leading-5 text-gray-500 sm:mr-6">
                                 @svg('check-circle', 'w-5 h-5 mr-1.5 text-green-500')
                                 Official Laravel Package
                             </div>
                         @endif
+
+                        <!-- Star Count -->
                         <div class="flex items-center mt-2 text-sm leading-5 text-gray-500 sm:mr-6">
                             @svg('star', 'w-5 h-5 mr-1.5 text-yellow-400')
-                            5000 stars
+                            {{ number_format($package->stars_count) }} stars
                         </div>
-                        <div class="flex items-center mt-2 text-sm leading-5 text-gray-500 sm:mr-6">
-                            <svg class="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400"
-                                fill="currentColor"
-                                viewBox="0 0 20 20">
-                                <path
-                                    d="M8.433 7.418c.155-.103.346-.196.567-.267v1.698a2.305 2.305 0 01-.567-.267C8.07 8.34 8 8.114 8 8c0-.114.07-.34.433-.582zM11 12.849v-1.698c.22.071.412.164.567.267.364.243.433.468.433.582 0 .114-.07.34-.433.582a2.305 2.305 0 01-.567.267z" />
-                                <path fill-rule="evenodd"
-                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-13a1 1 0 10-2 0v.092a4.535 4.535 0 00-1.676.662C6.602 6.234 6 7.009 6 8c0 .99.602 1.765 1.324 2.246.48.32 1.054.545 1.676.662v1.941c-.391-.127-.68-.317-.843-.504a1 1 0 10-1.51 1.31c.562.649 1.413 1.076 2.353 1.253V15a1 1 0 102 0v-.092a4.535 4.535 0 001.676-.662C13.398 13.766 14 12.991 14 12c0-.99-.602-1.765-1.324-2.246A4.535 4.535 0 0011 9.092V7.151c.391.127.68.317.843.504a1 1 0 101.511-1.31c-.563-.649-1.413-1.076-2.354-1.253V5z"
-                                    clip-rule="evenodd" />
-                            </svg>
-                            $120k &ndash; $140k
-                        </div>
-                        <div class="flex items-center mt-2 text-sm leading-5 text-gray-500">
-                            <svg class="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400"
-                                fill="currentColor"
-                                viewBox="0 0 20 20">
-                                <path fill-rule="evenodd"
-                                    d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"
-                                    clip-rule="evenodd" />
-                            </svg>
-                            Closing on January 9, 2020
-                        </div>
+                        
                     </div>
                 </div>
                 <div class="flex mt-5 lg:mt-0 lg:ml-4">
@@ -123,8 +106,42 @@
             </div>
             
         </div>
+        
+        <!-- Tabs -->
+        <div class="px-4 py-2 bg-white border-t border-b">
+            <div>
+                <div class="sm:hidden">
+                  <select class="block w-full form-select">
+                    <option>My Account</option>
+                    <option>Company</option>
+                    <option selected>Team Members</option>
+                    <option>Billing</option>
+                  </select>
+                </div>
+                <div class="hidden sm:block">
+                  <nav class="flex">
+                    <a href="#" class="px-3 py-2 text-sm font-medium leading-5 text-gray-500 rounded-md hover:text-gray-700 focus:outline-none focus:text-indigo-600 focus:bg-indigo-50 hover:no-underline hover:bg-red-50">
+                      Read Me
+                    </a>
+                    <a href="#" class="px-3 py-2 ml-4 text-sm font-medium leading-5 text-gray-500 rounded-md hover:text-gray-700 focus:outline-none focus:text-indigo-600 focus:bg-indigo-50 hover:no-underline hover:bg-red-50">
+                      Screenshots
+                    </a>
+                    <a href="#" class="px-3 py-2 ml-4 text-sm font-medium leading-5 text-indigo-700 bg-indigo-100 rounded-md focus:outline-none focus:text-indigo-800 focus:bg-indigo-200 hover:no-underline hover:bg-red-50">
+                      Stats
+                    </a>
+                    <a href="#" class="px-3 py-2 ml-4 text-sm font-medium leading-5 text-gray-500 rounded-md hover:text-gray-700 focus:outline-none focus:text-indigo-600 focus:bg-indigo-50 hover:no-underline hover:bg-red-50">
+                      Billing
+                    </a>
+                  </nav>
+                </div>
+              </div>
+        </div>
+        
+        <!-- Content -->
         <div class="px-4 py-5 bg-gray-50 sm:p-6">
-            <!-- Content goes here -->
+            
+           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolores, minus tempora. Veritatis quam ipsam doloribus provident fugiat laborum iure vero autem, quo distinctio esse quisquam adipisci quia, voluptates deleniti ducimus?
+
         </div>
     </div>
 

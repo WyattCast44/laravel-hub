@@ -1,5 +1,7 @@
 <?php
 
+use App\Package;
+use App\Services\GitHub;
 use Github\Client;
 use Illuminate\Support\Facades\Route;
 
@@ -42,13 +44,13 @@ Route::get('/templates/{template}', 'TemplatesController@show')->name('app.templ
 Route::post('/templates/{template}/favorites', 'TemplatesFavoritesController@store')->name('app.templates.favorites.store');
 Route::delete('/templates/{template}/favorites', 'TemplatesFavoritesController@delete')->name('app.templates.favorites.delete');
 
-// Route::get('/test', function () {
-//     $user = auth()->user();
-    
-//     $token = $user->auth_token;
+Route::get('/test', function () {
+    $package = Package::first();
+    $client = app(GitHub::class);
 
-//     $client = new Client(null, 'machine-man-preview');
-//     $client->authenticate($token, null, Client::AUTH_HTTP_TOKEN);
+    $r = $client->cachePackageReadme($package);
 
-//     dd($client->api(('current_user'))->repositories($type = "member", $sort = 'created', $direction = 'desc'));
-// });
+    $html = GitDown::parseAndCache($r);
+
+    return view('test', compact('html'));
+});
