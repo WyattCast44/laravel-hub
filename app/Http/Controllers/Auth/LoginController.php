@@ -100,6 +100,7 @@ class LoginController extends Controller
             'avatar' => $githubUser->avatar,
             'bio' => $githubUser->user['bio'],
             'blog' => $githubUser->user['blog'],
+            'auth_token' => $githubUser->token,
             'meta' => json_encode($githubUser->user),
         ]);
 

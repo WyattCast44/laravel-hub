@@ -3,8 +3,10 @@
 namespace App\Providers;
 
 use App\Observers\PackageObserver;
+use App\Observers\TemplateObserver;
 use App\Observers\UserObserver;
 use App\Package;
+use App\Template;
 use App\User;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
@@ -36,5 +38,7 @@ class EventServiceProvider extends ServiceProvider
         User::observe(UserObserver::class);
         
         Package::observe(PackageObserver::class);
+
+        Template::observe(TemplateObserver::class);
     }
 }

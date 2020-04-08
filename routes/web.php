@@ -1,7 +1,7 @@
 <?php
 
+use Github\Client;
 use Illuminate\Support\Facades\Route;
-use App\Actions\ProcessSubmittedPackage;
 
 // Auth
 Route::post('logout', 'Auth\LogoutController')->name('auth.logout');
@@ -29,6 +29,9 @@ Route::post('/packages', 'PackagesController@store')->name('app.packages.store')
 Route::get('/packages/multiple/create', 'MultiplePackagesController@create')->name('app.packages.multiple.create');
 Route::get('/packages/create', 'PackagesController@create')->name('app.packages.create');
 Route::get('/packages/{vendor}/{package}', 'PackagesController@show')->name('app.packages.show');
+Route::delete('/packages/{vendor}/{package}', 'PackagesController@delete')->name('app.packages.delete');
+
+// Package Favorites
 Route::post('/packages/{vendor}/{package}/favorites', 'PackageFavoritesController@store')->name('app.packages.favorites.store');
 
 // Templates
@@ -39,9 +42,13 @@ Route::get('/templates/{template}', 'TemplatesController@show')->name('app.templ
 Route::post('/templates/{template}/favorites', 'TemplatesFavoritesController@store')->name('app.templates.favorites.store');
 Route::delete('/templates/{template}/favorites', 'TemplatesFavoritesController@delete')->name('app.templates.favorites.delete');
 
-// Route::get('/test', function (ProcessSubmittedPackage $action) {
-//     $username = 'livewire';
-//     $package = 'livewire';
+// Route::get('/test', function () {
+//     $user = auth()->user();
+    
+//     $token = $user->auth_token;
 
-//     dd($action->execute($username, $package));
+//     $client = new Client(null, 'machine-man-preview');
+//     $client->authenticate($token, null, Client::AUTH_HTTP_TOKEN);
+
+//     dd($client->api(('current_user'))->repositories($type = "member", $sort = 'created', $direction = 'desc'));
 // });

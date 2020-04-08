@@ -36,7 +36,7 @@ class PackageObserver
      */
     public function deleted(Package $package)
     {
-        //
+        $package->favorites->each->delete();
     }
 
     /**

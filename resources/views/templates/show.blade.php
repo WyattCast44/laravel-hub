@@ -4,19 +4,19 @@
 
 @include('partials.yaml-editor-scripts')
 
-<div class="container mx-auto my-16 flex flex-col md:flex-row">
+<div class="container flex flex-col mx-auto my-16 md:flex-row">
 
     <!-- Main Content -->
-    <div class="bg-white rounded-lg py-10 px-10 border-solid border shadow flex-1 mr-8">
+    <div class="flex-1 px-10 py-10 mr-8 bg-white border border-solid rounded-lg shadow">
     
-        <h2 class="text-3xl font-semibold font-header mb-6 text-gray-700">{{ $template->display_name }}</h2>
+        <h2 class="mb-6 text-3xl font-semibold text-gray-700 font-header">{{ $template->display_name }}</h2>
 
         <div class="markdown-body">
 
             <!-- YAML Code Block -->
             <div 
                 id="editor" 
-                class="resize-y form-textarea my-2 block w-full bg-gray-200 placeholder-gray-600" 
+                class="block w-full my-2 placeholder-gray-600 bg-gray-200 resize-y form-textarea" 
                 style="min-height: 250px" 
                 data-lpignore="true"
             >{{  $template->content }}</div>
@@ -28,21 +28,21 @@
     <!-- Sidebar -->
     <div class="w-3/12">
         
-        <div class="bg-white rounded-lg py-10 px-10 border-solid border shadow flex-1">
+        <div class="flex-1 px-10 py-10 bg-white border border-solid rounded-lg shadow">
 
             @auth
                 @if (auth()->user()->hasFavorited($template))
                     <form action="{{ route('app.templates.favorites.delete', $template) }}" method="post">
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="rounded bg-red-500 text-white font-semibold w-full py-3 block text-center hover:no-underline hover:shadow hover:bg-red-600">
+                        <button type="submit" class="block w-full py-3 font-semibold text-center text-white bg-red-500 rounded hover:no-underline hover:shadow hover:bg-red-600">
                             Unfavorite
                         </button>
                     </form>
                 @else
                     <form action="{{ route('app.templates.favorites.store', $template) }}" method="post">
                         @csrf
-                        <button type="submit" class="rounded bg-red-500 text-white font-semibold w-full py-3 block text-center hover:no-underline hover:shadow hover:bg-red-600">
+                        <button type="submit" class="block w-full py-3 font-semibold text-center text-white bg-red-500 rounded hover:no-underline hover:shadow hover:bg-red-600">
                             Favorite 🔥
                         </button>
                     </form>
