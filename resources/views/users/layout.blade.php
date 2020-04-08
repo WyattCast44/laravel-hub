@@ -47,10 +47,10 @@
         <div class="flex flex-col items-center w-full">
 
             <!-- Avatar -->
-            <div class="flex flex-col justify-center w-32 h-32 md:w-full md:h-auto">
-                <img src="{{ $user->avatar }}" alt="{{ $user->username }}" class="border-t border-l border-r rounded-t-lg md:w-full">
-                <div class="px-2 py-1 text-sm text-center text-gray-700 bg-white border-b border-l border-r rounded-b-lg">
-                    Working from 🏠
+            <div class="flex flex-col justify-center md:w-full md:h-auto">
+                <img src="{{ $user->avatar }}" alt="{{ $user->username }}" class="w-40 h-40 border-t border-l border-r rounded-t-lg md:w-full md:h-auto">
+                <div class="w-40 px-2 py-1 text-sm text-center text-gray-700 bg-white border-b border-l border-r rounded-b-lg md:w-full">
+                    Working from 🏠 or a really long bio
                 </div>
             </div>
 

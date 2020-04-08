@@ -40,3 +40,13 @@ Route::delete('/templates/{template}/favorites', 'TemplatesFavoritesController@d
 
 // Webhooks
 Route::webhooks('/github-webhooks');
+
+Route::get('/test', function () {
+    $user = auth()->user();
+
+    $client = resolve(GitHub::class);
+
+    $res = $client->user('wyattcast44');
+
+    dd($res);
+});
