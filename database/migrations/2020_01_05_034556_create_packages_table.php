@@ -19,7 +19,6 @@ class CreatePackagesTable extends Migration
             $table->string('name')->index();
             $table->string('vendor')->index();
             $table->string('display_name')->nullable();
-            $table->string('tagline')->nullable();
             $table->text('description')->nullable();
             $table->string('install_command')->index()->nullable();
             $table->text('repo_url')->nullable();

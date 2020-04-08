@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Actions\CreateGitHubOrganizationUser;
+use App\Actions\ProcessSubmittedPackage;
 
 // Auth
 Route::post('logout', 'Auth\LogoutController')->name('auth.logout');
@@ -38,8 +39,9 @@ Route::get('/templates/{template}', 'TemplatesController@show')->name('app.templ
 Route::post('/templates/{template}/favorites', 'TemplatesFavoritesController@store')->name('app.templates.favorites.store');
 Route::delete('/templates/{template}/favorites', 'TemplatesFavoritesController@delete')->name('app.templates.favorites.delete');
 
-Route::get('/test', function (CreateGitHubOrganizationUser $action) {
+Route::get('/test', function (ProcessSubmittedPackage $action) {
     $username = 'livewire';
+    $package = 'livewire';
 
-    dd($action->execute($username));
+    dd($action->execute($username, $package));
 });

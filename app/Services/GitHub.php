@@ -36,9 +36,9 @@ class GitHub
         return $this->api('users')->show($username);
     }
 
-    public function repo($username, $reponame)
+    public function repo($username, $repo)
     {
-        return $this->api('repo')->show($username, $reponame);
+        return $this->api('repo')->show($username, $repo);
     }
 
     /**
