@@ -13,9 +13,16 @@ class UserSettingsController extends Controller
 
     public function show()
     {
-        $user = auth()->user();
-
         return view('settings.index');
+    }
+
+    public function resync()
+    {
+        auth()->user()->syncWithGitHub();
+
+        flash('status', 'success', 'Your account has resynced with GitHub!');
+
+        return redirect()->route('app.settings.index');
     }
 
     public function delete()

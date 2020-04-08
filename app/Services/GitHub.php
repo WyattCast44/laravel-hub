@@ -2,48 +2,69 @@
 
 namespace App\Services;
 
-use App\Package;
-use GuzzleHttp\Client;
+use GitHub\Client as GitHubClient;
 
 class GitHub
 {
-    protected $baseUrl = "https://api.github.com";
+    protected $client;
+    
+    public function __construct(GitHubClient $client)
+    {
+        $this->client = $client;
+    }
 
-    protected $reposUrl = "https://api.github.com/repos";
+    public function api($api)
+    {
+        return $this->client->api($api);
+    }
 
     /**
-     * Check if a repo exists and we can access the info
+     * Get a users details by username
      *
-     * @return bool
+     * @link https://github.com/KnpLabs/php-github-api/blob/master/doc/users.md
+     * @source https://github.com/tightenco/novapackages/blob/master/app/Http/Remotes/GitHub.php
      */
-    public function doesRepoExist(string $name)
+    public function user($username)
     {
-        $client = new Client();
-
-        $response = $client->request('GET', "{$this->reposUrl}/{$name}");
-
-        return $response->getBody();
+        return $this->api('users')->show($username);
     }
 
-    public function getUserRepos($username)
-    {
-        $client = new Client();
+    // /**
+    //  * Get all issues labeled "suggestion".
+    //  *
+    //  * @return array of items
+    //  */
+    // public function packageIdeaIssues()
+    // {
+    //     return Cache::remember(CacheKeys::packageIdeaIssues(), 1, function () {
+    //         $issues = collect($this->github->api('search')->issues('state:open label:package-idea repo:tightenco/nova-package-development')['items']);
 
-        $response = $client->request('GET', "{$this->baseUrl}/users/{$username}/repos?type=all");
+    //         return $this->sortIssuesByPositiveReactions($issues);
+    //     });
+    // }
 
-        $data = json_decode($response->getBody()->getContents());
+    // protected function sortIssuesByPositiveReactions($issues)
+    // {
+    //     return $issues->sortByDesc(function ($issue) {
+    //         $countReactionTypes = collect($issue['reactions'])
+    //             ->except(['url', 'total_count'])
+    //             ->filter()
+    //             ->count();
 
-        return $data;
-    }
+    //         return $countReactionTypes
+    //          + Arr::get($issue, 'reactions.total_count')
+    //          - (2 * Arr::get($issue, 'reactions.-1'))
+    //          - Arr::get($issue, 'reactions.confused');
+    //     });
+    // }
 
-    public function importPackageReadme(Package $package)
-    {
-        $fullName = "{$package->vendor}/{$package->name}";
+    // public function api($api)
+    // {
+    //     return $this->github->api($api);
+    // }
 
-        $client = new Client();
-
-        $response = $client->request('GET', "{$this->baseUrl}/repos/{$fullName}/readme");
-
-        return base64_decode(json_decode($response->getBody()->getContents())->content);
-    }
+    // public static function validateUrl($url)
+    // {
+    //     return (bool) preg_match('/github.com\/([\w-]+)\/([\w-]+)/i', $url);
+    // }
 }

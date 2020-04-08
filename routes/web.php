@@ -1,5 +1,6 @@
 <?php
 
+use App\Services\GitHub;
 use Illuminate\Support\Facades\Route;
 
 // Auth
@@ -9,6 +10,7 @@ Route::get('login', 'Auth\LoginController@redirectToProvider')->name('auth.login
 
 // Settings
 Route::get('/settings', 'UserSettingsController@show')->name('app.settings.index');
+Route::get('/settings/resync', 'UserSettingsController@resync')->name('app.settings.account.resync');
 Route::delete('/settings/account', 'UserSettingsController@delete')->name('app.settings.account.delete');
 
 // General

@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="container mx-auto my-16 flex" style="max-width: 1000px">
+<div class="container flex mx-auto my-16" style="max-width: 1000px">
 
     <div class="flex-1 mx-4">
 

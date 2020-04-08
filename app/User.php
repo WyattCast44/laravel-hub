@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Services\GitHub;
 use App\Services\GitHub\Client;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
@@ -88,10 +89,22 @@ class User extends Authenticatable
         ])->get()->count() > 0;
     }
 
-    public function getRepos()
+    public function syncWithGitHub()
     {
-        $client = new Client($this->auth_token);
+        try {
+            $client = resolve(GitHub::class);
+            
+            $github = $client->user($this->username);
 
-        return collect($client->getUserRepos($this->username));
+            $this->update([
+                'name' => $github['name'],
+                'bio' => $github['bio'],
+                'blog' => $github['blog'],
+            ]);
+
+            return true;
+        } catch (\Exception $e) {
+            return false;
+        }
     }
 }
