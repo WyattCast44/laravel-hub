@@ -28,8 +28,8 @@ class LoginController extends Controller
     public function redirectToProvider()
     {
         return Socialite::driver('github')
-                ->scopes(config('services.github.scopes'))
-                ->redirect();
+            ->scopes(config('services.github.scopes'))
+            ->redirect();
     }
 
     /**
@@ -40,8 +40,12 @@ class LoginController extends Controller
     public function handleProviderCallback()
     {
         try {
+
+            // Try to get the user from github
             $githubUser = Socialite::driver('github')->user();
         } catch (\Exception $e) {
+
+            // Catch any errors from githib
             report($e);
 
             if (app()->environment('local')) {
@@ -53,18 +57,29 @@ class LoginController extends Controller
             return redirect('/');
         }
 
-        $user = User::where('email', $githubUser->email)->first();
-        
+        // Look for existing user with username
+        $user = User::where('username', $githubUser->getNickname())->first();
+
         if ($user === null) {
+
+            // No user with that username exists, create new user
             $user = $this->registerNewUser($githubUser);
-            
+
             flash('status', 'success', "Hello {$user->name}, your account has been created!");
+        } elseif ($user->unclaimed) {
+
+            // User exists, but is an unclaimed account, lets claim it and set it up
+            $user = $this->claimUserAccount($user, $githubUser);
+
+            flash('status', 'success', "Hello {$user->name}, your account has been claimed!");
         } else {
+
+            // User exists and is claimed, just a normal update and login
             $user = $this->updateUser($user, $githubUser);
         }
-        
+
         $this->loginUser($user);
-        
+
         return redirect('/');
     }
 
@@ -99,6 +114,22 @@ class LoginController extends Controller
             'bio' => $githubUser->user['bio'],
             'blog' => $githubUser->user['blog'],
             'auth_token' => $githubUser->token,
+            'meta' => json_encode($githubUser->user),
+        ]);
+
+        return $user;
+    }
+
+    public function claimUserAccount(User $user, SocialUser $githubUser)
+    {
+        $user->update([
+            'name' => $githubUser->name,
+            'email' => $githubUser->email,
+            'avatar' => $githubUser->avatar,
+            'bio' => $githubUser->user['bio'],
+            'blog' => $githubUser->user['blog'],
+            'auth_token' => $githubUser->token,
+            'unclaimed' => false,
             'meta' => json_encode($githubUser->user),
         ]);
 

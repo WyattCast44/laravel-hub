@@ -139,7 +139,6 @@
                     <option value="{{ $package->route('screenshots.show') }}" @if (request()->routeIs('app.packages.screenshots.show')) {{ 'selected' }} @endif>
                         Screenshots
                     </option>
-                    <option>Stats</option>
                     <option>Reviews</option>
                   </select>
                 </div>
@@ -157,11 +156,6 @@
                     <!-- Screenshots -->
                     <a href="{{ $package->route('screenshots.show') }}" class="px-3 py-2 text-sm font-medium leading-5 text-gray-500 rounded-md hover:text-gray-700 focus:outline-none focus:text-gray-600 focus:bg-gray-100 hover:no-underline hover:bg-red-100 mr-3 @if (request()->routeIs('app.packages.screenshots.show')) {{ 'bg-red-200 text-red-800' }} @endif">
                       Screenshots
-                    </a>
-
-                    <!-- Stats -->
-                    <a href="#" class="px-3 py-2 mr-3 text-sm font-medium leading-5 text-gray-500 rounded-md hover:text-gray-700 focus:outline-none focus:text-gray-600 focus:bg-gray-100 hover:no-underline hover:bg-red-100">
-                      Stats
                     </a>
 
                     <!-- Reviews -->
