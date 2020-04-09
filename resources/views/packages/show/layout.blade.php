@@ -3,7 +3,7 @@
 @section('content')
 
 <!-- Container -->
-<div class="container mx-auto my-10 md:my-16">
+<div class="container mx-auto my-8 md:my-16">
     
     <!-- Package/Card Header -->
     <div class="mx-3 bg-white rounded-lg shadow md:mx-0">
