@@ -25,6 +25,7 @@ $factory->define(User::class, function (Faker $faker) {
         'avatar' => null,
         'auth_provider' => 'github',
         'auth_token' => null,
+        'elite' => rand(0, 1),
         'meta' => null,
         'remember_token' => Str::random(10),
     ];
