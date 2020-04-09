@@ -150,22 +150,22 @@
                   <nav class="flex">
                       
                     <!-- Readme -->
-                    <a href="{{ $package->route('show') }}" class="px-3 py-2 text-sm font-medium leading-5 text-gray-500 text-red-800 bg-red-200 rounded-md hover:text-gray-700 focus:outline-none focus:text-indigo-600 focus:bg-indigo-50 hover:no-underline hover:bg-red-100">
+                    <a href="{{ $package->route('show') }}" class="px-3 py-2 text-sm font-medium leading-5 text-gray-500 rounded-md hover:text-gray-700 focus:outline-none focus:text-gray-600 focus:bg-gray-100 hover:no-underline hover:bg-red-100 mr-3 @if (request()->routeIs('app.packages.show')) {{ 'bg-red-200 text-red-800' }} @endif">
                       Read Me
                     </a>
 
                     <!-- Screenshots -->
-                    <a href="{{ route('app.packages.screenshots.show', ['vendor' => $package->vendor, 'package' => $package]) }}" class="px-3 py-2 ml-4 text-sm font-medium leading-5 text-gray-500 rounded-md hover:text-gray-700 focus:outline-none focus:text-indigo-600 focus:bg-indigo-50 hover:no-underline hover:bg-red-50">
+                    <a href="{{ $package->route('screenshots.show') }}" class="px-3 py-2 text-sm font-medium leading-5 text-gray-500 rounded-md hover:text-gray-700 focus:outline-none focus:text-gray-600 focus:bg-gray-100 hover:no-underline hover:bg-red-100 mr-3 @if (request()->routeIs('app.packages.screenshots.show')) {{ 'bg-red-200 text-red-800' }} @endif">
                       Screenshots
                     </a>
 
                     <!-- Stats -->
-                    <a href="#" class="px-3 py-2 ml-4 text-sm font-medium leading-5 text-indigo-700 rounded-md focus:outline-none focus:text-indigo-800 focus:bg-indigo-200 hover:no-underline hover:bg-red-50">
+                    <a href="#" class="px-3 py-2 mr-3 text-sm font-medium leading-5 text-gray-500 rounded-md hover:text-gray-700 focus:outline-none focus:text-gray-600 focus:bg-gray-100 hover:no-underline hover:bg-red-100">
                       Stats
                     </a>
 
                     <!-- Reviews -->
-                    <a href="#" class="px-3 py-2 ml-4 text-sm font-medium leading-5 text-gray-500 rounded-md hover:text-gray-700 focus:outline-none focus:text-indigo-600 focus:bg-indigo-50 hover:no-underline hover:bg-red-50">
+                    <a href="#" class="px-3 py-2 text-sm font-medium leading-5 text-gray-500 rounded-md hover:text-gray-700 focus:outline-none focus:text-gray-600 focus:bg-gray-100 hover:no-underline hover:bg-red-100">
                       Reviews
                     </a>
                     
