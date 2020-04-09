@@ -1,6 +1,6 @@
-@extends('users.layout')
+@extends('users.layout-new')
 
-@section('page')
+@section('user-page')
 
     @forelse ($templates as $template)
         <div class="p-6 mb-3 bg-white rounded shadow hover:shadow-md">

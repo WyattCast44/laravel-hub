@@ -158,7 +158,7 @@
                       Packages
                     </a>
 
-                    <a href="{{ route('app.users.templates.show', $user) }}" class="px-3 py-2 mr-3 text-sm font-medium leading-5 text-gray-500 rounded-md hover:text-gray-700 focus:outline-none focus:text-gray-600 focus:bg-gray-100 hover:no-underline hover:bg-red-100 @if (request()->routeIs('app.users.templated.show')) {{ 'bg-red-200 text-red-800' }} @endif">
+                    <a href="{{ route('app.users.templates.show', $user) }}" class="px-3 py-2 mr-3 text-sm font-medium leading-5 text-gray-500 rounded-md hover:text-gray-700 focus:outline-none focus:text-gray-600 focus:bg-gray-100 hover:no-underline hover:bg-red-100 @if (request()->routeIs('app.users.templates.show')) {{ 'bg-red-200 text-red-800' }} @endif">
                       Templates
                     </a>
 

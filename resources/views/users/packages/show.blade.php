@@ -1,6 +1,6 @@
-@extends('users.layout')
+@extends('users.layout-new')
 
-@section('page')
+@section('user-page')
 
 @forelse ($user->packages as $package)
     pac

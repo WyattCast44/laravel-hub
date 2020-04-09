@@ -1,6 +1,6 @@
 @extends('users.layout-new')
 
-@section('page')
+@section('user-page')
 
 <h2>Overview</h2>
 

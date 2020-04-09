@@ -1,6 +1,6 @@
-@extends('users.layout')
+@extends('users.layout-new')
 
-@section('page')
+@section('user-page')
 
 <ul>
     
