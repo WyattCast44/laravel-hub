@@ -36,7 +36,11 @@ class PackageObserver
      */
     public function deleted(Package $package)
     {
+        // Delete any favorites to this package
         $package->favorites->each->delete();
+
+        // Delete any attachments to this package
+        // $package->attachments->each->delete();
     }
 
     /**
