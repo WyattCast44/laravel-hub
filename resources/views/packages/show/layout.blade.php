@@ -172,7 +172,7 @@
         </div><!-- /tabs -->
         
         <!-- Content -->
-        <div class="px-4 py-5 bg-gray-50 sm:p-6">
+        <div class="px-4 py-5 bg-white sm:p-6">
             
             @yield('package-page')
 

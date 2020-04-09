@@ -22,6 +22,8 @@ class PackagesController extends Controller
 
     public function show($vendor, Package $package)
     {
+        $package->load(['attachments']);
+        
         return view('packages.show.index', [
             'package' => $package,
         ]);
