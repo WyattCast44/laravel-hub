@@ -2,6 +2,7 @@
 
 use App\Package;
 use App\Services\GitHub;
+use App\User;
 use Github\Client;
 use Illuminate\Support\Facades\Route;
 
@@ -54,6 +55,9 @@ Route::post('/packages/{vendor}/{package}/favorites', 'PackageFavoritesControlle
 
 
 
+Route::get('/test', function () {
+    auth()->login(User::first());
+});
 
 // Route::get('/test', function () {
 //     $package = Package::first();
@@ -62,3 +66,4 @@ Route::post('/packages/{vendor}/{package}/favorites', 'PackageFavoritesControlle
 //     $html = GitDown::parseAndCache($r);
 //     return view('test', compact('html'));
 // });
+

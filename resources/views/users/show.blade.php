@@ -5,7 +5,7 @@
 @if($user->unclaimed)
 
         <div x-data="{ show: true }">
-            <div class="p-4 mb-8 bg-red-100 rounded-md shadow" x-show="show">
+            <div class="p-4 bg-red-100 rounded-md shadow" x-show="show">
                 <div class="flex" >
                     <div class="flex-shrink-0">
                         @svg('alert-triangle', 'w-5 h-5 text-red-400')
