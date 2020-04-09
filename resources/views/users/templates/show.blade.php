@@ -3,6 +3,7 @@
 @section('user-page')
 
     @forelse ($templates as $template)
+    
         <div class="p-6 mb-3 bg-white rounded shadow hover:shadow-md">
             <h3 class="text-lg font-semibold">
                 <a href="{{ route('app.templates.show', $template) }}">{{ $template->display_name }}</a>
@@ -22,10 +23,14 @@
         
     @endforelse
 
-    <div class="flex items-center justify-start mt-5 text-sm">
+    @if($templates->count() > 0)
 
-    {{ $templates->links() }}
+        <div class="flex items-center justify-start mt-5 text-sm">
 
-    </div>
+            {{ $templates->links() }}
+
+        </div>
+        
+    @endif
 
 @endsection
