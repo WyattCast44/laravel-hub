@@ -26,6 +26,7 @@ class CreateUsersTable extends Migration
             $table->string('auth_token')->nullable();
             $table->string('auth_type')->default('user');
             $table->boolean('elite')->default(false);
+            $table->boolean('unclaimed')->default(false);
             $table->json('meta')->nullable();
             $table->rememberToken();
             $table->timestamps();

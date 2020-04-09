@@ -52,7 +52,7 @@ class ProcessSubmittedPackage
             
             // The package owner is a user and does not have an account,
             // what to do...
-            return null;
+            $owner = (new CreateGitHubUser($this->client))->execute($owner_username);
         }
 
         $owner = User::where('username', $owner_username)->first();
