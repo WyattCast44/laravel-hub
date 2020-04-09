@@ -41,8 +41,6 @@ class LoginController extends Controller
     {
         try {
             $githubUser = Socialite::driver('github')->user();
-
-            logger('gh user', ['user' => $githubUser]);
         } catch (\Exception $e) {
             report($e);
 

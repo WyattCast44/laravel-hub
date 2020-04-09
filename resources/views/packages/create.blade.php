@@ -2,98 +2,87 @@
 
 @section('content')
 
-<div class="container mx-auto my-16"
-     style="max-width: 1000px">
+<div class="container mx-auto my-4 md:my-16" style="max-width: 1000px">
 
-    <div class="px-10 py-10 bg-white border border-solid rounded-lg shadow">
-
-        <div class="pb-2 border-b">
-            <h2 class="mb-2 text-3xl font-semibold text-gray-700 font-header">Submit Your Package
-            </h2>
-            <p class="text-gray-600">
-                Share your package with the community. Please only submit packages that you own or
-                created.
-            </p>
-        </div>
-
-        <div>
-
+    <form action="{{ route('app.packages.store') }}" method="post">
+    
+        <div class="mx-2 overflow-hidden bg-white rounded-lg shadow md:mx-0">
+        
+            <!-- Header -->
+            <div class="px-4 py-5 bg-white border-b border-gray-200 sm:px-6">
+                <h3 class="text-lg font-medium leading-6 text-gray-900">
+                    Submit Your Package
+                </h3>
+                <p class="mt-1 text-sm leading-5 text-gray-500">
+                    Share your package with the community. Please only submit packages that you own or
+                    created.
+                </p>
+            </div>
+        
             <!-- Form -->
-            <div class="mt-8">
+            <div class="px-4 py-5 sm:p-6">
 
-                <form action="{{ route('app.packages.store') }}" method="post">
+                @csrf
 
-                    @csrf
-
-                    <div>
-                        <span class="block mb-2 font-semibold text-gray-700">1. GitHub URL</span>
-                        <div class="flex mt-1 rounded-md shadow-sm">
-                            <input type="url" class="block w-full mt-1 form-input" placeholder="https://github.com/user/repo" name="url" autocomplete="off">
-                        </div>
+                <div>
+                    <span class="block mb-2 font-semibold text-gray-700">1. GitHub URL</span>
+                    <div class="flex mt-1 rounded-md shadow-sm">
+                        <input type="url" class="block w-full mt-1 form-input" placeholder="https://github.com/user/repo" name="url" autocomplete="off">
                     </div>
+                </div>
 
-                    @error('url')
-                        @include('partials.error')
-                    @enderror
+                @error('url')
+                    @include('partials.error')
+                @enderror
 
-                    <!-- Type -->
-                    <div class="mt-6">
+                <!-- Type -->
+                <div class="mt-6">
 
-                        <span class="font-semibold text-gray-700">2. Package Repository</span>
+                    <span class="font-semibold text-gray-700">2. Package Repository</span>
 
-                        <div class="mt-3">
+                    <div class="mt-3">
 
-                            <label class="inline-flex items-center">
-                                <input type="radio"
-                                       class="text-red-500 border-gray-600 form-radio"
-                                       name="type"
-                                       value="packagist">
-                                <span class="ml-2">Packagist/Composer</span>
-                            </label>
-                           
-                            <label class="inline-flex items-center ml-6">
-                                <input type="radio"
-                                       class="text-red-500 border-gray-600 form-radio"
-                                       name="type"
-                                       value="npm">
-                                <span class="ml-2">NPM/Yarn</span>
-                            </label>
-                           
-
-                        </div>
+                        <label class="inline-flex items-center">
+                            <input type="radio"
+                                class="text-red-500 border-gray-600 form-radio"
+                                name="type"
+                                value="packagist">
+                            <span class="ml-2">Packagist</span>
+                        </label>
+                    
+                        <label class="inline-flex items-center ml-6">
+                            <input type="radio"
+                                class="text-red-500 border-gray-600 form-radio"
+                                name="type"
+                                value="npm">
+                            <span class="ml-2">NPM/Yarn</span>
+                        </label>
+                    
 
                     </div>
 
-                    @error('type')
-                        @include('partials.error')
-                    @enderror
+                </div>
 
-                    <div class="flex items-center justify-between pt-5 mt-8 border-t">
+                @error('type')
+                    @include('partials.error')
+                @enderror
+        
+            </div>
+                
+            <!-- Footer -->
+            <div class="flex items-center justify-between px-4 py-3 border-t border-gray-200 sm:px-6">
+                
+                <a href="{{ route('app.packages.index') }}" class="mr-4">Cancel</a>
 
-                        <div>
-                            <a href="{{ route('app.packages.multiple.create') }}"
-                               class="mr-4">Submit Multiple</a>
-                        </div>
-
-                        <div>
-                            <a href="{{ route('app.packages.index') }}"
-                               class="mr-4">Cancel</a>
-
-                            <button
-                                    class="px-4 py-3 font-semibold text-center text-white bg-red-500 rounded hover:no-underline hover:shadow hover:bg-red-600">
-                                Submit Package
-                            </button>
-                        </div>
-
-                    </div>
-
-                </form>
+                <button class="px-4 py-2 font-semibold text-center text-white bg-red-500 rounded hover:no-underline hover:shadow hover:bg-red-600">
+                    Submit Package
+                </button>
 
             </div>
-
+            
         </div>
-
-    </div>
+            
+    </form>
 
 </div>
 

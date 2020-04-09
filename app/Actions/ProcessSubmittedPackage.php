@@ -46,9 +46,13 @@ class ProcessSubmittedPackage
             
             // The package owner is an org and does not have an account
             // We will create it
-
             $owner = (new CreateGitHubOrganizationUser($this->client))
                 ->execute($owner_username);
+        } elseif ($owner == null && $owner_type == "User") {
+            
+            // The package owner is a user and does not have an account,
+            // what to do...
+            return null;
         }
 
         $owner = User::where('username', $owner_username)->first();

@@ -41,7 +41,7 @@ class PackagesController extends Controller
         $package = $action->execute($parts[0], $parts[1]);
 
         flash('status', 'success', 'Package submitted! We are processing it now.');
-
+        
         return redirect()->route('app.packages.show', ['vendor' => $package->vendor, 'package' => $package]);
     }
 

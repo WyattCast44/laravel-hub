@@ -42,7 +42,6 @@ Route::livewire('/packages', 'packages-page')->layout('layouts.app')->section('c
 
 // Package --> Create/Store/Delete
 Route::post('/packages', 'PackagesController@store')->name('app.packages.store');
-Route::get('/packages/multiple/create', 'MultiplePackagesController@create')->name('app.packages.multiple.create');
 Route::get('/packages/create', 'PackagesController@create')->name('app.packages.create');
 Route::delete('/packages/{vendor}/{package}', 'PackagesController@delete')->name('app.packages.delete');
 
