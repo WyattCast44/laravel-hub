@@ -133,7 +133,7 @@
                     <option value="{{ route('app.users.show', $user) }}" @if (request()->routeIs('app.users.show')) {{ 'selected' }} @endif>
                         Overview
                     </option>
-                    <option value="{{ route('app.users.packages.show', $user) }}" @if (request()->routeIs('app.users.favorites.show')) {{ 'selected' }} @endif>
+                    <option value="{{ route('app.users.packages.show', $user) }}" @if (request()->routeIs('app.users.packages.show')) {{ 'selected' }} @endif>
                         Packages
                     </option>
                     <option value="{{ route('app.users.templates.show', $user) }}" @if (request()->routeIs('app.users.templates.show')) {{ 'selected' }} @endif>
