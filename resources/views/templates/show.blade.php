@@ -1,10 +1,18 @@
-@extends('layouts.app')
+@extends('templates.layout-new')
 
-@section('content')
+@section('template-page')
 
 @include('partials.yaml-editor-scripts')
 
-<div class="container flex flex-col mx-auto my-16 md:flex-row">
+<!-- YAML Code Block -->
+<div 
+id="editor" 
+class="block w-full my-2 placeholder-gray-600 bg-gray-200 resize-y form-textarea" 
+style="min-height: 250px" 
+data-lpignore="true"
+>{{  $template->content }}</div>
+
+{{-- <div class="container flex flex-col mx-auto my-16 md:flex-row">
 
     <!-- Main Content -->
     <div class="flex-1 px-10 py-10 mr-8 bg-white border border-solid rounded-lg shadow">
@@ -53,26 +61,26 @@
 
     </div>
 
-</div>
+</div> --}}
 
-@push('footer')
-<script>
+    @push('footer')
+        <script>
 
-    document.addEventListener("turbolinks:load", function() {
-        
-        window.editor = ace.edit("editor", {
-            minLines: 2,
-            maxLines: 100,
-            autoScrollEditorIntoView: true               
-        });
+            document.addEventListener("turbolinks:load", function() {
+                
+                window.editor = ace.edit("editor", {
+                    minLines: 2,
+                    maxLines: 100,
+                    autoScrollEditorIntoView: true               
+                });
 
-        let YamlMode = ace.require("ace/mode/yaml").Mode;
-        window.editor.getSession().setMode(new YamlMode());
-        window.editor.setReadOnly(true);
+                let YamlMode = ace.require("ace/mode/yaml").Mode;
+                window.editor.getSession().setMode(new YamlMode());
+                window.editor.setReadOnly(true);
 
-    })
+            })
 
-</script>
-@endpush
+        </script>
+    @endpush
 
 @endsection

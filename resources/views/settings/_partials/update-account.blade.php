@@ -72,7 +72,7 @@
                         </label>
                         <div class="flex items-center mt-2">
                             <span
-                                  class="inline-block w-12 h-12 overflow-hidden bg-gray-100 rounded-full">
+                                  class="inline-block w-12 h-12 overflow-hidden bg-gray-100 rounded">
                                 <img src="{{ auth()->user()->avatar }}"
                                      alt="{{ auth()->user()->name }}">
                             </span>

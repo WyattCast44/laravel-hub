@@ -14,6 +14,7 @@ $factory->define(Template::class, function (Faker $faker) {
         'name' => Str::slug($name),
         'description' => $faker->paragraph,
         'public' => true,
+        'official' => rand(0, 1),
         'content' => file_get_contents(database_path('factories/stubs/palette.yaml')),
         'views' => rand(0, 100),
         'downloads' => rand(0, 100),

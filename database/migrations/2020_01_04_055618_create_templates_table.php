@@ -21,6 +21,7 @@ class CreateTemplatesTable extends Migration
             $table->text('description');
             $table->text('content');
             $table->boolean('public')->default(true);
+            $table->boolean('official')->default(false);
             $table->unsignedBigInteger('views')->default(0);
             $table->unsignedBigInteger('downloads')->default(0);
             $table->timestamps();
