@@ -2,10 +2,13 @@
 
 namespace App;
 
+use App\Traits\HasAttachments;
 use Illuminate\Database\Eloquent\Model;
 
 class Package extends Model
 {
+    use HasAttachments;
+
     protected $guarded = [];
 
     protected $casts = [
@@ -35,7 +38,7 @@ class Package extends Model
      */
     public function resyncReadme()
     {
-        //
+        // TODO
     }
 
     /**
