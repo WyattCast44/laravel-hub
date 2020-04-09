@@ -1,6 +1,6 @@
 import Alpine from "alpinejs";
 
-// let Turbolinks = require("turbolinks");
+let Turbolinks = require("turbolinks");
 
-// Turbolinks.start();
+Turbolinks.start();
 

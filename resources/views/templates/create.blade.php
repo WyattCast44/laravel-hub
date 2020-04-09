@@ -77,10 +77,10 @@ laravel: master</div>
 @push('footer')
     <script>
 
-        document.addEventListener("DOMContentLoaded", function () {
+        document.addEventListener("turbolinks:load", function() {
 
             window.editor = ace.edit("editor", {
-                minLines: 6,
+                minLines: 5,
                 maxLines: 100,
                 autoScrollEditorIntoView: true               
             });

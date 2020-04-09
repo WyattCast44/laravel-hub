@@ -58,8 +58,8 @@
 @push('footer')
 <script>
 
-    document.addEventListener("DOMContentLoaded", function () {
-
+    document.addEventListener("turbolinks:load", function() {
+        
         window.editor = ace.edit("editor", {
             minLines: 2,
             maxLines: 100,
@@ -70,7 +70,7 @@
         window.editor.getSession().setMode(new YamlMode());
         window.editor.setReadOnly(true);
 
-    });
+    })
 
 </script>
 @endpush
