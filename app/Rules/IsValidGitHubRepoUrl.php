@@ -27,6 +27,6 @@ class IsValidGitHubRepoUrl implements Rule
      */
     public function message()
     {
-        return 'You must submit a valid github repo url, the repo must also be publicly accessible.';
+        return 'You must submit a valid github repo url, and the repo must also be publicly accessible.';
     }
 }
