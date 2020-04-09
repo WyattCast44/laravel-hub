@@ -14,7 +14,7 @@
             @empty
                 
                 <div class="flex items-center justify-center w-full h-32 px-2 my-2 font-semibold text-gray-400 break-words border-4 border-dashed rounded">
-                    <h4 class="text-2xl">No screenshots have been uploaded</h4>
+                    <h4 class="text-xl text-center md:text-2xl">No screenshots have been uploaded</h4>
                 </div>
             
             @endforelse

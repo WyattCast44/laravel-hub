@@ -132,9 +132,13 @@
 
                 <!-- Mobile Tabs -->
                 <div class="sm:hidden">
-                  <select class="block w-full form-select">
-                    <option selected>Read Me</option>
-                    <option>Screenshots</option>
+                  <select class="block w-full form-select" onchange="navigate(this)">
+                    <option value="{{ $package->route('show') }}" @if (request()->routeIs('app.packages.show')) {{ 'selected' }} @endif>
+                        Read Me
+                    </option>
+                    <option value="{{ $package->route('screenshots.show') }}" @if (request()->routeIs('app.packages.screenshots.show')) {{ 'selected' }} @endif>
+                        Screenshots
+                    </option>
                     <option>Stats</option>
                     <option>Reviews</option>
                   </select>
@@ -182,5 +186,15 @@
     </div>
 
 </div>
+
+    @push('footer')
+
+        <script>
+            function navigate(el) {
+                window.location.href = el.value;
+            }
+        </script>
+        
+    @endpush
 
 @endsection
