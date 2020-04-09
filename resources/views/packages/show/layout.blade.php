@@ -3,10 +3,10 @@
 @section('content')
 
 <!-- Container -->
-<div class="container mx-auto my-16">
+<div class="container mx-auto my-10 md:my-16">
     
     <!-- Package/Card Header -->
-    <div class="mx-2 bg-white rounded-lg shadow md:mx-0">
+    <div class="mx-3 bg-white rounded-lg shadow md:mx-0">
         <div class="px-4 py-5 sm:px-6">
 
             <div class="lg:flex lg:items-center lg:justify-between">
@@ -127,6 +127,8 @@
         <!-- Tabs -->
         <div class="px-4 py-2 bg-white border-t border-b">
             <div>
+
+                <!-- Mobile Tabs -->
                 <div class="sm:hidden">
                   <select class="block w-full form-select">
                     <option selected>Read Me</option>
@@ -135,24 +137,39 @@
                     <option>Reviews</option>
                   </select>
                 </div>
+
+                <!-- Desktop Tabs -->
                 <div class="hidden sm:block">
+                    
                   <nav class="flex">
+                      
+                    <!-- Readme -->
                     <a href="{{ $package->route('show') }}" class="px-3 py-2 text-sm font-medium leading-5 text-gray-500 text-red-800 bg-red-200 rounded-md hover:text-gray-700 focus:outline-none focus:text-indigo-600 focus:bg-indigo-50 hover:no-underline hover:bg-red-100">
                       Read Me
                     </a>
+
+                    <!-- Screenshots -->
                     <a href="{{ route('app.packages.screenshots.show', ['vendor' => $package->vendor, 'package' => $package]) }}" class="px-3 py-2 ml-4 text-sm font-medium leading-5 text-gray-500 rounded-md hover:text-gray-700 focus:outline-none focus:text-indigo-600 focus:bg-indigo-50 hover:no-underline hover:bg-red-50">
                       Screenshots
                     </a>
+
+                    <!-- Stats -->
                     <a href="#" class="px-3 py-2 ml-4 text-sm font-medium leading-5 text-indigo-700 rounded-md focus:outline-none focus:text-indigo-800 focus:bg-indigo-200 hover:no-underline hover:bg-red-50">
                       Stats
                     </a>
+
+                    <!-- Reviews -->
                     <a href="#" class="px-3 py-2 ml-4 text-sm font-medium leading-5 text-gray-500 rounded-md hover:text-gray-700 focus:outline-none focus:text-indigo-600 focus:bg-indigo-50 hover:no-underline hover:bg-red-50">
                       Reviews
                     </a>
+                    
                   </nav>
-                </div>
+                  
+                </div><!-- /desktop tabs -->
+                
               </div>
-        </div>
+              
+        </div><!-- /tabs -->
         
         <!-- Content -->
         <div class="px-4 py-5 bg-gray-50 sm:p-6">

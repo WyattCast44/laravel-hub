@@ -25,6 +25,7 @@ class CreatePackagesTable extends Migration
             $table->text('package_url')->nullable();
             $table->boolean('official')->default(false);
             $table->unsignedBigInteger('stars_count')->default(0);
+            $table->dateTime('last_synced_at')->nullable()->default(now());
             $table->json('meta')->nullable();
             $table->timestamps();
 
