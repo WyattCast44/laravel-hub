@@ -23,7 +23,7 @@ class PackagesController extends Controller
     public function show($vendor, Package $package)
     {
         $package->load(['attachments']);
-        
+
         return view('packages.show.index', [
             'package' => $package,
         ]);
@@ -40,8 +40,8 @@ class PackagesController extends Controller
 
         $package = $action->execute($parts[0], $parts[1]);
 
-        flash('status', 'success', 'Package submitted! We are processing it now.');
-        
+        flash('status', 'success', 'Package submitted!');
+
         return redirect()->route('app.packages.show', ['vendor' => $package->vendor, 'package' => $package]);
     }
 
