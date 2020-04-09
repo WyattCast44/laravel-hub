@@ -39,7 +39,7 @@
                     <!-- Type -->
                     <div class="mt-6">
 
-                        <span class="font-semibold text-gray-700">2. Package Type</span>
+                        <span class="font-semibold text-gray-700">2. Package Repository</span>
 
                         <div class="mt-3">
 
@@ -47,23 +47,18 @@
                                 <input type="radio"
                                        class="text-red-500 border-gray-600 form-radio"
                                        name="type"
-                                       value="php">
-                                <span class="ml-2">PHP</span>
+                                       value="packagist">
+                                <span class="ml-2">Packagist/Composer</span>
                             </label>
+                           
                             <label class="inline-flex items-center ml-6">
                                 <input type="radio"
                                        class="text-red-500 border-gray-600 form-radio"
                                        name="type"
-                                       value="js">
-                                <span class="ml-2">Javascript</span>
+                                       value="npm">
+                                <span class="ml-2">NPM/Yarn</span>
                             </label>
-                            <label class="inline-flex items-center ml-6">
-                                <input type="radio"
-                                       class="text-red-500 border-gray-600 form-radio"
-                                       name="type"
-                                       value="other">
-                                <span class="ml-2">Other</span>
-                            </label>
+                           
 
                         </div>
 

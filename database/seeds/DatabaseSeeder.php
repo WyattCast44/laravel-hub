@@ -7,6 +7,11 @@ use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
 {
+    protected $packeges = [
+        //
+    ];
+
+
     /**
      * Seed the application's database.
      *

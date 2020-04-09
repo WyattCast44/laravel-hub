@@ -32,7 +32,7 @@
 
                         <!-- Star Count -->
                         <div class="flex items-center mt-2 text-sm leading-5 text-gray-500 sm:mr-6">
-                            @svg('star', 'w-5 h-5 mr-1.5 text-yellow-400')
+                            @svg('star', 'w-5 h-5 text-yellow-400 mr-1.5')
                             {{ number_format($package->stars_count) }} stars
                         </div>
                         
