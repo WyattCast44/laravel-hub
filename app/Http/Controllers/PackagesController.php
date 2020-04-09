@@ -32,7 +32,7 @@ class PackagesController extends Controller
     public function store(Request $request, ProcessSubmittedPackage $action)
     {
         $this->validate($request, [
-            'type' => ['required', 'in:php,js,other'],
+            'type' => ['required', 'in:packagist,npm'],
             'url' => ['required', 'string', new IsValidGitHubRepoUrl],
         ]);
 

@@ -28,7 +28,7 @@
                     <div>
                         <span class="block mb-2 font-semibold text-gray-700">1. GitHub URL</span>
                         <div class="flex mt-1 rounded-md shadow-sm">
-                            <input type="url" class="block w-full mt-1 form-input" placeholder="https://github.com/user/repo" name="url">
+                            <input type="url" class="block w-full mt-1 form-input" placeholder="https://github.com/user/repo" name="url" autocomplete="off">
                         </div>
                     </div>
 
