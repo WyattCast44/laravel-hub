@@ -2,9 +2,9 @@
 
 namespace App\Actions;
 
-use App\Package;
-use App\Services\Github\Client;
 use App\User;
+use App\Package;
+use App\Services\Github;
 use Spatie\QueueableAction\QueueableAction;
 
 class ProcessSubmittedPackage
@@ -18,7 +18,7 @@ class ProcessSubmittedPackage
      *
      * @return void
      */
-    public function __construct(Client $client)
+    public function __construct(Github $client)
     {
         $this->client = $client;
     }

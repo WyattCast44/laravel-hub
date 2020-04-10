@@ -2,11 +2,18 @@
 
 namespace App\Rules;
 
-use App\Services\Github\Client;
+use App\Services\Github;
 use Illuminate\Contracts\Validation\Rule;
 
 class ValidRepoUrl implements Rule
 {
+    protected $client;
+
+    public function __construct(Github $client)
+    {
+        $this->client = $client;
+    }
+
     /**
      * Determine if the validation rule passes.
      *
@@ -16,7 +23,7 @@ class ValidRepoUrl implements Rule
      */
     public function passes($attribute, $value)
     {
-        return app('GitHub')->isValidRepoUrl($value);
+        return $this->client->isValidRepoUrl($value);
     }
 
     /**

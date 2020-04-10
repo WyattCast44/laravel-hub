@@ -2,12 +2,11 @@
 
 namespace App\Services;
 
-use App\Services\Github\Client;
 use Illuminate\Support\Str;
 
 class Repo
 {
-    public function __construct(GitHub $client)
+    public function __construct(Github $client)
     {
         $this->client = $client;
     }
