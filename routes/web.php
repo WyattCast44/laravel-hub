@@ -53,6 +53,6 @@ Route::get('/packages/{vendor}/{package}/screenshots', 'PackageScreenshotsContro
 /**
  * Attachments
  */
-Route::post('/attachments/upload', function (Request $request) {
-    dd($request);
-})->name('app.attachments.upload');
+// Route::post('/attachments/upload', function (Request $request) {
+//     dd($request);
+// })->name('app.attachments.upload');
