@@ -2,10 +2,18 @@
 
 @section('user-page')
 
-@forelse ($user->packages as $package)
-    pac
-@empty
-    @include('users.packages.partials.no-packages')
-@endforelse
+<div class="overflow-hidden bg-white shadow sm:rounded-md">
+    <ul>
+        
+        @forelse ($user->packages as $package)
+            
+            @include('packages.partials.single')
+
+        @empty
+            @include('users.packages.partials.no-packages')
+        @endforelse
+
+    </ul>
+</div>
 
 @endsection
