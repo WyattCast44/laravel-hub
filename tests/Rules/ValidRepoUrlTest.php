@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Feature;
+namespace Tests\Rules;
 
 use Tests\TestCase;
 use App\Rules\ValidRepoUrl;
