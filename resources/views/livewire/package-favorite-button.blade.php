@@ -2,8 +2,8 @@
     
     @if (auth()->check() && auth()->user()->hasFavorited($package))
 
-        <button class="p-0 m-0 leading-none tracking-tighter text-red-300 hover:no-underline" title="Unfavorite this package" wire:click="unfavorite" wire:loading.attr="disabled">
-            @svg('heart', 'w-5 h-5 text-red-300 mr-1.5 fill-current')
+        <button class="p-0 m-0 leading-none tracking-tighter text-transparent text-red-300 hover:no-underline" title="Unfavorite this package" wire:click="unfavorite" wire:loading.attr="disabled">
+            @svg('heart', 'w-5 h-5 text-red-400 mr-1.5 fill-current hover:text-red-300')
         </button>
         
     @else
