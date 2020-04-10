@@ -16,6 +16,13 @@
                 @if(auth()->check() && auth()->user()->id == $package->user->id)
                     <div class="flex items-center justify-center w-full h-32 px-2 my-2 font-semibold text-gray-400 break-words border-4 border-dashed rounded">
                         <h4 class="text-xl text-center md:text-2xl">Click <a href="#">here</a> to upload screenshots</h4>
+
+                        <form action="{{ route('app.attachments.upload') }}" method="POST" enctype="multipart/form-data">
+                            @csrf
+                            <input type="file" class="form-input" multiple accept=".jpg, .jpeg, .png">
+                            <button type="submit">Submit</button>
+                        </form>
+                        
                     </div>
                 @else
                     <div class="flex items-center justify-center w-full h-32 px-2 my-2 font-semibold text-gray-400 break-words border-4 border-dashed rounded">
