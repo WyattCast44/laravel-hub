@@ -23,7 +23,7 @@ class ValidRepoUrl implements Rule
      */
     public function passes($attribute, $value)
     {
-        return $this->client->isValidRepoUrl($value);
+        return $this->client->validateRepoUrl($value);
     }
 
     /**
