@@ -17,7 +17,7 @@ class PackageFavoriteButton extends Component
     public function favorite()
     {
         if (!auth()->check()) {
-            return redirect()->route('login');
+            return redirect()->route('auth.login');
         }
 
         auth()->user()->favorite($this->package());
@@ -26,7 +26,7 @@ class PackageFavoriteButton extends Component
     public function unfavorite()
     {
         if (!auth()->check()) {
-            return redirect()->route('login');
+            return redirect()->route('auth.login');
         }
 
         auth()->user()->unfavorite($this->package());
