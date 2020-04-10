@@ -156,8 +156,6 @@
                             Screenshots
                         </option>
 
-                        <option>Reviews</option>
-
                         @if(auth()->check() && $package->user->id == auth()->id())
                             <option value="{{ $package->route('edit') }}">Edit</option>
                         @endif
@@ -180,12 +178,6 @@
                         <a href="{{ $package->route('screenshots.show') }}"
                            class="px-3 py-2 text-sm font-medium leading-5 text-gray-500 rounded-md hover:text-gray-700 focus:outline-none focus:text-gray-600 focus:bg-gray-100 hover:no-underline hover:bg-red-100 mr-3 @if (request()->routeIs('app.packages.screenshots.show')) {{ 'bg-red-200 text-red-800' }} @endif">
                             Screenshots
-                        </a>
-
-                        <!-- Reviews -->
-                        <a href="#"
-                           class="px-3 py-2 mr-3 text-sm font-medium leading-5 text-gray-500 rounded-md hover:text-gray-700 focus:outline-none focus:text-gray-600 focus:bg-gray-100 hover:no-underline hover:bg-red-100">
-                            Reviews
                         </a>
 
                         <!-- Edit -->
