@@ -2,7 +2,7 @@
 
 namespace App\Actions;
 
-use App\Services\Github\Github;
+use App\Services\Github\Client;
 use App\User;
 use Spatie\QueueableAction\QueueableAction;
 
@@ -15,7 +15,7 @@ class CreateGitHubUser
      *
      * @return void
      */
-    public function __construct(GitHub $client)
+    public function __construct(Client $client)
     {
         $this->client = $client;
     }

@@ -2,7 +2,7 @@
 
 namespace App\Providers;
 
-use App\Services\Github\Github;
+use App\Services\Github\Client;
 use Github\Client as GitHubClient;
 use Illuminate\Support\ServiceProvider;
 
@@ -42,8 +42,8 @@ class GitHubServiceProvider extends ServiceProvider
             return $client;
         });
 
-        $this->app->singleton(GitHub::class, function () {
-            return new GitHub(app(GitHubClient::class));
+        $this->app->singleton('Github', function () {
+            return new Client(app(GitHubClient::class));
         });
     }
 }

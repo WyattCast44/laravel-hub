@@ -2,7 +2,7 @@
 
 namespace App\Rules;
 
-use App\Services\Github\Github;
+use App\Services\Github\Client;
 use Illuminate\Contracts\Validation\Rule;
 
 class ValidRepoUrl implements Rule
@@ -16,7 +16,7 @@ class ValidRepoUrl implements Rule
      */
     public function passes($attribute, $value)
     {
-        return app(GitHub::class)->isValidRepoUrl($value);
+        return app('GitHub')->isValidRepoUrl($value);
     }
 
     /**

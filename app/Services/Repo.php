@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Services\Github\Client;
 use Illuminate\Support\Str;
 
 class Repo

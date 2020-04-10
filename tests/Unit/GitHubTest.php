@@ -3,13 +3,13 @@
 namespace Tests\Unit;
 
 use Tests\TestCase;
-use App\Services\Github\Github;
+use App\Services\Github\Client;
 
 class GitHubTest extends TestCase
 {
     public function test_it_can_validate_a_repo_url()
     {
-        $client = app(GitHub::class);
+        $client = app('GitHub');
 
         $valid_url_http = 'http://github.com/laravel/laravel';
 

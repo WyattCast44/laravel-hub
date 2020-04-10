@@ -3,7 +3,7 @@
 namespace App\Actions;
 
 use App\User;
-use App\Services\Github\Github;
+use App\Services\Github\Client;
 use Spatie\QueueableAction\QueueableAction;
 
 class CreateGitHubOrganizationUser
@@ -17,7 +17,7 @@ class CreateGitHubOrganizationUser
      *
      * @return void
      */
-    public function __construct(GitHub $client)
+    public function __construct(Client $client)
     {
         $this->client = $client;
     }

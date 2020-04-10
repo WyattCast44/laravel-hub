@@ -9,7 +9,7 @@ use GitHub\Client as GitHubClient;
 /**
  * @link https://github.com/KnpLabs/php-github-api
  */
-class GitHub
+class Client
 {
     protected $client;
 

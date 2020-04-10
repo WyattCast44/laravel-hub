@@ -2,7 +2,7 @@
 
 namespace App;
 
-use App\Services\Github\Github;
+use App\Services\Github\Client;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Notifications\Notifiable;
@@ -91,7 +91,7 @@ class User extends Authenticatable
     public function syncWithGitHub()
     {
         try {
-            $client = resolve(GitHub::class);
+            $client = resolve('GitHub');
 
             $github = $client->user($this->username);
 

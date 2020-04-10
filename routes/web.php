@@ -57,7 +57,7 @@ Route::post('/packages/{vendor}/{package}/favorites', 'PackageFavoritesControlle
 //     $username = 'WyattCast44';
 //     $repo = 'CLIFF';
 
-//     $client = app(GitHub::class);
+//     $client = app('GitHub');
 
 //     $res = $client->http()->put("/user/starred/WyattCast44/CLIFF");
 
@@ -68,7 +68,7 @@ Route::post('/packages/{vendor}/{package}/favorites', 'PackageFavoritesControlle
 
 // Route::get('/test', function () {
 //     $package = Package::first();
-//     $client = app(GitHub::class);
+//     $client = app('GitHub');
 //     $r = $client->cachePackageReadme($package);
 //     $html = GitDown::parseAndCache($r);
 //     return view('test', compact('html'));
