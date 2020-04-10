@@ -13,7 +13,11 @@ class Package extends Model
     protected $guarded = [];
 
     protected $casts = [
-        'meta' => 'array'
+        'meta' => 'array',
+    ];
+
+    protected $dates = [
+        'last_synced_at',
     ];
 
     public function getRouteKeyName()

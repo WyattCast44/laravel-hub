@@ -43,6 +43,8 @@ Route::get('/packages/create', 'PackagesController@create')->name('app.packages.
 Route::delete('/packages/{vendor}/{package}', 'PackagesController@delete')->name('app.packages.delete');
 Route::get('/packages/{vendor}/{package}/edit', 'PackagesController@edit')->name('app.packages.edit');
 
+Route::post('/packages/{vendor}/{package}/resync', 'PackageSyncController')->name('app.packages.resync');
+
 // Package --> Show
 Route::get('/packages/{vendor}/{package}', 'PackagesController@show')->name('app.packages.show');
 Route::get('/packages/{vendor}/{package}/screenshots', 'PackageScreenshotsController@show')->name('app.packages.screenshots.show');

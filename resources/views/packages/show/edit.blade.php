@@ -2,6 +2,12 @@
 
 @section('package-page')
 
-    EDIT ME!
+    <form action="{{ $package->route('resync') }}" method="POST">
+        
+        @csrf
+
+        <button type="submit">Resync</button>
+
+    </form>
 
 @endsection
