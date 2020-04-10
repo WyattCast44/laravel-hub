@@ -9,7 +9,7 @@ Route::get('login', 'Auth\LoginController@redirectToProvider')->name('auth.login
 
 // Settings
 Route::get('/settings', 'UserSettingsController@show')->name('app.settings.index');
-Route::get('/settings/resync', 'UserSettingsController@resync')->name('app.settings.account.resync');
+Route::post('/settings/resync', 'UserSettingsController@resync')->name('app.settings.account.resync');
 Route::delete('/settings/account', 'UserSettingsController@delete')->name('app.settings.account.delete');
 
 // General
@@ -46,30 +46,3 @@ Route::get('/packages/{vendor}/{package}/edit', 'PackagesController@edit')->name
 // Package --> Show
 Route::get('/packages/{vendor}/{package}', 'PackagesController@show')->name('app.packages.show');
 Route::get('/packages/{vendor}/{package}/screenshots', 'PackageScreenshotsController@show')->name('app.packages.screenshots.show');
-
-// Package --> Favorites
-Route::post('/packages/{vendor}/{package}/favorites', 'PackageFavoritesController@store')->name('app.packages.favorites.store');
-
-
-
-// Route::get('/test', function () {
-
-//     $username = 'WyattCast44';
-//     $repo = 'CLIFF';
-
-//     $client = app('GitHub');
-
-//     $res = $client->http()->put("/user/starred/WyattCast44/CLIFF");
-
-//     $content = ResponseMediator::getContent($res);
-
-//     dd($content);
-// });
-
-// Route::get('/test', function () {
-//     $package = Package::first();
-//     $client = app('GitHub');
-//     $r = $client->cachePackageReadme($package);
-//     $html = GitDown::parseAndCache($r);
-//     return view('test', compact('html'));
-// });

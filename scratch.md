@@ -46,4 +46,27 @@
 
 //     return $http->getHttpClient();
 // }
+
+// Route::get('/test', function () {
+
+//     $username = 'WyattCast44';
+//     $repo = 'CLIFF';
+
+//     $client = app('GitHub');
+
+//     $res = $client->http()->put("/user/starred/WyattCast44/CLIFF");
+
+//     $content = ResponseMediator::getContent($res);
+
+//     dd($content);
+// });
+
+// Route::get('/test', function () {
+//     $package = Package::first();
+//     $client = app('GitHub');
+//     $r = $client->cachePackageReadme($package);
+//     $html = GitDown::parseAndCache($r);
+//     return view('test', compact('html'));
+// });
+
 ```
