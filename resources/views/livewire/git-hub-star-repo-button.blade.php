@@ -2,13 +2,13 @@
     
     @if (auth()->check())
 
-        <button class="p-0 m-0 leading-none tracking-tighter text-red-300 hover:no-underline" title="Star this repo on GitHub" wire:click="handle">
+        <button class="p-0 m-0 leading-none tracking-tighter text-red-300 hover:no-underline" title="Star this repo on GitHub" wire:click="handle" wire:loading.attr="disabled">
             @svg('star', 'w-5 h-5 text-yellow-400 mr-1.5 hover:fill-current')
         </button>
         
     @else
         
-        <button class="p-0 m-0 leading-none tracking-tighter text-red-300 hover:no-underline">
+        <button class="p-0 m-0 leading-none tracking-tighter text-red-300 hover:no-underline" wire:loading.attr="disabled">
             @svg('star', 'w-5 h-5 text-yellow-400 mr-1.5 hover:fill-current')
         </button>
         
