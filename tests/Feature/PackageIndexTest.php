@@ -27,4 +27,11 @@ class PackageIndexTest extends TestCase
             $response->assertSee($package->name);
         });
     }
+
+    public function test_a_guest_is_redirected_to_login_when_submitting_package()
+    {
+        $response = $this->get(route('app.packages.create'));
+
+        $response->assertRedirect('/login');
+    }
 }
