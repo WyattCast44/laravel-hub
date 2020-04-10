@@ -14,7 +14,6 @@ $factory->define(Package::class, function (Faker $faker) {
         'vendor' => Str::slug($faker->words(rand(1, 2), true)),
         'display_name' => $faker->words(rand(2, 3), true),
         'description' => (rand(0, 1)) ? $faker->paragraphs(rand(1, 4), true) : null,
-        'install_command' => 'composer require vendor/package',
         'repo_url' => 'https://github.com/laravel/laravel',
         'package_url' => 'https://packagist.org/packages/laravel/laravel',
         'official' => false,

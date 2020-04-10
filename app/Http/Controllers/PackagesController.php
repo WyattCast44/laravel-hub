@@ -45,6 +45,15 @@ class PackagesController extends Controller
         return redirect()->route('app.packages.show', ['vendor' => $package->vendor, 'package' => $package]);
     }
 
+    public function edit($vendor, Package $package)
+    {
+        $package->load(['attachments']);
+
+        return view('packages.show.edit', [
+            'package' => $package,
+        ]);
+    }
+
     public function delete($vendor, Package $package)
     {
         $package->delete();
