@@ -13,6 +13,7 @@ module.exports = {
         borderColor: ["responsive", "hover", "focus", "focus-within"],
         outline: ["responsive", "focus", "focus-within"],
         textColor: ["responsive", "hover", "focus", "focus-within"],
+        fill: ["responsive", "hover", "focus"]
     },
     plugins: [
         require("@tailwindcss/custom-forms"),

@@ -49,6 +49,8 @@ class PackagesController extends Controller
     {
         $package->load(['attachments']);
 
+        $package->loadCount(['favorites']);
+
         return view('packages.show.edit', [
             'package' => $package,
         ]);
