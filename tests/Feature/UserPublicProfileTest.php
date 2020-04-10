@@ -2,9 +2,8 @@
 
 namespace Tests\Feature;
 
-use App\User;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class UserPublicProfileTest extends TestCase
 {
@@ -38,5 +37,15 @@ class UserPublicProfileTest extends TestCase
         $user = $this->signIn();
 
         $this->get(route('app.users.templates.show', $user))->assertOk();
+    }
+
+    public function test_a_user_has_a_settings_page()
+    {
+        $user = $this->signIn();
+
+        $this->get(route('app.settings.index'))
+            ->assertOk()
+            ->assertSee($user->name)
+            ->assertSee($user->username);
     }
 }

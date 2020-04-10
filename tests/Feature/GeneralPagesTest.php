@@ -15,4 +15,14 @@ class PagesTest extends TestCase
     {
         $this->get(route('search'))->assertOk();
     }
+
+    public function test_packages_page()
+    {
+        $this->get(route('app.packages.index'))->assertOk();
+    }
+
+    public function test_templates_page()
+    {
+        $this->get(route('app.templates.index'))->assertOk();
+    }
 }
