@@ -3,7 +3,7 @@
 namespace Tests\Unit;
 
 use Tests\TestCase;
-use App\Services\GitHub;
+use App\Services\Github\Github;
 
 class GitHubTest extends TestCase
 {

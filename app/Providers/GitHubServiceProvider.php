@@ -2,7 +2,7 @@
 
 namespace App\Providers;
 
-use App\Services\GitHub;
+use App\Services\Github\Github;
 use Github\Client as GitHubClient;
 use Illuminate\Support\ServiceProvider;
 

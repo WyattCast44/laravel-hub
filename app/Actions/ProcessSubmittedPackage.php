@@ -3,7 +3,7 @@
 namespace App\Actions;
 
 use App\Package;
-use App\Services\GitHub;
+use App\Services\Github\Github;
 use App\User;
 use Spatie\QueueableAction\QueueableAction;
 

@@ -2,7 +2,7 @@
 
 namespace App\Actions;
 
-use App\Services\GitHub;
+use App\Services\Github\Github;
 use Spatie\QueueableAction\QueueableAction;
 
 class ParseAndCachePackageReadme

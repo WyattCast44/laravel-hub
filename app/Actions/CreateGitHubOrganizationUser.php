@@ -3,7 +3,7 @@
 namespace App\Actions;
 
 use App\User;
-use App\Services\GitHub;
+use App\Services\Github\Github;
 use Spatie\QueueableAction\QueueableAction;
 
 class CreateGitHubOrganizationUser

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services;
+namespace App\Services\Github;
 
 use App\Package;
 use Illuminate\Support\Str;

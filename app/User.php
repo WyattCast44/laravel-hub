@@ -2,8 +2,7 @@
 
 namespace App;
 
-use App\Services\GitHub;
-use App\Services\GitHub\Client;
+use App\Services\Github\Github;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Notifications\Notifiable;
@@ -93,7 +92,7 @@ class User extends Authenticatable
     {
         try {
             $client = resolve(GitHub::class);
-            
+
             $github = $client->user($this->username);
 
             $this->update([

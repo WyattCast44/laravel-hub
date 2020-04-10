@@ -2,7 +2,7 @@
 
 namespace App\Rules;
 
-use App\Services\GitHub;
+use App\Services\Github\Github;
 use Illuminate\Contracts\Validation\Rule;
 
 class ValidRepoUrl implements Rule
