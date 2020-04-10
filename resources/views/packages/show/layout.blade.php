@@ -35,20 +35,14 @@
                         @endif
 
                         <!-- Star Count -->
-                        <div class="flex items-center mt-2 text-sm leading-5 text-gray-500 sm:mr-4">
+                        <livewire:git-hub-star-repo-button :package="$package">
+                        {{-- <div class="flex items-center mt-2 text-sm leading-5 text-gray-500 sm:mr-4">
                             @svg('star', 'w-5 h-5 text-yellow-400 mr-1.5')
                             {{ number_format($package->stars_count) }} stars
-                        </div>
+                        </div> --}}
 
                         <!-- Favorites Count -->
                         <livewire:package-favorite-button :package="$package">
-                            
-                        {{-- <div class="flex items-center mt-2 text-sm leading-5 text-gray-500 sm:mr-4">
-                            <a href="#" class="p-0 m-0 leading-none tracking-tighter text-red-500 hover:no-underline" title="Favorite this package">
-                                @svg('heart', 'w-5 h-5 text-red-600 mr-1.5 hover:fill-current')
-                            </a>
-                            {{ $package->favorites->count() }} favorites
-                        </div> --}}
 
                         @if($package->language != null)
                             <div class="flex items-center mt-2 text-sm leading-5 text-gray-500 sm:mr-6">

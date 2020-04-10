@@ -1,9 +1,5 @@
 <?php
 
-use App\Package;
-use App\Services\GitHub;
-use App\User;
-use Github\Client;
 use Illuminate\Support\Facades\Route;
 
 // Auth
@@ -56,9 +52,19 @@ Route::post('/packages/{vendor}/{package}/favorites', 'PackageFavoritesControlle
 
 
 
-Route::get('/test', function () {
-    auth()->login(User::first());
-});
+// Route::get('/test', function () {
+
+//     $username = 'WyattCast44';
+//     $repo = 'CLIFF';
+
+//     $client = app(GitHub::class);
+
+//     $res = $client->http()->put("/user/starred/WyattCast44/CLIFF");
+
+//     $content = ResponseMediator::getContent($res);
+
+//     dd($content);
+// });
 
 // Route::get('/test', function () {
 //     $package = Package::first();

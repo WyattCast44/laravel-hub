@@ -37,6 +37,7 @@ return [
         'scopes' => [
             'user:email',
             'read:org',
+            'public_repo' // Only used for starring GH repos
         ],
     ],
 

@@ -53,5 +53,5 @@ GITHUB_CLIENT_SECRET=your-secret
 #### Migrate Database
 
 ```bash
-php artisan migrate
+php artisan migrate --seed
 ```

@@ -25,11 +25,19 @@ class GitHubServiceProvider extends ServiceProvider
             // Authenticate with the client
             // @link https://github.com/KnpLabs/php-github-api/blob/master/doc/security.md
 
-            $client->authenticate(
-                config('services.github.client_id'),
-                config('services.github.client_secret'),
-                GitHubClient::AUTH_HTTP_PASSWORD
-            );
+            if (auth()->check()) {
+                $client->authenticate(
+                    auth()->user()->auth_token,
+                    null,
+                    GitHubClient::AUTH_HTTP_TOKEN
+                );
+            } else {
+                $client->authenticate(
+                    config('services.github.client_id'),
+                    config('services.github.client_secret'),
+                    GitHubClient::AUTH_HTTP_PASSWORD
+                );
+            }
 
             return $client;
         });

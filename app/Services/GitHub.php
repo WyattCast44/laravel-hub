@@ -12,7 +12,7 @@ use GitHub\Client as GitHubClient;
 class GitHub
 {
     protected $client;
-    
+
     public function __construct(GitHubClient $client)
     {
         $this->client = $client;
@@ -51,12 +51,12 @@ class GitHub
      */
     public function isValidRepoUrl($url)
     {
-        if (! Str::startsWith($url, 'https://github.com')) {
+        if (!Str::startsWith($url, 'https://github.com')) {
             return false;
         }
 
         $parts = explode('/', Str::after($url, 'https://github.com/'));
-        
+
         if (count($parts) != 2) {
             return false;
         }
@@ -80,5 +80,14 @@ class GitHub
         $html = base64_decode($response['content']);
 
         return $html;
+    }
+
+    public function http()
+    {
+        $http = $this->client->getHttpClientBuilder();
+
+        $http->addHeaders(['Content-Length' => 0]);
+
+        return $http->getHttpClient();
     }
 }
