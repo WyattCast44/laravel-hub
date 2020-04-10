@@ -1,4 +1,4 @@
-@extends('templates.layout-new')
+@extends('templates.show.layout')
 
 @section('template-page')
 
@@ -33,23 +33,3 @@
     @endpush
 
 @endsection
-
-
-{{-- @auth
-@if (auth()->user()->hasFavorited($template))
-    <form action="{{ route('app.templates.favorites.delete', $template) }}" method="post">
-        @csrf
-        @method('DELETE')
-        <button type="submit" class="block w-full py-3 font-semibold text-center text-white bg-red-500 rounded hover:no-underline hover:shadow hover:bg-red-600">
-            Unfavorite
-        </button>
-    </form>
-@else
-    <form action="{{ route('app.templates.favorites.store', $template) }}" method="post">
-        @csrf
-        <button type="submit" class="block w-full py-3 font-semibold text-center text-white bg-red-500 rounded hover:no-underline hover:shadow hover:bg-red-600">
-            Favorite 🔥
-        </button>
-    </form>
-@endif
-@endauth --}}

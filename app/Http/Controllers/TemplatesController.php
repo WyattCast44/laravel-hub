@@ -23,7 +23,7 @@ class TemplatesController extends Controller
 
     public function show(Template $template)
     {
-        return view('templates.show', [
+        return view('templates.show.index', [
             'template' => $template,
         ]);
     }
