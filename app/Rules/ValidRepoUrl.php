@@ -3,10 +3,9 @@
 namespace App\Rules;
 
 use App\Services\GitHub;
-use Illuminate\Support\Str;
 use Illuminate\Contracts\Validation\Rule;
 
-class IsValidGitHubRepoUrl implements Rule
+class ValidRepoUrl implements Rule
 {
     /**
      * Determine if the validation rule passes.
@@ -27,6 +26,6 @@ class IsValidGitHubRepoUrl implements Rule
      */
     public function message()
     {
-        return 'You must submit a valid github repo url, and the repo must also be publicly accessible.';
+        return 'You must submit a valid Github Repo URL, and the repo must also be publicly accessible.';
     }
 }

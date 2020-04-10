@@ -21,7 +21,7 @@ class GitHubStarRepoButton extends Component
 
     public function render()
     {
-        return view('livewire.git-hub-star-repo-button', [
+        return view('livewire.github-star-repo-button', [
             'package' => $this->package(),
         ]);
     }

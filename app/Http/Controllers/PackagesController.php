@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Package;
 use Illuminate\Support\Str;
+use App\Rules\ValidRepoUrl;
 use Illuminate\Http\Request;
-use App\Rules\IsValidGitHubRepoUrl;
 use App\Actions\ProcessSubmittedPackage;
 
 class PackagesController extends Controller
@@ -33,7 +33,7 @@ class PackagesController extends Controller
     {
         $this->validate($request, [
             'type' => ['required', 'in:packagist,npm'],
-            'url' => ['required', 'string', new IsValidGitHubRepoUrl],
+            'url' => ['required', 'string', new ValidRepoUrl],
         ]);
 
         $parts = explode('/', Str::after($request->url, 'https://github.com/'));
