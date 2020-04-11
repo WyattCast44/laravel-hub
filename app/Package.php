@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Actions\ResyncPackage;
 use App\Traits\HasAttachments;
 use Illuminate\Database\Eloquent\Model;
 

@@ -2,9 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Actions\ResyncPackage;
 use App\Package;
-use Illuminate\Http\Request;
+use App\Actions\ResyncPackage;
 
 class PackageSyncController extends Controller
 {
@@ -15,11 +14,13 @@ class PackageSyncController extends Controller
 
     public function __invoke($vendor, Package $package, ResyncPackage $action)
     {
-        $limit = 60;
 
         if (auth()->id() == $package->user->id) {
-            // Resync limit is every 30 minutes for package owners
+            // Resync limit is 30 minutes for package owners
             $limit = 30;
+        } else {
+            // Default resync time limit is 60 minutes
+            $limit = 60;
         }
 
         $diff = $package->last_synced_at->diffInMinutes(now());
@@ -30,9 +31,9 @@ class PackageSyncController extends Controller
 
             flash('status', 'success', 'Resync with GitHub in progress!');
         } else {
-            $diff = $limit - $diff;
+            $remaining = $limit - $diff;
 
-            flash('status', 'error', "You can only resync every $limit minutes, please wait $diff more minutes.");
+            flash('status', 'error', "You can only resync every $limit minutes, please wait $remaining more minutes.");
         }
 
         return redirect()->to($package->route('show'));
