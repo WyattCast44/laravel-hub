@@ -45,6 +45,7 @@ class CreatePackagesTable extends Migration
 
             // This will be the parsed readme contents
             $table->text('parsed_readme')->nullable();
+            $table->dateTime('readme_last_parsed_at')->nullable();
 
             // Package misc
             $table->string('language')->nullable();

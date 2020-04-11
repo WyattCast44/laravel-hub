@@ -29,6 +29,35 @@ class ResyncPackageReadme
      */
     public function execute(Package $package)
     {
-        // The business logic goes here.
+        // Never parsed, need to do first time sync
+        if ($package->parsed_readme == null) {
+            $markdown = $this->client->repoReadme($package->vendor, $package->name, true);
+
+            $package->update([
+                'parsed_readme' => $markdown,
+                'readme_last_parsed_at' => now(),
+            ]);
+
+            return;
+        }
+
+        // Has been parsed need to check if limit for reparse has passed
+
+        $limit = 30; // minutes
+
+        $diff = $package->readme_last_parsed_at->diffInMinutes(now());
+
+        if ($diff < $limit) {
+            return;
+        }
+
+        $markdown = $this->client->repoReadme($package->vendor, $package->name, true);
+
+        $package->update([
+            'parsed_readme' => $markdown,
+            'readme_last_parsed_at' => now(),
+        ]);
+
+        return;
     }
 }

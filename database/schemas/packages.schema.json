@@ -11,6 +11,7 @@
         "repo_url": "text",
         "official": "boolean",
         "parsed_readme": "text",
+        "readme_last_parsed_at": "datetime",
         "language": "string",
         "stars_count": "bigint",
         "last_synced_at": "datetime",

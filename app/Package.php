@@ -17,6 +17,7 @@ class Package extends Model
     ];
 
     protected $dates = [
+        'readme_last_parsed_at',
         'last_synced_at',
     ];
 
