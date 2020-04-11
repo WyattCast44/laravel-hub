@@ -3,10 +3,15 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 
 class Attachment extends Model
 {
     protected $guarded = [];
+
+    protected $appends = [
+        'url',
+    ];
 
     /**
      * Relationships
@@ -19,5 +24,13 @@ class Attachment extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    /**
+     * Accessors, Mutators, etc
+     */
+    public function getUrlAttribute()
+    {
+        return Storage::url($this->path);
     }
 }
