@@ -1,0 +1,10 @@
+{
+    "name": "roles",
+    "schema": {
+        "id": "bigint",
+        "name": "string",
+        "guard_name": "string",
+        "created_at": "datetime",
+        "updated_at": "datetime"
+    }
+}

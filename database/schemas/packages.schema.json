@@ -1,0 +1,22 @@
+{
+    "name": "packages",
+    "schema": {
+        "id": "bigint",
+        "user_id": "bigint",
+        "submitter_id": "bigint",
+        "name": "string",
+        "vendor": "string",
+        "display_name": "string",
+        "description": "text",
+        "repo_url": "text",
+        "official": "boolean",
+        "parsed_readme": "text",
+        "language": "string",
+        "stars_count": "bigint",
+        "last_synced_at": "datetime",
+        "package_url": "text",
+        "meta": "json",
+        "created_at": "datetime",
+        "updated_at": "datetime"
+    }
+}

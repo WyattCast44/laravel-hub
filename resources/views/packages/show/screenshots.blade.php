@@ -7,7 +7,7 @@
     
             @forelse ($package->attachments as $screenshot)
 
-                <div class="flex items-start justify-center w-1/4 h-40 px-2 my-2">
+                <div class="flex items-start justify-center w-full px-2 my-2 md:h-40 md:w-1/4`">
                     <img src="{{ Storage::url($screenshot->path) }}" alt="A screenshot of {{ $package->name }}" class="w-auto h-full rounded">
                 </div>
                 

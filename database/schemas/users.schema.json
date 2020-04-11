@@ -1,0 +1,22 @@
+{
+    "name": "users",
+    "schema": {
+        "id": "bigint",
+        "username": "string",
+        "name": "string",
+        "email": "string",
+        "avatar": "text",
+        "bio": "text",
+        "blog": "text",
+        "status": "text",
+        "auth_provider": "string",
+        "auth_token": "string",
+        "auth_type": "string",
+        "elite": "boolean",
+        "unclaimed": "boolean",
+        "meta": "json",
+        "remember_token": "string",
+        "created_at": "datetime",
+        "updated_at": "datetime"
+    }
+}

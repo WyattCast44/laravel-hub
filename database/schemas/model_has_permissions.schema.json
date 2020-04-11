@@ -1,0 +1,8 @@
+{
+    "name": "model_has_permissions",
+    "schema": {
+        "permission_id": "bigint",
+        "model_type": "string",
+        "model_id": "bigint"
+    }
+}

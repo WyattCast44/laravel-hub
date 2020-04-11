@@ -1,0 +1,8 @@
+{
+    "name": "model_has_roles",
+    "schema": {
+        "role_id": "bigint",
+        "model_type": "string",
+        "model_id": "bigint"
+    }
+}
