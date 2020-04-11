@@ -36,7 +36,7 @@
             
             @endforelse            
 
-            <div class="flex items-center justify-center w-full h-32 px-2 my-2 mt-8 font-semibold text-gray-400 break-words border-4 border-dashed rounded">
+            {{-- <div class="flex items-center justify-center w-full h-32 px-2 my-2 mt-8 font-semibold text-gray-400 break-words border-4 border-dashed rounded">
                         
                 <h4 class="text-xl text-center md:text-2xl">
                     Click <button id="add-attachment-btn" class="font-semibold text-red-500 hover:underline">here</button> to upload screenshots
@@ -48,7 +48,7 @@
                     <button type="submit" value="submit">Submit</button>
                 </form>
                 
-            </div>
+            </div> --}}
                 
         </div>
     </div>
