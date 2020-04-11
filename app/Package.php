@@ -2,7 +2,6 @@
 
 namespace App;
 
-use App\Services\Repo;
 use App\Traits\HasAttachments;
 use Illuminate\Database\Eloquent\Model;
 
@@ -40,33 +39,25 @@ class Package extends Model
 
     public static function createFromUrl(string $url)
     {
-        $repo = Repo::fromUrl($url);
+        // $repo = Repo::fromUrl($url);
 
-        // $package = self::create([
-        //     'user_id' => $repo->owner->id,
-        //     'submitter_id' => (auth()->check()) ? auth()->id() : null,
-        //     'name' => $repo['name'],
-        //     'vendor' => $owner_username,
-        //     'display_name' => $repo['name'],
-        //     'description' => $repo['description'],
-        //     'repo_url' => $repo['html_url'],
-        //     'official' => ($owner_username == "laravel") ? true : false,
-        //     'parsed_readme' => null,
-        //     'language' => $repo['language'],
-        //     'stars_count' => $repo['stargazers_count'],
-        //     'last_synced_at' => now(),
-        //     'meta' => json_encode($repo),
-        // ]);
+        // // $package = self::create([
+        // //     'user_id' => $repo->owner->id,
+        // //     'submitter_id' => (auth()->check()) ? auth()->id() : null,
+        // //     'name' => $repo['name'],
+        // //     'vendor' => $owner_username,
+        // //     'display_name' => $repo['name'],
+        // //     'description' => $repo['description'],
+        // //     'repo_url' => $repo['html_url'],
+        // //     'official' => ($owner_username == "laravel") ? true : false,
+        // //     'parsed_readme' => null,
+        // //     'language' => $repo['language'],
+        // //     'stars_count' => $repo['stargazers_count'],
+        // //     'last_synced_at' => now(),
+        // //     'meta' => json_encode($repo),
+        // // ]);
 
-        $package = $action->execute($parts[0], $parts[1]);
-    }
-
-    /**
-     * GitHub Actions
-     */
-    public function resyncReadme()
-    {
-        // TODO
+        // $package = $action->execute($parts[0], $parts[1]);
     }
 
     /**

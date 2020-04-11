@@ -34,7 +34,7 @@ class User extends Authenticatable
      */
     public function favorites()
     {
-        return $this->hasMany(Favorite::class);
+        return $this->hasMany(Favorite::class)->latest();
     }
 
     public function packages()
