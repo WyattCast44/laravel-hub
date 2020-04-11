@@ -1,5 +1,6 @@
 <?php
 
+use App\Services\Github;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -50,3 +51,9 @@ Route::post('/packages/{vendor}/{package}/resync', 'PackageSyncController')->nam
 Route::get('/packages/{vendor}/{package}', 'PackagesController@show')->name('app.packages.show');
 Route::get('/packages/{vendor}/{package}/screenshots', 'PackageScreenshotsController@show')->name('app.packages.screenshots.show');
 Route::post('/packages/{vendor}/{package}/screenshots', 'PackageScreenshotsController@store')->name('app.packages.screenshots.store');
+
+// Route::get('/test', function (Github $client) {
+//     $topics = $client->repoReadme('KnpLabs', 'php-github-api');
+
+//     dd($topics);
+// });

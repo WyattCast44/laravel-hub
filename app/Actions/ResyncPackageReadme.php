@@ -6,7 +6,7 @@ use App\Package;
 use App\Services\Github;
 use Spatie\QueueableAction\QueueableAction;
 
-class ResyncPackage
+class ResyncPackageReadme
 {
     use QueueableAction;
 
@@ -29,18 +29,6 @@ class ResyncPackage
      */
     public function execute(Package $package)
     {
-        $repo = $this->client->repo($package->vendor, $package->name);
-
-        $package->update([
-            'name' => $repo['name'],
-            'description' => $repo['description'],
-            'repo_url' => $repo['html_url'],
-            'language' => $repo['language'],
-            'stars_count' => $repo['stargazers_count'],
-            'last_synced_at' => now(),
-            'meta' => json_encode($repo),
-        ]);
-
-        return $package;
+        // The business logic goes here.
     }
 }

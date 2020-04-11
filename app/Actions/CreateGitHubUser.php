@@ -10,6 +10,8 @@ class CreateGitHubUser
 {
     use QueueableAction;
 
+    protected $client;
+
     /**
      * Create a new action instance.
      *

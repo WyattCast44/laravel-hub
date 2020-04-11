@@ -44,6 +44,7 @@ class CreateGitHubOrganizationUser
             'avatar' => $organization['avatar_url'],
             'auth_provider' => 'github',
             'auth_type' => 'organization',
+            'unclaimed' => true,
             'bio' => $organization['bio'],
             'blog' => $organization['blog'],
             'meta' => json_encode($organization),

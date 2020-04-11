@@ -3,8 +3,10 @@
 namespace App\Services;
 
 use App\Package;
+use GitDown\Facades\GitDown;
 use Illuminate\Support\Str;
 use GitHub\Client as GitHubClient;
+use Illuminate\Support\Collection;
 
 /**
  * @link https://github.com/KnpLabs/php-github-api
@@ -19,6 +21,11 @@ class Github
     public function __construct(GitHubClient $client)
     {
         $this->client = $client;
+    }
+
+    public function api(string $name)
+    {
+        return $this->client->api($name);
     }
 
     /**
@@ -39,6 +46,48 @@ class Github
     public function repo($username, $repo)
     {
         return $this->client->api('repo')->show($username, $repo);
+    }
+
+    /**
+     * Get a collection of topics for the repo
+     * or empty collection if no topics set
+     * 
+     * @param [string] $username
+     * @param [string] $repo
+     * @return \Illuminate\Support\Collection
+     */
+    public function repoTopics($username, $repo)
+    {
+        return collect($this->client->api('repo')->topics($username, $repo)['names']);
+    }
+
+    /**
+     * Get a collection of branches for the repo
+     * 
+     * @param [string] $username
+     * @param [string] $repo
+     * @return \Illuminate\Support\Collection
+     */
+    public function repoBranches($username, $repo)
+    {
+        return collect($this->client->api('repo')->branches($username, $repo));
+    }
+
+    public function repoReadme($username, $repo, $compileMarkdown = false)
+    {
+        $content = base64_decode($this->client->api('repo')->contents()->readme($username, $repo)['content']);
+
+        if ($compileMarkdown) {
+            try {
+                $parsed = GitDown::parse($content);
+
+                $content = $parsed;
+            } catch (\Exception $e) {
+                report($e);
+            }
+        }
+
+        return $content;
     }
 
     /**
