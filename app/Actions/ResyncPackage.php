@@ -41,6 +41,8 @@ class ResyncPackage
             'meta' => json_encode($repo),
         ]);
 
+        (new ResyncPackageReadme($this->client))->onQueue()->execute($package);
+
         return $package;
     }
 }
