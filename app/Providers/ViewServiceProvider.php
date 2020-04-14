@@ -19,7 +19,7 @@ class ViewServiceProvider extends ServiceProvider
         // Paginator::defaultView('view-name');
 
         // Paginator::defaultSimpleView('view-name');
-        
+
         /**
          * Courtesy of the legend: Mr Porzio
          * @link https://gist.github.com/calebporzio/03d610c813d6639e96accc3b06892242
@@ -31,7 +31,7 @@ class ViewServiceProvider extends ServiceProvider
         Blade::directive('routeIs', function ($expression) {
             return "<?php if (request()->routeIs({$expression})) : ?>";
         });
-        
+
         Blade::directive('endrouteIs', function () {
             return "<?php endif; ?>";
         });

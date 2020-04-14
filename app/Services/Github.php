@@ -52,8 +52,8 @@ class Github
      * Get a collection of topics for the repo
      * or empty collection if no topics set
      * 
-     * @param [string] $username
-     * @param [string] $repo
+     * @param string $username
+     * @param string $repo
      * @return \Illuminate\Support\Collection
      */
     public function repoTopics($username, $repo)
@@ -64,8 +64,8 @@ class Github
     /**
      * Get a collection of branches for the repo
      * 
-     * @param [string] $username
-     * @param [string] $repo
+     * @param string $username
+     * @param string $repo
      * @return \Illuminate\Support\Collection
      */
     public function repoBranches($username, $repo)
@@ -73,6 +73,14 @@ class Github
         return collect($this->client->api('repo')->branches($username, $repo));
     }
 
+    /**
+     * Get the contents of a repos readme
+     *
+     * @param string $username
+     * @param string $repo
+     * @param boolean $compileMarkdown
+     * @return string
+     */
     public function repoReadme($username, $repo, $compileMarkdown = false)
     {
         $content = base64_decode($this->client->api('repo')->contents()->readme($username, $repo)['content']);
