@@ -20,6 +20,11 @@
 
 -   Make an interactiver cli command that asks you for the name of the project. Then asks you for the vendor name of the template. Then builds an interactive menu to seach published templates under that vendor -->
 
+# Composer
+
+- `composer create-project [PACKAGE] [DESTINATION PATH] [--FLAGS]`
+- https://getcomposer.org/doc/articles/scripts.md
+- https://getcomposer.org/doc/articles/custom-installers.md
 
 ```php
 // public function cachePackageReadme(Package $package)
