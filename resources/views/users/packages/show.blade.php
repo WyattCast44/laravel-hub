@@ -2,7 +2,7 @@
 
 @section('user-page')
 
-<div class="overflow-hidden bg-white shadow sm:rounded-md">
+<div class="overflow-hidden bg-white sm:rounded-md">
     <ul>
         
         @forelse ($user->packages as $package)
