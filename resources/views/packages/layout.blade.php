@@ -2,13 +2,13 @@
 
 @section('content')
 
-<div class="container flex mx-auto my-16">
+<div class="container flex flex-col mx-auto my-16 md:flex-row">
 
-    <div class="w-2/12">
+    <div class="w-full md:w-2/12">
         
         <div class="sticky mr-8" style="top:25px;">
             <a href="{{ route('app.packages.create') }}" class="block w-full py-3 mb-5 font-semibold text-center text-white bg-red-500 rounded hover:no-underline hover:shadow hover:bg-red-600">
-                Submit Package
+                Submit Packagess
             </a>
     
             <div class="block mr-8">

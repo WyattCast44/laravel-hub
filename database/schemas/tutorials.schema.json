@@ -1,8 +1,0 @@
-{
-    "name": "tutorials",
-    "schema": {
-        "id": "bigint",
-        "created_at": "datetime",
-        "updated_at": "datetime"
-    }
-}

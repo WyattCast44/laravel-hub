@@ -8,11 +8,11 @@
             <div class="p-4 bg-red-100 rounded-md shadow" x-show="show">
                 <div class="flex" >
                     <div class="flex-shrink-0">
-                        @svg('alert-triangle', 'w-5 h-5 text-red-400')
+                        @svg('alert-triangle', 'w-5 h-5 text-red-700')
                     </div>
                     <div class="ml-3">
                         <p class="text-red-800">
-                            This account was automatically created when one of thier packages was submitted. If you are the owner and want to claim this account, all you have to do is sign in with your GitHub account. If you would like this account page removed and your packages removed, please reach out <a href="#">here</a>.
+                            This account was automatically created when one of thier packages was submitted. If you are the owner and want to claim this account, all you have to do is sign in with your GitHub account. If you would like this account page removed and your packages removed, please reach out <a href="#" class="font-semibold text-red-600">here</a>.
                         </p>
                     </div>
                     <div class="pl-3 ml-auto">
