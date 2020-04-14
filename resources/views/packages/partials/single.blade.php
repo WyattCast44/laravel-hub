@@ -1,6 +1,6 @@
 <li class="border-b">
     
-    <div class="block transition duration-150 ease-in-out hover:bg-gray-200 focus:outline-none focus:bg-gray-50 hover:no-underline">
+    <div class="block">
         
         <div class="px-4 py-4 sm:px-6">
             
