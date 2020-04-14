@@ -6,14 +6,25 @@
             
             <!-- Top row -->
             <div class="flex items-center justify-between">
-                <div class="text-sm text-xl font-medium truncate">
+                <div class="text-sm text-xl font-medium tracking-tight truncate">
+                    <a href="{{ $package->route('show') }}">{{ $package->user->username }}</a>
+                    <span class="text-gray-500">/</span>
                     <a href="{{ $package->route('show') }}">{{ $package->name }}</a>
                 </div>
                 <div class="flex flex-shrink-0 ml-2">
+
+                    @if($package->official)
+                        <span
+                        class="inline-flex px-2 mr-1 text-xs font-semibold leading-5 text-green-800 bg-green-100 rounded-full">
+                            Official Package
+                        </span>
+                    @endif
+                    
                     <span
                         class="inline-flex px-2 text-xs font-semibold leading-5 text-green-800 bg-green-100 rounded-full">
-                        Full-time
+                        {{ $package->language }}
                     </span>
+                    
                 </div>
             </div>
             
@@ -22,17 +33,14 @@
                 
                 <!-- Second Row Left -->
                 <div class="sm:flex">
-                    <div class="flex items-center mr-6 text-sm leading-5 text-gray-500">
-                        <svg class="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400"
-                            fill="currentColor"
-                            viewBox="0 0 20 20">
-                            <path
-                                d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z" />
-                        </svg>
-                        Engineering
-                    </div>
+                    
+                    @if($package->description)
+                        <div class="flex items-center mb-2 mr-6 text-sm leading-5 text-gray-500">
+                            {{ $package->description }}
+                        </div>
+                    @endif
                     <div
-                        class="flex items-center mt-2 text-sm leading-5 text-gray-500 sm:mt-0">
+                        class="flex items-center text-sm leading-5 text-gray-500 sm:mt-0">
                         <svg class="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400"
                             fill="currentColor"
                             viewBox="0 0 20 20">
