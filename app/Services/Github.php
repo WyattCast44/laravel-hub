@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Package;
+use Exception;
 use GitDown\Facades\GitDown;
 use Illuminate\Support\Str;
 use GitHub\Client as GitHubClient;
@@ -83,19 +84,25 @@ class Github
      */
     public function repoReadme($username, $repo, $compileMarkdown = false)
     {
-        $content = base64_decode($this->client->api('repo')->contents()->readme($username, $repo)['content']);
+        try {
+            $content = base64_decode($this->client->api('repo')->contents()->readme($username, $repo)['content']);
 
-        if ($compileMarkdown) {
-            try {
-                $parsed = GitDown::parse($content);
+            if ($compileMarkdown) {
+                try {
+                    $parsed = GitDown::parse($content);
 
-                $content = $parsed;
-            } catch (\Exception $e) {
-                report($e);
+                    $content = $parsed;
+                } catch (\Exception $e) {
+                    report($e);
+                }
             }
-        }
 
-        return $content;
+            return $content;
+        } catch (\Exception $e) {
+            report($e);
+
+            return null;
+        }
     }
 
     /**

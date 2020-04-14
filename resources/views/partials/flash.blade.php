@@ -21,7 +21,7 @@
                     </div>
                 </div>
             @else
-                <div class="py-2 text-sm text-red-700 bg-red-200">
+                <div class="px-2 py-2 text-sm text-red-700 bg-red-200">
                     <div class="container flex items-center justify-between mx-auto">
                         <p>
                             {{ (string) session('status')['message'] }}

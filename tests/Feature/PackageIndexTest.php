@@ -34,4 +34,12 @@ class PackageIndexTest extends TestCase
 
         $response->assertRedirect('/login');
     }
+
+    public function test_a_authenticated_user_can_see_submit_page()
+    {
+        $this->signIn();
+
+        $this->get(route('app.packages.create'))
+            ->assertOk();
+    }
 }
