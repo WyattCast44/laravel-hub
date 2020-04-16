@@ -16,7 +16,6 @@ class CreateTemplatesTable extends Migration
         Schema::create('templates', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id');
-            $table->string('display_name')->index();
             $table->string('name')->index();
             $table->text('description');
             $table->text('content');
@@ -27,10 +26,10 @@ class CreateTemplatesTable extends Migration
             $table->timestamps();
 
             $table->foreign('user_id')
-                    ->references('id')
-                    ->on('users')
-                    ->onDelete('cascade')
-                    ->onUpdate('cascade');
+                ->references('id')
+                ->on('users')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
         });
     }
 

@@ -10,8 +10,7 @@ use Faker\Generator as Faker;
 $factory->define(Template::class, function (Faker $faker) {
     return [
         'user_id' => factory(User::class),
-        'display_name' => $name = $faker->words(rand(3, 5), true),
-        'name' => Str::slug($name),
+        'name' => Str::slug($faker->words(rand(3, 5), true)),
         'description' => $faker->paragraph,
         'public' => true,
         'official' => rand(0, 1),

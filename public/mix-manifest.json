@@ -1,4 +1,6 @@
 {
+    "/js/ace.js": "/js/ace.js",
+    "/js/ace-yaml.js": "/js/ace-yaml.js",
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css"
 }

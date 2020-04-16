@@ -19,15 +19,7 @@
             
             <form action="{{ route('app.templates.store') }}" method="POST">
 
-                @csrf
-
-                <!-- Display name -->
-                <label for="display_name" class="block pl-1 font-semibold text-gray-700">
-                    Display Name
-                </label>
-                <input class="block w-full my-2 placeholder-gray-600 form-input" placeholder="My Laravel Template..." autofocus name="display_name" autocomplete="off">
-                <span class="block pl-1 text-sm text-gray-500">Required. This will show when users are searching the package page</span>
-                    
+                @csrf            
                 
                 <!-- Name -->
                 <div class="mt-6">
@@ -52,7 +44,7 @@
                     <label for="content" class="block pl-1 font-semibold text-gray-700">
                         Content
                     </label>
-                    <div id="editor" class="block w-full my-2 placeholder-gray-600 bg-gray-200 resize-y form-textarea" data-lpignore="true"
+                    <div id="ace-editor" class="block w-full my-2 placeholder-gray-600 bg-gray-200 resize-y form-textarea" data-lpignore="true" data-ace-readonly="false"
                     >name: Laravel
 laravel: master</div>
                     <span class="block pl-1 text-sm text-gray-500">Required.</span> 
@@ -74,10 +66,11 @@ laravel: master</div>
 
 </div>
 
-@push('footer')
+{{-- @push('footer')
     <script>
 
         document.addEventListener("turbolinks:load", function() {
+
 
             window.editor = ace.edit("editor", {
                 minLines: 5,
@@ -98,6 +91,6 @@ laravel: master</div>
         });
 
     </script>
-@endpush
+@endpush --}}
 
 @endsection

@@ -20,7 +20,7 @@
                         <a
                            href="{{ route('app.users.show', $template->user) }}">{{ $template->user->username }}</a>
                         /
-                        {{ $template->display_name }}
+                        {{ $template->name }}
                     </h2>
 
                     <!-- Badges -->

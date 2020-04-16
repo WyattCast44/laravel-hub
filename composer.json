@@ -25,10 +25,10 @@
         "php-http/guzzle6-adapter": "^1.1",
         "spatie/laravel-permission": "^3.11",
         "spatie/laravel-queueable-action": "^2.5",
-        "spatie/laravel-webhook-client": "^2.4",
-        "wyattcast44/laravelschema": "^1.1"
+        "spatie/laravel-webhook-client": "^2.4"
     },
     "require-dev": {
+        "wyattcast44/laravelschema": "^1.1",
         "laravel/telescope": "^3.2",
         "barryvdh/laravel-debugbar": "^3.2",
         "facade/ignition": "^2.0",

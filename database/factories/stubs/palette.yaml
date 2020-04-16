@@ -1,10 +1,31 @@
 name: Palette
+
 laravel: master
+
 packages:
-  - spatie/icalendar-generator
   - laravel/cashier
-  - laravel/dusk
+  - laravel/dusk:
     - php artisan dusk:install
-  - laravel/passport
-    - php artisan migrate
-    - php artisan passport:install
+  - laravel/passport:
+      - php artisan migrate
+      - php artisan passport:install
+models:
+  Post:
+    title: string:400
+    content: longtext
+    published_at: nullable timestamp
+
+controllers:
+  Post:
+    index:
+      query: all
+      render: post.index with:posts
+
+    store:
+      validate: title, content
+      save: post
+      send: ReviewNotification to:post.author with:post
+      dispatch: SyncMedia with:post
+      fire: NewPost with:post
+      flash: post.title
+      redirect: post.index

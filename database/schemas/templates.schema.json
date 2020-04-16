@@ -3,7 +3,6 @@
     "schema": {
         "id": "bigint",
         "user_id": "bigint",
-        "display_name": "string",
         "name": "string",
         "description": "text",
         "content": "text",

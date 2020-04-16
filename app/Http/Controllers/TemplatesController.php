@@ -14,7 +14,7 @@ class TemplatesController extends Controller
 
     public function index()
     {
-        $templates = Template::with(['user'])->latest()->paginate();
+        $templates = Template::with(['user', 'favorites'])->latest()->paginate();
 
         return view('templates.index', [
             'templates' => $templates,
@@ -23,6 +23,8 @@ class TemplatesController extends Controller
 
     public function show(Template $template)
     {
+        $template->load(['user', 'favorites']);
+
         return view('templates.show.index', [
             'template' => $template,
         ]);
@@ -36,15 +38,13 @@ class TemplatesController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'display_name' => 'required|string|max:255',
-            'name' => 'required|string|max:255',
+            'name' => 'required|string|alpha_num|max:255',
             'description' => 'required|string',
             'content' => 'required|string',
         ]);
 
         $template = Template::create([
             'user_id' => auth()->user()->id,
-            'display_name' => $request->display_name,
             'name' => $request->name,
             'description' => $request->description,
             'content' => $request->content,
