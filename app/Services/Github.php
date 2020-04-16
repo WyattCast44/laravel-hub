@@ -130,6 +130,7 @@ class Github
             $this->repo($parts[0], $parts[1]);
             return true;
         } catch (\Exception $e) {
+            report($e);
             return false;
         }
     }

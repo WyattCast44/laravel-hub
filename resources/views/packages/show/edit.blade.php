@@ -1,5 +1,7 @@
 @extends('packages.show.layout')
 
+@include('partials.yaml-editor-scripts`')
+
 @section('package-page')
 
     <div class="px-10 py-10">
@@ -66,10 +68,15 @@
                                         Meta
                                     </label>
                                     <div class="rounded-md shadow-sm">
-                                        <textarea id="about"
-                                                rows="3"
-                                                class="block w-full mt-1 transition duration-150 ease-in-out form-textarea sm:text-sm sm:leading-5"
-                                                readonly>{{ $package->meta }}</textarea>
+                                        <div 
+                                            id="ace-editor" 
+                                            class="block w-full my-2 placeholder-gray-600 bg-gray-200 resize-y form-textarea" 
+                                            style="min-height: 250px"
+                                            data-ace-lang="json"
+                                            data-ace-min-lines="5"
+                                            data-ace-max-lines="100"
+                                            data-ace-readonly="true"
+                                            >{{ $package->meta }}</div>
                                     </div>
                                 </div>
         

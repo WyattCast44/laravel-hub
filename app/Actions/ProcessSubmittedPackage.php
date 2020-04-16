@@ -70,7 +70,7 @@ class ProcessSubmittedPackage
             'language' => $repo['language'],
             'stars_count' => $repo['stargazers_count'],
             'last_synced_at' => now(),
-            'meta' => json_encode($repo),
+            'meta' => json_encode($repo, JSON_PRETTY_PRINT),
         ]);
 
         (new ResyncPackageReadme($this->client))->onQueue()->execute($package);
