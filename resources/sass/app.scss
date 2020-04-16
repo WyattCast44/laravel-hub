@@ -12,3 +12,8 @@ a {
 a:hover {
     @apply underline;
 }
+
+// Markdown overides
+.markdown-body ul {
+    @apply list-disc;
+}
