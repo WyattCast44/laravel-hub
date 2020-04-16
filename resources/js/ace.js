@@ -4,31 +4,41 @@ document.addEventListener("turbolinks:load", function () {
 
     let element = document.querySelector("#ace-editor");
 
-    if (element != null) {
-
-        window.editor = ace.edit("ace-editor", {
-            minLines: 5,
-            maxLines: 100,
-            autoScrollEditorIntoView: true
-        });
-
-        let YamlMode = ace.require("ace/mode/yaml").Mode;
-        window.editor.getSession().setMode(new YamlMode());
-
-        let readonly = element.getAttribute("data-ace-readonly");
-
-        if (readonly == "true" || readonly == null) {
-            window.editor.setReadOnly(true);
-        } else {
-            let content = document.querySelector("#content");
-
-            content.value = window.editor.getSession().getValue();
-
-            window.editor.getSession().on('change', function () {
-                content.value = window.editor.getSession().getValue();
-            });
-        }
-
+    if (element == null) {
+        return;
     }
 
+    let data = element.dataset;
+
+    window.editor = ace.edit("ace-editor", {
+        minLines: (data.aceMinLines) ? data.aceMinLines : 5,
+        maxLines: (data.aceMaxLines) ? data.aceMaxLines : 100,
+        autoScrollEditorIntoView: true
+    });
+
+    if (data.aceLang == "json") {
+        window.editor.session.setMode(new (ace.require("ace/mode/json")).Mode());
+    } else if (data.aceLang == "yaml") {
+        window.editor.session.setMode(new (ace.require("ace/mode/yaml")).Mode());
+    }
+
+    let readonly = (data.aceReadonly == "true") ? true : false;
+
+    if (readonly) {
+        window.editor.setReadOnly(true);
+
+        return
+    }
+
+    let syncsContent = (data.aceContent) ? true : false;
+
+    if (syncsContent) {
+        let content = document.querySelector(data.aceContent);
+
+        content.value = window.editor.getSession().getValue();
+
+        window.editor.getSession().on('change', function () {
+            content.value = window.editor.getSession().getValue();
+        });
+    }
 });

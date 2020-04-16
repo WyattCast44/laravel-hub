@@ -23,7 +23,7 @@ class PackagesController extends Controller
 
     public function show($vendor, Package $package)
     {
-        $package->load(['attachments']);
+        $package->load(['user']);
 
         return view('packages.show.index', [
             'package' => $package,
@@ -49,8 +49,6 @@ class PackagesController extends Controller
     public function edit($vendor, Package $package)
     {
         $package->load(['attachments']);
-
-        $package->loadCount(['favorites']);
 
         return view('packages.show.edit', [
             'package' => $package,

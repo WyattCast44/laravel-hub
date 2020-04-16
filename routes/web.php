@@ -54,6 +54,6 @@ Route::get('/packages/{vendor}/{package}', 'PackagesController@show')->name('app
 Route::get('/packages/{vendor}/{package}/screenshots', 'PackageScreenshotsController@show')->name('app.packages.screenshots.show');
 Route::post('/packages/{vendor}/{package}/screenshots', 'PackageScreenshotsController@store')->name('app.packages.screenshots.store');
 
-// Route::get('/test', function (Github $client) {
-//     Auth::login(User::first());
-// });
+Route::get('/test', function (Github $client) {
+    return view('test');
+});

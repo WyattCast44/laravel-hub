@@ -44,8 +44,15 @@
                     <label for="content" class="block pl-1 font-semibold text-gray-700">
                         Content
                     </label>
-                    <div id="ace-editor" class="block w-full my-2 placeholder-gray-600 bg-gray-200 resize-y form-textarea" data-lpignore="true" data-ace-readonly="false"
-                    >name: Laravel
+                    <div 
+                        id="ace-editor" 
+                        class="block w-full my-2 placeholder-gray-600 bg-gray-200 resize-y form-textarea" 
+                        data-ace-lang="yaml"
+                        data-ace-min-lines="5"
+                        data-ace-max-lines="100"
+                        data-ace-content="#content"
+                        class="block w-full my-2 placeholder-gray-600 bg-gray-200 resize-y form-input"
+                        >name: Laravel
 laravel: master</div>
                     <span class="block pl-1 text-sm text-gray-500">Required.</span> 
                     <textarea name="content" id="content" class="hidden"></textarea>
@@ -65,32 +72,5 @@ laravel: master</div>
     </div>
 
 </div>
-
-{{-- @push('footer')
-    <script>
-
-        document.addEventListener("turbolinks:load", function() {
-
-
-            window.editor = ace.edit("editor", {
-                minLines: 5,
-                maxLines: 100,
-                autoScrollEditorIntoView: true               
-            });
-
-            let YamlMode = ace.require("ace/mode/yaml").Mode;
-            window.editor.getSession().setMode(new YamlMode());
-
-            let content = document.querySelector("#content");
-            content.value = window.editor.getSession().getValue();
-
-            window.editor.getSession().on('change', function () {
-                content.value = window.editor.getSession().getValue();
-            });
-
-        });
-
-    </script>
-@endpush --}}
 
 @endsection
