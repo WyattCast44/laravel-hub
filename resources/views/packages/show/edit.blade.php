@@ -4,16 +4,18 @@
 
 @section('package-page')
 
-    <div class="px-10 py-10">
+    <div class="p-6 md:p-10">
         
         <div>
             <div class="md:grid md:grid-cols-3 md:gap-6">
                 <div class="md:col-span-1">
                     <div class="px-4 sm:px-0">
                         <h3 class="text-lg font-medium leading-6 text-gray-900">Repo Details</h3>
-                        <p class="mt-1 text-sm leading-5 text-gray-500">
+                        <p class="inline mt-1 text-sm leading-5 text-gray-500">
                             This information is synced with GitHub and is refreshed every 15 minutes. You
-                            can trigger a refresh once every 5 minutes by clicking <a href="#">here</a>.
+                            can trigger a refresh once every 5 minutes by clicking <x-form-button class="inline p-0 m-0 text-sm text-red-500" method="post" :action="$package->route('resync')">
+                                <button type="submit" class="cursor-pointer text-red hover:underline">here</button>
+                            </x-form-button>.                            
                         </p>
                     </div>
                 </div>
@@ -67,6 +69,9 @@
                                         class="block text-sm font-medium leading-5 text-gray-700">
                                         Meta
                                     </label>
+                                    <p class="my-1 text-sm text-gray-600">
+                                        This is the data we use to create/update your package. Only you can see this data.
+                                    </p>
                                     <div class="rounded-md shadow-sm">
                                         <div 
                                             id="ace-editor" 
@@ -74,7 +79,7 @@
                                             style="min-height: 250px"
                                             data-ace-lang="json"
                                             data-ace-min-lines="5"
-                                            data-ace-max-lines="100"
+                                            data-ace-max-lines="20"
                                             data-ace-readonly="true"
                                             >{{ $package->meta }}</div>
                                     </div>
@@ -88,15 +93,6 @@
             </div>
         </div>
         
-
     </div>
-
-    {{-- <form action="{{ $package->route('resync') }}" method="POST">
-        
-        @csrf
-
-        <button type="submit">Resync</button>
-
-    </form> --}}
 
 @endsection

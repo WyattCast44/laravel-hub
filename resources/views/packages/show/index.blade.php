@@ -2,7 +2,7 @@
 
 @section('package-page')
 
-    <div class="px-10 py-10 markdown-body">
+    <div class="p-6 md:p-10 markdown-body">
         @if ($package->parsed_readme == null)
             Readme still parsing
         @else
