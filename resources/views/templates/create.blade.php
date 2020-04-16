@@ -35,7 +35,7 @@
                     <label for="description" class="block pl-1 font-semibold text-gray-700">
                         Description
                     </label>
-                    <textarea class="block w-full my-2 placeholder-gray-600 resize-y form-textarea" rows="3" placeholder="This template is used to scaffold..." name="description"></textarea>
+                    <textarea class="block w-full my-2 placeholder-gray-600 resize-y form-input" rows="3" placeholder="This template is used to scaffold..." name="description"></textarea>
                     <span class="block pl-1 text-sm text-gray-500">Required. Briefly explain what this template is used for</span> 
                 </div>
 
