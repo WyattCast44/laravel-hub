@@ -1,6 +1,6 @@
 @extends('packages.show.layout')
 
-@include('partials.yaml-editor-scripts`')
+@include('partials.yaml-editor-scripts')
 
 @section('package-page')
 
