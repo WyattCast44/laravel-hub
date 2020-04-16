@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Packages;
 
 use App\Package;
 use Livewire\Component;
 
-class PackageFavoriteButton extends Component
+class Favorite extends Component
 {
     public $package_id;
 
@@ -34,7 +34,7 @@ class PackageFavoriteButton extends Component
 
     public function render()
     {
-        return view('livewire.package-favorite-button', [
+        return view('livewire.packages.favorite', [
             'package' => $this->package(),
         ]);
     }

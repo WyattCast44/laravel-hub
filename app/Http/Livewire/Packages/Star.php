@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Packages;
 
 use App\Package;
 use Livewire\Component;
 
-class GitHubStarRepoButton extends Component
+class Star extends Component
 {
     public $package_id;
 
@@ -21,7 +21,7 @@ class GitHubStarRepoButton extends Component
 
     public function render()
     {
-        return view('livewire.github-star-repo-button', [
+        return view('livewire.packages.star', [
             'package' => $this->package(),
         ]);
     }

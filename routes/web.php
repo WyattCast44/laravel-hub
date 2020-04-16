@@ -1,7 +1,9 @@
 <?php
 
 use App\Services\Github;
+use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 // Auth
@@ -53,7 +55,5 @@ Route::get('/packages/{vendor}/{package}/screenshots', 'PackageScreenshotsContro
 Route::post('/packages/{vendor}/{package}/screenshots', 'PackageScreenshotsController@store')->name('app.packages.screenshots.store');
 
 // Route::get('/test', function (Github $client) {
-//     $topics = $client->repoReadme('KnpLabs', 'php-github-api');
-
-//     dd($topics);
+//     Auth::login(User::first());
 // });

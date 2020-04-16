@@ -11,4 +11,4 @@ mix.sass("resources/sass/app.scss", "public/css").options({
     postCss: [tailwindcss("tailwind.config.js")]
 });
 
-mix.purgeCss();
+// mix.purgeCss(); # Remove until https://github.com/spatie/laravel-mix-purgecss/pull/85 get merged
