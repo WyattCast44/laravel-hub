@@ -2,7 +2,7 @@
 
 @section('package-page')
 
-    <x-ace-editor-scripts></x-ace-editor-scripts>
+    <x-ace-editor-scripts type="json"></x-ace-editor-scripts>
 
     <div class="p-6 md:p-10">
         

@@ -2,7 +2,7 @@
 
 @section('template-page')
 
-    <x-ace-editor-scripts></x-ace-editor-scripts>
+    <x-ace-editor-scripts type="yaml"></x-ace-editor-scripts>
 
     <div 
     id="ace-editor" 
