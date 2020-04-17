@@ -22,41 +22,30 @@
                             </label>
                         </div>
                     @endforeach
-
-                    {{-- <div>
-                        <label class="inline-flex items-center">
-                            <input type="checkbox" class="text-red-500 form-checkbox" checked>
-                            <span class="ml-2">Official <span class="text-xs tracking-tighter">(13)</span></span>
-                        </label>
-                    </div>
-
-                    <div>
-                        <label class="inline-flex items-center">
-                            <input type="checkbox" class="text-red-500 form-checkbox" checked>
-                            <span class="ml-2">Community <span class="text-xs tracking-tighter">(2,201)</span></span>
-                        </label>
-                    </div> --}}
                     
                 </div>
 
                 <span class="block mt-5 text-gray-700">Language</span>
 
                 <div class="mt-2">
-                   
-                    <div>
-                        <label class="inline-flex items-center">
-                            <input type="checkbox" class="text-red-500 form-checkbox">
-                            <span class="ml-2">PHP</span>
-                        </label>
-                    </div>
 
+                    @foreach ($languages as $language)
+                        <div>
+                            <label class="inline-flex items-center">
+                                <input type="checkbox" class="text-red-500 form-checkbox">
+                                <span class="ml-2">{{ $language }}</span>
+                            </label>
+                        </div>
+                    @endforeach
+                   
+{{-- 
                     <div>
                         <label class="inline-flex items-center">
                             <input type="checkbox" class="text-red-500 form-checkbox">
                             <span class="ml-2">Javascript</span>
                         </label>
                     </div>
-                    
+                     --}}
                 </div>
 
                 <span class="block mt-5 text-gray-700">Categories</span>

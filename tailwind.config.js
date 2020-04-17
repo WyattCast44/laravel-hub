@@ -4,10 +4,7 @@ module.exports = {
             fontFamily: {
                 header: ["Open Sans", "sans-serif"]
             }
-        },
-        pagination: theme => ({
-            color: theme("colors.red.500")
-        })
+        }
     },
     variants: {
         borderColor: ["responsive", "hover", "focus", "focus-within"],
@@ -17,7 +14,6 @@ module.exports = {
     },
     plugins: [
         require("@tailwindcss/custom-forms"),
-        require("tailwindcss-plugins/pagination"),
         require('@tailwindcss/ui'),
     ]
 };

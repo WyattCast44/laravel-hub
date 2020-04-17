@@ -2,13 +2,13 @@
 
 namespace App;
 
-use App\Actions\ResyncPackage;
+use Laravel\Scout\Searchable;
 use App\Traits\HasAttachments;
 use Illuminate\Database\Eloquent\Model;
 
 class Package extends Model
 {
-    use HasAttachments;
+    use HasAttachments, Searchable;
 
     protected $guarded = [];
 
@@ -39,27 +39,31 @@ class Package extends Model
         return $this->belongsTo(User::class);
     }
 
-    public static function createFromUrl(string $url)
+    /**
+     * Scout
+     */
+    public function shouldBeSearchable()
     {
-        // $repo = Repo::fromUrl($url);
+        return env('SYNC_WITH_SEARCH', false);
+    }
 
-        // // $package = self::create([
-        // //     'user_id' => $repo->owner->id,
-        // //     'submitter_id' => (auth()->check()) ? auth()->id() : null,
-        // //     'name' => $repo['name'],
-        // //     'vendor' => $owner_username,
-        // //     'display_name' => $repo['name'],
-        // //     'description' => $repo['description'],
-        // //     'repo_url' => $repo['html_url'],
-        // //     'official' => ($owner_username == "laravel") ? true : false,
-        // //     'parsed_readme' => null,
-        // //     'language' => $repo['language'],
-        // //     'stars_count' => $repo['stargazers_count'],
-        // //     'last_synced_at' => now(),
-        // //     'meta' => json_encode($repo),
-        // // ]);
+    public function searchableAs()
+    {
+        return 'packages_index';
+    }
 
-        // $package = $action->execute($parts[0], $parts[1]);
+    public function toSearchableArray()
+    {
+        $array = [
+            'id' => $this->id,
+            'name' => $this->name,
+            'vendor' => $this->vendor,
+            'description' => $this->description,
+            'readme' => substr($this->parsed_readme, 0, 500),
+            'language' => $this->language,
+        ];
+
+        return $array;
     }
 
     /**

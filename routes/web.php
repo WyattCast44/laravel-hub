@@ -1,9 +1,5 @@
 <?php
 
-use App\Services\Github;
-use App\User;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 // Auth
@@ -39,7 +35,7 @@ Route::delete('/templates/{template}/favorites', 'TemplatesFavoritesController@d
  */
 
 // Package --> Index
-Route::livewire('/packages', 'packages-page')->layout('layouts.app')->section('content')->name('app.packages.index');
+Route::get('/packages', 'PackagesController@index')->name('app.packages.index');
 
 // Package --> Create/Store/Delete
 Route::post('/packages', 'PackagesController@store')->name('app.packages.store');
@@ -54,6 +50,6 @@ Route::get('/packages/{vendor}/{package}', 'PackagesController@show')->name('app
 Route::get('/packages/{vendor}/{package}/screenshots', 'PackageScreenshotsController@show')->name('app.packages.screenshots.show');
 Route::post('/packages/{vendor}/{package}/screenshots', 'PackageScreenshotsController@store')->name('app.packages.screenshots.store');
 
-Route::get('/test', function (Github $client) {
-    return view('test');
-});
+// Route::get('/test', function () {
+//     return view('components.paginated-card');
+// });

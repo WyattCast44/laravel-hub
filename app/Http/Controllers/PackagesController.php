@@ -7,6 +7,7 @@ use Illuminate\Support\Str;
 use App\Rules\ValidRepoUrl;
 use Illuminate\Http\Request;
 use App\Actions\ProcessSubmittedPackage;
+use App\Queries\PackageLanguages;
 use App\Services\Github;
 
 class PackagesController extends Controller
@@ -19,6 +20,13 @@ class PackagesController extends Controller
     public function create()
     {
         return view('packages.create');
+    }
+
+    public function index()
+    {
+        return view('packages.index', [
+            'languages' => PackageLanguages::get(),
+        ]);
     }
 
     public function show($vendor, Package $package)

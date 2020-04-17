@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="container flex flex-col mx-auto my-16 md:flex-row">
+<div class="container flex flex-col px-4 mx-auto my-6 md:px-0 md:my-16 md:flex-row">
 
     <div class="w-full md:w-2/12">
         
@@ -36,20 +36,15 @@
                 <span class="block mt-5 text-gray-700">Language</span>
 
                 <div class="mt-2">
-                   
-                    <div>
-                        <label class="inline-flex items-center">
-                            <input type="checkbox" class="text-red-500 form-checkbox">
-                            <span class="ml-2">PHP</span>
-                        </label>
-                    </div>
 
-                    <div>
-                        <label class="inline-flex items-center">
-                            <input type="checkbox" class="text-red-500 form-checkbox">
-                            <span class="ml-2">Javascript</span>
-                        </label>
-                    </div>
+                    @foreach ($languages as $language)
+                        <div>
+                            <label class="inline-flex items-center">
+                                <input type="checkbox" class="text-red-500 form-checkbox">
+                                <span class="ml-2">{{ $language }}</span>
+                            </label>
+                        </div>
+                    @endforeach
                     
                 </div>
 

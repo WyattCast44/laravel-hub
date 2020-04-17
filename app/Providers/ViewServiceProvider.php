@@ -21,7 +21,7 @@ class ViewServiceProvider extends ServiceProvider
         // Paginator::defaultSimpleView('view-name');
 
         /**
-         * Courtesy of the legend: Mr Porzio
+         * Courtesy of the legend: Caleb Porzio
          * @link https://gist.github.com/calebporzio/03d610c813d6639e96accc3b06892242
          */
         Blade::directive('route', function ($expression) {
@@ -37,7 +37,7 @@ class ViewServiceProvider extends ServiceProvider
         });
 
         /**
-         * Courtesy of the legend: Mr Porzio
+         * Courtesy of the legend: Caleb Porzio
          * @link https://github.com/calebporzio/gitdown
          */
         if (config()->has('gitdown.token')) {
