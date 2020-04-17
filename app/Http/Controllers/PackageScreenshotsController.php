@@ -14,6 +14,8 @@ class PackageScreenshotsController extends Controller
 
     public function store($vendor, Package $package, Request $request)
     {
+        abort_if($package->user->id != auth()->id(), 403);
+
         $this->validate($request, [
             'files' => ['required', 'array'],
             'files.*' => ['image', 'max:5000']

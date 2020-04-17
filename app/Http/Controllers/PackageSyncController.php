@@ -14,7 +14,6 @@ class PackageSyncController extends Controller
 
     public function __invoke($vendor, Package $package, ResyncPackage $action)
     {
-
         if (auth()->id() == $package->user->id) {
             // Resync limit is 30 minutes for package owners
             $limit = 30;
