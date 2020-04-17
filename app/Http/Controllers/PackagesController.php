@@ -14,7 +14,7 @@ class PackagesController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth')->only(['create', 'store']);
+        $this->middleware('auth')->except(['show', 'index']);
     }
 
     public function create()
@@ -56,6 +56,8 @@ class PackagesController extends Controller
 
     public function edit($vendor, Package $package)
     {
+        abort_if($package->user->id != auth()->id(), 403);
+
         $package->load(['attachments']);
 
         return view('packages.show.edit', [
@@ -65,6 +67,8 @@ class PackagesController extends Controller
 
     public function delete($vendor, Package $package)
     {
+        abort_if($package->user->id != auth()->id(), 403);
+
         $package->delete();
 
         return redirect()->route('app.packages.index');
