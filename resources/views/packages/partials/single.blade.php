@@ -43,8 +43,8 @@
                 </div>
 
                 <div class="flex mt-2">
-                    <livewire:packages.star :package="$package">
-                    <livewire:packages.favorite :package="$package">
+                    {{-- <livewire:packages.star :package="$package" :key="$package->id"> --}}
+                    {{-- <livewire:packages.favorite :package="$package" :key="$package->id"> --}}
                 </div>
                 
             </div>

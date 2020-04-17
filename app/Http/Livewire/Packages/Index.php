@@ -12,12 +12,12 @@ class Index extends Component
 
     public $perPage = 10;
 
-    public $search = null;
+    public $search = '';
 
     protected $query = null;
 
     protected $updatesQueryString = [
-        'search',
+        'search'
     ];
 
     protected function initQuery()
@@ -38,7 +38,7 @@ class Index extends Component
 
     public function mount()
     {
-        $this->search = request()->query('search', $this->search);
+        $this->fill(request()->only('search'));
     }
 
     public function render()
@@ -69,5 +69,10 @@ class Index extends Component
     public function addLanguageFilter()
     {
         $this->query = $this->query->where('language', 'Python');
+    }
+
+    public function paginationView()
+    {
+        return 'partials.pagination';
     }
 }

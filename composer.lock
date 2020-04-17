@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e7f561867261476a0e5f9a37bf778bed",
+    "content-hash": "a57b21d28982bbbf52a0b3a854a5d987",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -3001,6 +3001,60 @@
                 "uuid"
             ],
             "time": "2020-03-29T20:13:32+00:00"
+        },
+        {
+            "name": "spatie/laravel-log-dumper",
+            "version": "1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spatie/laravel-log-dumper.git",
+                "reference": "5b73af8516113a41fce461060df0d312ffe79df2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spatie/laravel-log-dumper/zipball/5b73af8516113a41fce461060df0d312ffe79df2",
+                "reference": "5b73af8516113a41fce461060df0d312ffe79df2",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "^7.0",
+                "php": "^7.4"
+            },
+            "require-dev": {
+                "ext-json": "*",
+                "friendsofphp/php-cs-fixer": "^2.16",
+                "orchestra/testbench": "^5.0",
+                "phpunit/phpunit": "^9.0",
+                "spatie/phpunit-snapshot-assertions": "^4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Spatie\\LogDumper\\": "src"
+                },
+                "files": [
+                    "src/helpers.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Freek Van der Herten",
+                    "email": "freek@spatie.be",
+                    "homepage": "https://spatie.be",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A function to dump anything to the log",
+            "homepage": "https://github.com/spatie/laravel-log-dumper",
+            "keywords": [
+                "laravel-log-dumper",
+                "spatie"
+            ],
+            "time": "2020-04-14T11:37:28+00:00"
         },
         {
             "name": "spatie/laravel-permission",
