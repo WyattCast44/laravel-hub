@@ -27,17 +27,17 @@
 
         <div class="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
 
-            <div>
+            {{-- <div>
                 <p class="text-sm leading-5 text-gray-700">
                     Showing
                     <span class="font-medium">{{ $paginator->firstItem() }}</span>
                     to
-                    <span class="font-medium">{{ $paginator->firstItem() + $paginator->count() - 1 }}</span>
+                    <span class="font-medium">{{ $paginator->lastItem() }}</span>
                     of
                     <span class="font-medium">{{ $paginator->total() }}</span>
                     results
                 </p>
-            </div>
+            </div> --}}
 
             <div>
                 <span class="relative z-0 inline-flex shadow-sm">
@@ -58,11 +58,11 @@
                     @foreach ($elements as $element)
                     
                         {{-- "Three Dots" Separator --}}
-                        @if (is_string($element))
+                        {{-- @if (is_string($element))
                             <span class="relative inline-flex items-center px-4 py-2 -ml-px text-sm font-medium leading-5 text-gray-700 bg-white border border-gray-300" aria-disabled="true">
                                 {{ $element }}
                             </span>
-                        @endif
+                        @endif --}}
 
                         {{-- Array Of Links --}}
                         @if (is_array($element))

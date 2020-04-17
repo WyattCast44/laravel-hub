@@ -10,14 +10,23 @@ class Index extends Component
 {
     use WithPagination;
 
+    public $page = 1;
+
     public $perPage = 5;
 
     public $search = '';
 
     protected $query = null;
 
+    protected $totalPages = 1;
+
+    // protected $updatesQueryString = [
+    //     'search'
+    // ];
+
     protected $updatesQueryString = [
-        'search'
+        ['search' => ['except' => '']],
+        ['page' => ['except' => 1]],
     ];
 
     protected function initQuery()
@@ -63,7 +72,11 @@ class Index extends Component
                 ->with(['user', 'favorites']);
         }
 
-        return $this->query->paginate($this->perPage);
+        $packages = $this->query->paginate($this->perPage);
+
+        $this->totalPages = $packages->lastPage();
+
+        return $packages;
     }
 
     public function addLanguageFilter()
@@ -74,5 +87,20 @@ class Index extends Component
     public function paginationView()
     {
         return 'partials.pagination';
+    }
+
+    /* Fix nextPage/previousPage to disallow overflows */
+    public function previousPage()
+    {
+        if ($this->page > 1) {
+            $this->page = $this->page - 1;
+        }
+    }
+
+    public function nextPage()
+    {
+        if ($this->page < $this->totalPages) {
+            $this->page = $this->page + 1;
+        }
     }
 }
