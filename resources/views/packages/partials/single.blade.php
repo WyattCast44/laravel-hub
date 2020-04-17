@@ -1,4 +1,4 @@
-<li class="border-b">
+<li class="border-b border-gray-200">
     
     <div class="block">
         

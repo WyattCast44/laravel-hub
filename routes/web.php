@@ -49,3 +49,5 @@ Route::post('/packages/{vendor}/{package}/resync', 'PackageSyncController')->nam
 Route::get('/packages/{vendor}/{package}', 'PackagesController@show')->name('app.packages.show');
 Route::get('/packages/{vendor}/{package}/screenshots', 'PackageScreenshotsController@show')->name('app.packages.screenshots.show');
 Route::post('/packages/{vendor}/{package}/screenshots', 'PackageScreenshotsController@store')->name('app.packages.screenshots.store');
+
+Route::view('/test', 'components.paginated-card');

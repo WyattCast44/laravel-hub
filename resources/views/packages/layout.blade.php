@@ -8,7 +8,7 @@
         
         <div class="sticky mr-8" style="top:25px;">
             <a href="{{ route('app.packages.create') }}" class="block w-full py-3 mb-5 font-semibold text-center text-white bg-red-500 rounded hover:no-underline hover:shadow hover:bg-red-600">
-                Submit Packagess
+                Submit Packages
             </a>
     
             <div class="block mr-8">

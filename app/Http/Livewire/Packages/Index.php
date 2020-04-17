@@ -10,13 +10,31 @@ class Index extends Component
 {
     use WithPagination;
 
+    public $perPage = 10;
+
     public $search = null;
 
-    public $perPage = 10;
+    protected $query = null;
 
     protected $updatesQueryString = [
         'search',
     ];
+
+    protected function initQuery()
+    {
+        // Init the query if needed
+        if ($this->query == null) {
+            $this->query = Package::query();
+        }
+
+        // Add a search if needed
+        if ($this->search) {
+            $this->query = Package::search($this->search);
+        } else {
+            $this->query = Package::latest()
+                ->with(['user', 'favorites']);
+        }
+    }
 
     public function mount()
     {
@@ -32,15 +50,24 @@ class Index extends Component
 
     public function packages()
     {
-        if ($this->search) {
-            $packages = Package::search($this->search)
-                ->paginate($this->perPage);
-        } else {
-            $packages = Package::latest()
-                ->with(['user', 'favorites'])
-                ->paginate($this->perPage);
+        // Init the query if needed
+        if ($this->query == null) {
+            $this->query = Package::query();
         }
 
-        return $packages;
+        // Add a search if needed
+        if ($this->search) {
+            $this->query = Package::search($this->search);
+        } else {
+            $this->query = Package::latest()
+                ->with(['user', 'favorites']);
+        }
+
+        return $this->query->paginate($this->perPage);
+    }
+
+    public function addLanguageFilter()
+    {
+        $this->query = $this->query->where('language', 'Python');
     }
 }

@@ -1,13 +1,15 @@
-<div>
+<div class="shadow">
 
-    <!-- Filters and search -->
-    <div class="flex items-center mb-8">
-
-        <input type="search" wire:model="search" class="w-full p-3 border border-gray-400 rounded-none rounded shadow" placeholder="Search packages..." >
-                
-    </div> 
+    <!-- Card Header -->
+    <div class="px-4 py-5 bg-white border-b border-gray-200 rounded-t-lg sm:px-6">
+        <div class="flex flex-wrap items-center justify-between -mt-2 -ml-4 sm:flex-no-wrap">
+            <div class="w-full mt-2 ml-4">
+                <input class="w-full px-3 py-2 leading-tight text-gray-700 border border-gray-300 rounded appearance-none focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="Type to search packages... Please '/' to focus..." wire:model="search" role="search">
+            </div>
+        </div>
+    </div>
         
-    <div class="overflow-hidden bg-white shadow sm:rounded-md">
+    <div class="overflow-hidden bg-white">
         <ul>
             
             @foreach ($packages as $package)
