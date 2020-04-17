@@ -9,6 +9,7 @@ packages:
   - laravel/passport:
       - php artisan migrate
       - php artisan passport:install
+      
 models:
   Post:
     title: string:400

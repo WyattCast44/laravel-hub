@@ -2,7 +2,7 @@
 
 @section('content')
 
-@include('partials.yaml-editor-scripts')
+    <x-ace-editor-scripts></x-ace-editor-scripts>
 
     <div class="container mx-auto my-16">
 

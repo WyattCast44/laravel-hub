@@ -1,8 +1,8 @@
 @extends('packages.show.layout')
 
-@include('partials.yaml-editor-scripts')
-
 @section('package-page')
+
+    <x-ace-editor-scripts></x-ace-editor-scripts>
 
     <div class="p-6 md:p-10">
         

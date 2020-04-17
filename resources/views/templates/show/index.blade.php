@@ -2,7 +2,7 @@
 
 @section('template-page')
 
-    @include('partials.yaml-editor-scripts')
+    <x-ace-editor-scripts></x-ace-editor-scripts>
 
     <div 
     id="ace-editor" 

@@ -32,7 +32,7 @@
                 </div>
 
                 @error('url')
-                    @include('partials.error')
+                    <x-form-error :message="$message"></x-form-error>
                 @enderror
 
                 <!-- Type -->
@@ -64,7 +64,7 @@
                 </div>
 
                 @error('type')
-                    @include('partials.error')
+                    <x-form-error :message="$message"></x-form-error>
                 @enderror
         
             </div>

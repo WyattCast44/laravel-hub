@@ -2,7 +2,7 @@
 
 @section('content')
 
-@include('partials.yaml-editor-scripts')
+<x-ace-editor-scripts></x-ace-editor-scripts>
 
 <div class="mx-6 my-10 md:mx-auto md:my-16" style="max-width: 1000px">
     
