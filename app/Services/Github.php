@@ -7,6 +7,7 @@ use Exception;
 use GitDown\Facades\GitDown;
 use Illuminate\Support\Str;
 use GitHub\Client as GitHubClient;
+use Github\HttpClient\Message\ResponseMediator;
 use Illuminate\Support\Collection;
 
 /**
@@ -133,5 +134,18 @@ class Github
             report($e);
             return false;
         }
+    }
+
+    public function starRepo($vendor, $repo)
+    {
+        if (!auth()->check()) {
+            return false;
+        }
+
+        $res = $this->client->getHttpClient()->put('/user/starred/laravel/homestead');
+
+        $content = ResponseMediator::getContent($res);
+
+        dd($content);
     }
 }

@@ -29,7 +29,7 @@
             </div>
             
             <!-- Second Row -->
-            <div class="mt-2 sm:flex sm:justify-between">
+            <div class="flex-col mt-2 sm:flex-row sm:justify-between">
                 
                 <!-- Second Row Left -->
                 <div class="sm:flex">
@@ -40,6 +40,11 @@
                         </div>
                     @endif
                    
+                </div>
+
+                <div class="flex mt-2">
+                    <livewire:packages.star :package="$package">
+                    <livewire:packages.favorite :package="$package">
                 </div>
                 
             </div>

@@ -1,5 +1,6 @@
 <?php
 
+use App\Services\Github;
 use Illuminate\Support\Facades\Route;
 
 // Auth
@@ -50,4 +51,6 @@ Route::get('/packages/{vendor}/{package}', 'PackagesController@show')->name('app
 Route::get('/packages/{vendor}/{package}/screenshots', 'PackageScreenshotsController@show')->name('app.packages.screenshots.show');
 Route::post('/packages/{vendor}/{package}/screenshots', 'PackageScreenshotsController@store')->name('app.packages.screenshots.store');
 
-Route::view('/test', 'components.paginated-card');
+// Route::get('/test', function (Github $client) {
+//     $client->starRepo('test', 'test');
+// });
