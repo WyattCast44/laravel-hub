@@ -1,9 +1,8 @@
-/* purgecss start ignore */
-@tailwind base;
-@tailwind components;
-/* purgecss end ignore */
+@import "tailwindcss/base";
 
-@tailwind utilities;
+@import "tailwindcss/components";
+
+@import "tailwindcss/utilities";
 
 a {
     @apply text-red-500;

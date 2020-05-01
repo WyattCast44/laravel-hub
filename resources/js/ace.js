@@ -10,8 +10,6 @@ document.addEventListener("turbolinks:load", function () {
 
     let data = element.dataset;
 
-    // console.log('here', element, data);
-
     window.editor = ace.edit("ace-editor", {
         minLines: (data.aceMinLines) ? data.aceMinLines : 5,
         maxLines: (data.aceMaxLines) ? data.aceMaxLines : 100,

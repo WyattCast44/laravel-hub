@@ -1,4 +1,10 @@
 module.exports = {
+    purge: [
+        './resources/**/*.md',
+        './resources/**/*.js',
+        './resources/**/*.html',
+        './resources/**/*.blade.php',
+    ],
     theme: {
         extend: {
             fontFamily: {
@@ -15,5 +21,5 @@ module.exports = {
     plugins: [
         require("@tailwindcss/custom-forms"),
         require('@tailwindcss/ui'),
-    ]
+    ],
 };
