@@ -2,7 +2,7 @@
     
     <div class="block">
         
-        <div class="px-4 py-4 sm:px-6">
+        <div class="px-4 py-6 sm:px-6">
             
             <!-- Top row -->
             <div class="flex items-center justify-between">
@@ -42,9 +42,9 @@
                    
                 </div>
 
-                <div class="flex mt-2">
-                    {{-- <livewire:packages.star :package="$package" :key="$package->id"> --}}
-                    {{-- <livewire:packages.favorite :package="$package" :key="$package->id"> --}}
+                <div class="flex">
+                    <livewire:packages.star :package="$package" :key="$package->id">
+                    <livewire:packages.favorite :package="$package" :key="$package->id">
                 </div>
                 
             </div>

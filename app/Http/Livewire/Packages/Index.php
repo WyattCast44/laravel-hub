@@ -12,7 +12,7 @@ class Index extends Component
 
     public $page = 1;
 
-    public $perPage = 5;
+    public $perPage = 10;
 
     public $search = '';
 
@@ -91,13 +91,5 @@ class Index extends Component
 
     public function updatedSearch() {
         $this->resetPage();
-    }
-
-    /* Fix nextPage/previousPage to disallow overflows */
-    public function previousPage()
-    {
-        if ($this->page > 1) {
-            $this->page = $this->page - 1;
-        }
     }
 }
