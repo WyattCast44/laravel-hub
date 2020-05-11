@@ -90,7 +90,7 @@ class Index extends Component
     }
 
     public function updatedSearch() {
-        $this->gotoPage(1);
+        $this->resetPage();
     }
 
     /* Fix nextPage/previousPage to disallow overflows */
