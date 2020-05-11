@@ -3,13 +3,13 @@
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
 use App\User;
-use Faker\Generator as Faker;
 use Illuminate\Support\Str;
+use Faker\Generator as Faker;
 
 
 $factory->define(User::class, function (Faker $faker) {
     return [
-        'username' => $faker->userName,
+        'username' => $faker->unique()->userName,
         'name' => $faker->name,
         'email' => $faker->unique()->safeEmail,
         'avatar' => null,
