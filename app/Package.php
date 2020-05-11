@@ -49,7 +49,13 @@ class Package extends Model
 
     public function searchableAs()
     {
-        return 'packages_index';
+        $env = app()->environment();
+
+        if ($env == "production") {
+            return 'packages_index';
+        } 
+
+        return 'packages_index_testing';
     }
 
     public function toSearchableArray()
