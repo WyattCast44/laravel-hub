@@ -100,11 +100,4 @@ class Index extends Component
             $this->page = $this->page - 1;
         }
     }
-
-    public function nextPage()
-    {
-        if ($this->page < $this->totalPages) {
-            $this->page = $this->page + 1;
-        }
-    }
 }
