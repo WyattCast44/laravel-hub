@@ -19,8 +19,8 @@ class Index extends Component
     protected $query = null;
 
     protected $updatesQueryString = [
-        ['search' => ['except' => '']],
-        ['page' => ['except' => 1]],
+        'search' => ['except' => ''],
+        'page' => ['except' => 1],
     ];
 
     public function mount()
