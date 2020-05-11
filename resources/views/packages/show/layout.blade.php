@@ -36,10 +36,6 @@
 
                         <!-- Star Count -->
                         <livewire:packages.star :package="$package">
-                        {{-- <div class="flex items-center mt-2 text-sm leading-5 text-gray-500 sm:mr-4">
-                            @svg('star', 'w-5 h-5 text-yellow-400 mr-1.5')
-                            {{ number_format($package->stars_count) }} stars
-                        </div> --}}
 
                         <!-- Favorites Count -->
                         <livewire:packages.favorite :package="$package">
@@ -180,7 +176,7 @@
                             Screenshots
                         </a>
                         
-                        <!-- Tutorials -->
+                        {{-- <!-- Tutorials -->
                         <a href="#"
                            class="px-3 py-2 mr-3 text-sm font-medium leading-5 text-gray-500 rounded-md hover:text-gray-700 focus:outline-none focus:text-gray-600 focus:bg-gray-100 hover:no-underline hover:bg-red-100">
                             Tutorials
@@ -190,7 +186,7 @@
                         <a href="#"
                            class="px-3 py-2 mr-3 text-sm font-medium leading-5 text-gray-500 rounded-md hover:text-gray-700 focus:outline-none focus:text-gray-600 focus:bg-gray-100 hover:no-underline hover:bg-red-100">
                             Related
-                        </a>
+                        </a> --}}
 
                         <!-- Edit -->
                         @if(auth()->check() && $package->user->id == auth()->id())
