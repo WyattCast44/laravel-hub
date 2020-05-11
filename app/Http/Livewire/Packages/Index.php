@@ -89,6 +89,10 @@ class Index extends Component
         return 'partials.pagination';
     }
 
+    public function updatedSearch() {
+        $this->gotoPage(1);
+    }
+
     /* Fix nextPage/previousPage to disallow overflows */
     public function previousPage()
     {
