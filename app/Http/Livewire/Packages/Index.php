@@ -18,32 +18,10 @@ class Index extends Component
 
     protected $query = null;
 
-    protected $totalPages = 1;
-
-    // protected $updatesQueryString = [
-    //     'search'
-    // ];
-
     protected $updatesQueryString = [
         ['search' => ['except' => '']],
         ['page' => ['except' => 1]],
     ];
-
-    protected function initQuery()
-    {
-        // Init the query if needed
-        if ($this->query == null) {
-            $this->query = Package::query();
-        }
-
-        // Add a search if needed
-        if ($this->search) {
-            $this->query = Package::search($this->search);
-        } else {
-            $this->query = Package::latest()
-                ->with(['user', 'favorites']);
-        }
-    }
 
     public function mount()
     {
@@ -74,7 +52,10 @@ class Index extends Component
 
         $packages = $this->query->paginate($this->perPage);
 
-        $this->totalPages = $packages->lastPage();
+        logger('search', [
+            'search' => $this->search,
+            'packages' => $packages->pluck('name')
+        ]);
 
         return $packages;
     }

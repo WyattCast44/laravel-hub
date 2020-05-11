@@ -1,4 +1,4 @@
-<li class="border-b border-gray-200">
+<div class="border-b border-gray-200">
     
     <div class="block">
         
@@ -32,19 +32,21 @@
             <div class="flex-col mt-2 sm:flex-row sm:justify-between">
                 
                 <!-- Second Row Left -->
-                <div class="sm:flex">
-                    
-                    @if($package->description)
+                @if($package->description)
+                    <div class="sm:flex">
                         <div class="flex items-center mr-6 text-sm leading-5 text-gray-500">
                             {{ $package->description }}
                         </div>
-                    @endif
-                   
-                </div>
+                    </div>
+                @endif
 
                 <div class="flex">
-                    <livewire:packages.star :package="$package" :key="$package->id">
-                    <livewire:packages.favorite :package="$package" :key="$package->id">
+                    <div>
+                        <livewire:packages.star :package="$package" :key="(rand() * $package->id)">
+                    </div>
+                    <div>
+                        <livewire:packages.favorite :package="$package" :key="(rand() * $package->id)">
+                    </div>
                 </div>
                 
             </div>
@@ -53,4 +55,4 @@
 
     </div>
     
-</li>
+</div>
