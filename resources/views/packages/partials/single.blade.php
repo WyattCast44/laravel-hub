@@ -41,12 +41,9 @@
                 @endif
 
                 <div class="flex">
-                    <div>
-                        <livewire:packages.star :package="$package" :key="(rand() * $package->id)">
-                    </div>
-                    <div>
-                        <livewire:packages.favorite :package="$package" :key="(rand() * $package->id)">
-                    </div>
+                    <livewire:packages.star :package="$package" :key="(rand() * $package->id)">
+                    <livewire:packages.favorite :package="$package" :key="(rand() * $package->id)">
+                    
                 </div>
                 
             </div>
@@ -56,3 +53,25 @@
     </div>
     
 </div>
+
+@component('components.code-component', ['viewName' => 'show-users.blade.php'])
+@slot('view')
+@verbatim
+<div>
+    @foreach ($users as $user)
+        <livewire:user-profile :user="$user" :key="$user->id">
+            @endforeach
+        </div>
+        @endverbatim
+        @endslot
+        @endcomponent
+        
+        
+```php
+// user-profile component
+<div>
+    // Some markup
+    <livewire:user-profile-additional-component :user="$user" :key="(rand() * $user->id)">
+    <livewire:user-profile-some-related-component :user="$user" :key="(rand() * $user->id)">
+</div>
+```
