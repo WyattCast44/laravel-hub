@@ -1,7 +1,10 @@
 <?php
 
-use App\Services\Github;
 use Illuminate\Support\Facades\Route;
+
+// General
+Route::get('/', 'WelcomeController')->name('index');
+Route::get('/search', 'SearchController@index')->name('search');
 
 // Auth
 Route::post('logout', 'Auth\LogoutController')->name('auth.logout');
@@ -12,10 +15,6 @@ Route::get('login', 'Auth\LoginController@redirectToProvider')->name('auth.login
 Route::get('/settings', 'UserSettingsController@show')->name('app.settings.index');
 Route::post('/settings/resync', 'UserSettingsController@resync')->name('app.settings.account.resync');
 Route::delete('/settings/account', 'UserSettingsController@delete')->name('app.settings.account.delete');
-
-// General
-Route::get('/', 'WelcomeController')->name('index');
-Route::get('/search', 'SearchController@index')->name('search');
 
 // Users
 Route::get('/users/{user}', 'UserProfilesController@show')->name('app.users.show');
