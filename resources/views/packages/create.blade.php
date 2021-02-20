@@ -9,11 +9,11 @@
         <div class="mx-2 overflow-hidden bg-white rounded-lg shadow md:mx-0">
         
             <!-- Header -->
-            <div class="px-4 py-5 bg-white border-b border-gray-200 sm:px-6">
+            <div class="px-4 py-5 bg-white border-b border-gray-300 sm:px-6">
                 <h3 class="text-lg font-medium leading-6 text-gray-900">
                     Submit Your Package
                 </h3>
-                <p class="mt-1 text-sm leading-5 text-gray-500">
+                <p class="mt-1 text-sm leading-5 text-gray-600">
                     Share your package with the community. Please only submit packages that you own or
                     created.
                 </p>
@@ -24,12 +24,12 @@
 
                 @csrf
 
-                <div>
-                    <span class="block mb-2 font-semibold text-gray-700">1. GitHub URL</span>
-                    <div class="flex mt-1 rounded-md shadow-sm">
-                        <input type="url" class="block w-full mt-1 focus:outline-none focus:ring-2 focus:ring-red-400 focus:ring-offset-1 focus:border-red-300" placeholder="https://github.com/user/repo" name="url" autocomplete="off" spellcheck="false">
+                <label for="url">
+                    <span class="block mb-3 font-semibold text-gray-700">1. GitHub URL</span>
+                    <div class="flex">
+                        <input type="url" id="url" class="block w-full focus:outline-none focus:ring-2 focus:ring-red-400 focus:ring-offset-1 focus:border-red-300" placeholder="https://github.com/user/repo" name="url" autocomplete="off" spellcheck="false">
                     </div>
-                </div>
+                </label>
 
                 @error('url')
                     <x-form-error :message="$message"></x-form-error>
@@ -70,11 +70,11 @@
             </div>
                 
             <!-- Footer -->
-            <div class="flex items-center justify-between px-4 py-3 border-t border-gray-200 sm:px-6">
+            <div class="flex items-center justify-between px-4 py-3 border-t border-gray-300 sm:px-6">
                 
                 <a href="{{ route('app.packages.index') }}" class="mr-4">Cancel</a>
 
-                <button class="px-4 py-2 font-semibold text-center text-white bg-red-500 rounded hover:no-underline hover:shadow hover:bg-red-600">
+                <button class="px-4 py-2 font-semibold text-center text-white bg-red-500 rounded hover:no-underline hover:shadow hover:bg-red-600 focus:outline-none focus:ring-2 ring-offset-1 ring-red-400">
                     Submit Package
                 </button>
 
