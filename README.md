@@ -55,3 +55,25 @@ GITHUB_CLIENT_SECRET=your-secret
 ```bash
 php artisan migrate --seed
 ```
+
+### Laravel Scout
+
+This project uses Laravel Scout for searching various models, for local development it can be useful to use the `mysql` driver instead of the Algolia driver. To use this driver set the following `env` values:
+
+```bash
+SCOUT_DRIVER=mysql
+SYNC_WITH_SEARCH=true
+SCOUT_QUEUE=false
+ALGOLIA_APP_ID=
+ALGOLIA_SECRET=
+```
+
+If you wish to use Algolia, use the following setup, with your algolia keys: 
+
+```bash
+SCOUT_DRIVER=algolia
+SYNC_WITH_SEARCH=true
+SCOUT_QUEUE=true
+ALGOLIA_APP_ID=your-app-id
+ALGOLIA_SECRET=your-app-secret
+```

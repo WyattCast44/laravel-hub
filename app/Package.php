@@ -53,7 +53,7 @@ class Package extends Model
 
         if ($env == "production") {
             return 'packages_index';
-        } 
+        }
 
         return 'packages_index_testing';
     }

@@ -8,7 +8,7 @@
 
             <div class="flex flex-col items-center justify-center">
                 
-                <img src="{{ asset('logo-2.png') }}" alt="Laravel Hub" class="h-24 md:h-40">
+                <img src="{{ asset('logo.png') }}" alt="Laravel Hub" class="h-24 md:h-40">
 
                 <div class="mt-6 text-center text-red-500">
                     <h1 class="text-4xl font-bold leading-tight tracking-tighter text-red-500 md:text-6xl font-header hover:no-underline">

@@ -88,4 +88,32 @@ return [
         'secret' => env('ALGOLIA_SECRET', ''),
     ],
 
+    /*
+    |--------------------------------------------------------------------------
+    | Configurable Flag
+    |--------------------------------------------------------------------------
+    |
+    | Here you may disable the syncing with the given driver, useful 
+    | in some situtations.
+    |
+    */
+    'should_sync' => env('SYNC_WITH_SEARCH', true),
+
+    /*
+    |--------------------------------------------------------------------------
+    | MySQL Driver config
+    |--------------------------------------------------------------------------
+    |
+    | @link https://github.com/yabhq/laravel-scout-mysql-driver
+    |
+    */
+    'mysql' => [
+        'mode' => 'NATURAL_LANGUAGE',
+        'model_directories' => [app_path()],
+        'min_search_length' => 0,
+        'min_fulltext_search_length' => 4,
+        'min_fulltext_search_fallback' => 'LIKE',
+        'query_expansion' => false
+    ]
+
 ];
