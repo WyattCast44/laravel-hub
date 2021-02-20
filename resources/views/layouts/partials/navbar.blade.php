@@ -84,7 +84,7 @@
 
                 @auth
 
-                    <div class="relative flex items-center" x-data="{ open: false }">
+                    <div class="relative flex items-center" x-data="{ open: false }" x-on:keydown.escape="open=false">
 
                         <button class="flex items-center text-red-500" x-on:click="open = true" aria-label="Open the user profile menu" aria-label="Open the user profile menu">
                             <img src="{{ auth()->user()->avatar }}" alt="{{ auth()->user()->name }}'s avatar" class="w-8 h-8 rounded-lg shadow">

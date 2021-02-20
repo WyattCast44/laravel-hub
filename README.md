@@ -35,7 +35,7 @@ composer install
 #### Install NPM dependencies (Optional)
 
 ```bash
-npm install
+yarn install
 ```
 
 #### Create OAuth App
@@ -56,7 +56,7 @@ GITHUB_CLIENT_SECRET=your-secret
 php artisan migrate --seed
 ```
 
-### Laravel Scout
+#### Laravel Scout
 
 This project uses Laravel Scout for searching various models, for local development it can be useful to use the `mysql` driver instead of the Algolia driver. To use this driver set the following `env` values:
 
@@ -76,6 +76,14 @@ SYNC_WITH_SEARCH=true
 SCOUT_QUEUE=true
 ALGOLIA_APP_ID=your-app-id
 ALGOLIA_SECRET=your-app-secret
+```
+
+# Testing
+
+You can run the application test suite after setup by running the following command:
+
+```bash
+php artisan test --parallel
 ```
 
 # Deploy Script

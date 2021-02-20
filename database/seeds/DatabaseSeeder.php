@@ -31,23 +31,23 @@ class DatabaseSeeder extends Seeder
 
     protected $repos = [
         'WyattCast44/laravel-schema',
-        'WyattCast44/laravel-safe-username',
-        'spatie/laravel-dashboard-time-weather-tile',
-        'spatie/laravel-medialibrary',
-        'spatie/package-skeleton-laravel',
-        'spatie/laravel-dashboard',
-        'spatie/unit-conversions',
-        'spatie/package-skeleton-php',
-        'spatie/laravel-dashboard-twitter-tile',
-        'spatie/laravel-dashboard-calendar-tile',
-        'spatie/phpunit-snapshot-assertions',
-        'spatie/laravel-db-snapshots',
-        'spatie/laravel-query-builder',
-        'spatie/db-dumper',
-        'spatie/docker',
-        'spatie/laravel-backup-server',
-        'spatie/laravel-event-sourcing',
-        'spatie/laravel-model-states',
+        // 'WyattCast44/laravel-safe-username',
+        // 'spatie/laravel-dashboard-time-weather-tile',
+        // 'spatie/laravel-medialibrary',
+        // 'spatie/package-skeleton-laravel',
+        // 'spatie/laravel-dashboard',
+        // 'spatie/unit-conversions',
+        // 'spatie/package-skeleton-php',
+        // 'spatie/laravel-dashboard-twitter-tile',
+        // 'spatie/laravel-dashboard-calendar-tile',
+        // 'spatie/phpunit-snapshot-assertions',
+        // 'spatie/laravel-db-snapshots',
+        // 'spatie/laravel-query-builder',
+        // 'spatie/db-dumper',
+        // 'spatie/docker',
+        // 'spatie/laravel-backup-server',
+        // 'spatie/laravel-event-sourcing',
+        // 'spatie/laravel-model-states',
     ];
 
 
@@ -58,7 +58,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->packages();
+        $this->packages();
 
         factory(Template::class, 10)->create();
     }
