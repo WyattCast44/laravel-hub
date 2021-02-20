@@ -1,51 +1,63 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SearchController;
+use App\Http\Controllers\WelcomeController;
+use App\Http\Controllers\PackagesController;
+use App\Http\Controllers\TemplatesController;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\LogoutController;
+use App\Http\Controllers\PackageSyncController;
+use App\Http\Controllers\UserProfilesController;
+use App\Http\Controllers\UserSettingsController;
 
 // General
-Route::get('/', 'WelcomeController')->name('index');
-Route::get('/search', 'SearchController@index')->name('search');
+Route::get('/', WelcomeController::class)->name('index');
+Route::get('/search', [SearchController::class, 'index'])->name('search');
 
 // Auth
-Route::post('logout', 'Auth\LogoutController')->name('auth.logout');
-Route::get('login/callback', 'Auth\LoginController@handleProviderCallback');
-Route::get('login', 'Auth\LoginController@redirectToProvider')->name('auth.login');
+Route::post('logout', LogoutController::class)->name('auth.logout');
+Route::get('login/callback', [LoginController::class, 'handleProviderCallback']);
+Route::get('login', [LoginController::class, 'redirectToProvider'])->name('auth.login');
 
-// Settings
-Route::get('/settings', 'UserSettingsController@show')->name('app.settings.index');
-Route::post('/settings/resync', 'UserSettingsController@resync')->name('app.settings.account.resync');
-Route::delete('/settings/account', 'UserSettingsController@delete')->name('app.settings.account.delete');
+Route::name('app.')->group(function () {
+    // Settings
+    Route::get('/settings', [UserSettingsController::class, 'show'])->name('settings.index');
+    Route::post('/settings/resync', [UserSettingsController::class, 'resync'])->name('settings.account.resync');
+    Route::delete('/settings/account', [UserSettingsController::class, 'delete'])->name('settings.account.delete');
 
-// Users
-Route::get('/users/{user}', 'UserProfilesController@show')->name('app.users.show');
-Route::get('/users/{user}/packages', 'UserPackagesController@show')->name('app.users.packages.show');
-Route::get('/users/{user}/favorites', 'UserFavoritesController@show')->name('app.users.favorites.show');
-Route::get('/users/{user}/templates', 'UserTemplatesController@show')->name('app.users.templates.show');
+    // Users
+    Route::get('/users/{user}', [UserProfilesController::class, 'show'])->name('users.show');
+    Route::get('/users/{user}/packages', [UserPackagesController::class, 'show'])->name('users.packages.show');
+    Route::get('/users/{user}/favorites', [UserFavoritesController::class, 'show'])->name('users.favorites.show');
+    Route::get('/users/{user}/templates', [UserTemplatesController::class, 'show'])->name('users.templates.show');
+});
 
 // Templates
-Route::get('/templates', 'TemplatesController@index')->name('app.templates.index');
-Route::post('/templates', 'TemplatesController@store')->name('app.templates.store');
-Route::get('/templates/create', 'TemplatesController@create')->name('app.templates.create');
-Route::get('/templates/{template}', 'TemplatesController@show')->name('app.templates.show');
-Route::post('/templates/{template}/favorites', 'TemplatesFavoritesController@store')->name('app.templates.favorites.store');
-Route::delete('/templates/{template}/favorites', 'TemplatesFavoritesController@delete')->name('app.templates.favorites.delete');
+Route::name('app.templates.')->prefix('templates')->group(function () {
+    Route::get('/', [TemplatesController::class, 'index'])->name('index');
+    Route::post('/', [TemplatesController::class, 'store'])->name('store');
+    Route::get('/create', [TemplatesController::class, 'create'])->name('create');
+    Route::get('/{template}', [TemplatesController::class, 'show'])->name('show');
+    Route::post('/{template}/favorites', [TemplatesFavoritesController::class, 'store'])->name('favorites.store');
+    Route::delete('/{template}/favorites', [TemplatesFavoritesController::class, 'delete'])->name('favorites.delete');
+});
 
-/**
- * Packages
- */
+// Packages
+Route::name('app.packages.')->prefix('packages')->group(function () {
+    // Package --> Index
+    Route::get('/', [PackagesController::class, 'index'])->name('index');
 
-// Package --> Index
-Route::get('/packages', 'PackagesController@index')->name('app.packages.index');
+    // Package --> Create/Store/Delete
+    Route::post('/', [PackagesController::class, 'store'])->name('store');
+    Route::get('/create', [PackagesController::class, 'create'])->name('create');
+    Route::delete('/{vendor}/{package}', [PackagesController::class, 'delete'])->name('delete');
+    Route::get('/{vendor}/{package}/edit', [PackagesController::class, 'edit'])->name('edit');
 
-// Package --> Create/Store/Delete
-Route::post('/packages', 'PackagesController@store')->name('app.packages.store');
-Route::get('/packages/create', 'PackagesController@create')->name('app.packages.create');
-Route::delete('/packages/{vendor}/{package}', 'PackagesController@delete')->name('app.packages.delete');
-Route::get('/packages/{vendor}/{package}/edit', 'PackagesController@edit')->name('app.packages.edit');
+    Route::post('/{vendor}/{package}/resync', PackageSyncController::class)->name('resync');
 
-Route::post('/packages/{vendor}/{package}/resync', 'PackageSyncController')->name('app.packages.resync');
-
-// Package --> Show
-Route::get('/packages/{vendor}/{package}', 'PackagesController@show')->name('app.packages.show');
-Route::get('/packages/{vendor}/{package}/screenshots', 'PackageScreenshotsController@show')->name('app.packages.screenshots.show');
-Route::post('/packages/{vendor}/{package}/screenshots', 'PackageScreenshotsController@store')->name('app.packages.screenshots.store');
+    // Package --> Show
+    Route::get('/{vendor}/{package}', [PackagesController::class, 'show'])->name('show');
+    Route::get('/{vendor}/{package}/screenshots', [PackageScreenshotsController::class, 'show'])->name('screenshots.show');
+    Route::post('/{vendor}/{package}/screenshots', [PackageScreenshotsController::class, 'store'])->name('screenshots.store');
+});

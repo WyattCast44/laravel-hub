@@ -1,7 +1,5 @@
 @import "tailwindcss/base";
-
 @import "tailwindcss/components";
-
 @import "tailwindcss/utilities";
 
 a {
@@ -16,3 +14,7 @@ a:hover {
 .markdown-body ul {
     @apply list-disc;
 }
+
+.turbolinks-progress-bar {
+    @apply bg-red-400 h-1;
+  }
