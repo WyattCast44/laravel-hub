@@ -4,7 +4,7 @@ namespace Tests\Feature;
 
 use Tests\TestCase;
 
-class PagesTest extends TestCase
+class GeneralPagesTest extends TestCase
 {
     public function test_homepage()
     {
