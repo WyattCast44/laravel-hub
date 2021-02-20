@@ -31,7 +31,7 @@
                     <label for="name" class="block pl-1 font-semibold text-gray-700">
                         Name
                     </label>
-                    <input class="block w-full my-2 placeholder-gray-600 form-input" placeholder="my-laravel-template" name="name" autocomplete="off">
+                    <input type="text" class="block w-full my-2 placeholder-gray-600 form-input" placeholder="my-laravel-template" name="name" autocomplete="off" spellcheck="false">
                     <span class="block pl-1 text-sm text-gray-500">Required. This will show when users are searching the package page</span> 
                 </div>
 
