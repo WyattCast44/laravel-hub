@@ -13,8 +13,10 @@ class ValidRepoUrlTest extends TestCase
      *
      * @return void
      */
-    public function test_validates_urls_properly(Github $client)
+    public function test_validates_urls_properly()
     {
+        $client = app()->make(Github::class);
+
         $this->assertTrue((new ValidRepoUrl($client))->passes('url', 'https://github.com/laravel/laravel'));
 
         $this->assertFalse((new ValidRepoUrl($client))->passes('url', 'https://github.com/totally-fake-user/with-totally-fake-repo'));

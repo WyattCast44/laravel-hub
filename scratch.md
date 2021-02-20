@@ -65,15 +65,6 @@
 
 //     dd($content);
 // });
-
-// Route::get('/test', function () {
-//     $package = Package::first();
-//     $client = app('GitHub');
-//     $r = $client->cachePackageReadme($package);
-//     $html = GitDown::parseAndCache($r);
-//     return view('test', compact('html'));
-// });
-
 ```
 
 ```php

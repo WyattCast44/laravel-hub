@@ -12,7 +12,6 @@
     <link rel="manifest" href="/site.webmanifest">
     <script src="{{ asset('js/app.js') }}" defer></script>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    @gitdown
     @livewireStyles
     @stack('head')
 </head>

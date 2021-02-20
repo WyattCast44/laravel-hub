@@ -2,13 +2,10 @@
 
 namespace App\Services;
 
-use App\Package;
-use Exception;
-use GitDown\Facades\GitDown;
 use Illuminate\Support\Str;
 use GitHub\Client as GitHubClient;
 use Github\HttpClient\Message\ResponseMediator;
-use Illuminate\Support\Collection;
+use Illuminate\Mail\Markdown;
 
 /**
  * @link https://github.com/KnpLabs/php-github-api
@@ -90,7 +87,7 @@ class Github
 
             if ($compileMarkdown) {
                 try {
-                    $parsed = GitDown::parse($content);
+                    $parsed = Markdown::parse($content);
 
                     $content = $parsed;
                 } catch (\Exception $e) {
@@ -131,6 +128,7 @@ class Github
             $this->repo($parts[0], $parts[1]);
             return true;
         } catch (\Exception $e) {
+            throw $e;
             report($e);
             return false;
         }
