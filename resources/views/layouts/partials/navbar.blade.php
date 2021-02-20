@@ -17,15 +17,15 @@
 
                 <nav class="items-center hidden ml-5 space-x-4 md:flex">
 
-                    <a href="{{ route('app.packages.index') }}" class="text-lg text-gray-700 transition-all duration-100 hover:no-underline hover:text-red-500" title="View the packages page">
+                    <a href="{{ route('app.packages.index') }}" class="text-lg text-gray-700 transition-all duration-100 hover:no-underline hover:text-red-600" title="View the packages page">
                         Packages
                     </a>
 
-                    <a href="{{ route('app.templates.index') }}" class="text-lg text-gray-700 transition-all duration-100 hover:no-underline hover:text-red-500" title="View the templates page">
+                    <a href="{{ route('app.templates.index') }}" class="text-lg text-gray-700 transition-all duration-100 hover:no-underline hover:text-red-600" title="View the templates page">
                         Templates
                     </a>
 
-                    <a href="{{ route('search') }}" class="text-lg text-gray-700 transition-all duration-100 hover:no-underline hover:text-red-500" title="View the search page">
+                    <a href="{{ route('search') }}" class="text-lg text-gray-700 transition-all duration-100 hover:no-underline hover:text-red-600" title="View the search page">
                         Search
                     </a>
                     

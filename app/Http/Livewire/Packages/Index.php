@@ -18,7 +18,7 @@ class Index extends Component
 
     protected $query = null;
 
-    protected $updatesQueryString = [
+    protected $queryString = [
         'search' => ['except' => ''],
         'page' => ['except' => 1],
     ];
@@ -70,7 +70,8 @@ class Index extends Component
         return 'partials.pagination';
     }
 
-    public function updatedSearch() {
+    public function updatedSearch()
+    {
         $this->resetPage();
     }
 }

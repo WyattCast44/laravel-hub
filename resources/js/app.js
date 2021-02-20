@@ -1,6 +1,8 @@
-import Alpine from "alpinejs";
+import {
+    start as startTurbo
+} from '@hotwired/turbo';
+import 'alpine-turbo-drive-adapter';
+import 'alpinejs';
 
-let Turbolinks = require("turbolinks");
 
-Turbolinks.start();
-
+startTurbo();
