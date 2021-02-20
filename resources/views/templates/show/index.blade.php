@@ -20,6 +20,15 @@
 
 @section('template-page')
 
-    <textarea name="content" id="content" class="border-2">{{  $template->content }}</textarea>
+    <div x-data x-init="function() {
+        CodeMirror.fromTextArea(
+            document.querySelector('#content'),
+            {
+                lineNumbers: true,
+                indentUnit: 4
+            }
+        )}">
+        <textarea name="content" id="content" class="border-2">{{  $template->content }}</textarea>
+    </div>
 
 @endsection
