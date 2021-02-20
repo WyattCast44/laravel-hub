@@ -77,3 +77,10 @@ SCOUT_QUEUE=true
 ALGOLIA_APP_ID=your-app-id
 ALGOLIA_SECRET=your-app-secret
 ```
+
+# Deploy Script
+
+```bash
+$FORGE_PHP artisan migrate --force
+$FORGE_PHP artisan scout:mysql-index
+```

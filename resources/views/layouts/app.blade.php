@@ -10,9 +10,9 @@
     
     <livewire:styles />
     <livewire:scripts />
-    <script src="{{ mix('js/livewire-turbolinks.js') }}" data-turbo-eval="false" defer></script>
-    <link href="{{ mix('css/app.css') }}" rel="stylesheet">
-    <script src="{{ mix('js/app.js') }}" defer></script>
+    <script src="{{ mix('js/livewire-turbolinks.js') }}" data-turbo-eval="false" data-turbo-track="reload" defer></script>
+    <link href="{{ mix('css/app.css') }}" rel="stylesheet" data-turbo-track="reload">
+    <script src="{{ mix('js/app.js') }}" data-turbo-track="reload" defer></script>
     
     @stack('head')
 </head>

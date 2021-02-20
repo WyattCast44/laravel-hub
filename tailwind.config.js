@@ -4,6 +4,7 @@ module.exports = {
         './resources/**/*.js',
         './resources/**/*.html',
         './resources/**/*.blade.php',
+        './storage/framework/views/**/*.blade.php',
     ],
     theme: {
         screens: {
