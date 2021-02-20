@@ -35,6 +35,10 @@
                     <span class="block pl-1 text-sm text-gray-500">Required. This will show when users are searching the package page</span> 
                 </div>
 
+                @error('name')
+                    <x-form-error :message="$message"></x-form-error>
+                @enderror
+
                 <!-- Description -->
                 <div class="mt-6">
                     <label for="description" class="block pl-1 font-semibold text-gray-700">
@@ -43,6 +47,10 @@
                     <textarea class="block w-full my-2 placeholder-gray-600 resize-y form-input" rows="3" placeholder="This template is used to scaffold..." name="description"></textarea>
                     <span class="block pl-1 text-sm text-gray-500">Required. Briefly explain what this template is used for</span> 
                 </div>
+
+                @error('description')
+                    <x-form-error :message="$message"></x-form-error>
+                @enderror
 
                 <!-- Template -->
                 <div class="mt-6" x-data x-init="function() {
@@ -60,6 +68,10 @@
 laravel: master</textarea>
                     <span class="block pl-1 text-sm text-gray-500">Required.</span> 
                 </div>
+
+                @error('content')
+                    <x-form-error :message="$message"></x-form-error>
+                @enderror
 
                 <div class="mt-6">
                     <button type="submit" class="block w-full py-3 font-semibold text-center text-white bg-red-500 rounded hover:no-underline hover:shadow hover:bg-red-600">

@@ -17,4 +17,8 @@ a:hover {
 
 .turbolinks-progress-bar {
     @apply bg-red-400 h-1;
-  }
+}
+
+.CodeMirror {
+    @apply border-2 border-gray-400;
+}

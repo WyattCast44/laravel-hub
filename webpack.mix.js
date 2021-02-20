@@ -13,8 +13,8 @@ mix.sass("resources/sass/app.scss", "public/css").options({
     postCss: [tailwindcss("tailwind.config.js")]
 });
 
+mix.sourceMaps()
+
 if (mix.inProduction()) {
-    mix
-        .version()
-        .sourceMaps()
+    mix.version()
 }

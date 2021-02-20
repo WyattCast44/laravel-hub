@@ -6,18 +6,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.59.2/mode/yaml/yaml.min.js" integrity="sha512-+aXDZ93WyextRiAZpsRuJyiAZ38ztttUyO/H3FZx4gOAOv4/k9C6Um1CvHVtaowHZ2h7kH0d+orWvdBLPVwb4g==" crossorigin="anonymous"></script>
 @endpush
 
-@push('footer')
-    <script>
-        let cm = new CodeMirror.fromTextArea(
-            document.querySelector("#content"),
-            {
-                lineNumbers: true,
-                indentUnit: 4
-            }
-        );
-    </script>
-@endpush
-
 @section('template-page')
 
     <div x-data x-init="function() {

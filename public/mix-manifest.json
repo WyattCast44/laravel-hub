@@ -1,7 +1,7 @@
 {
-    "/js/codemirror.js": "/js/codemirror.js",
-    "/js/app.js": "/js/app.js",
-    "/js/livewire-turbolinks.js": "/js/livewire-turbolinks.js",
-    "/css/codemirror.css": "/css/codemirror.css",
-    "/css/app.css": "/css/app.css"
+    "/js/codemirror.js": "/js/codemirror.js?id=9229bb6a6aab07a85be3",
+    "/js/app.js": "/js/app.js?id=72338dd4a52bbfddd0c7",
+    "/js/livewire-turbolinks.js": "/js/livewire-turbolinks.js?id=2635ae80a000627575d3",
+    "/css/codemirror.css": "/css/codemirror.css?id=7fa4ac86458cf2b28349",
+    "/css/app.css": "/css/app.css?id=ccfd5eaf3743b5035035"
 }
