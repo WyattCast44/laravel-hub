@@ -50,7 +50,7 @@
                     <!-- Btn 1 -->
                     <span class="hidden rounded-md shadow-sm sm:block">
                         <button type="button"
-                                class="inline-flex items-center px-4 py-2 text-sm font-medium leading-5 text-gray-700 transition duration-150 ease-in-out bg-white border border-gray-300 rounded-md hover:text-gray-500 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 active:text-gray-800 active:bg-gray-50">
+                                class="inline-flex items-center px-4 py-2 text-sm font-medium leading-5 text-gray-700 transition duration-150 ease-in-out bg-white border border-gray-300 rounded-md hover:text-gray-500 focus:outline-none focus:ring-blue focus:border-blue-300 active:text-gray-800 active:bg-gray-50">
                             <svg class="w-5 h-5 mr-2 -ml-1 text-gray-500"
                                  fill="currentColor"
                                  viewBox="0 0 20 20">
@@ -64,7 +64,7 @@
                     <!-- Btn 2 -->
                     <span class="hidden ml-3 rounded-md shadow-sm sm:block">
                         <button type="button"
-                                class="inline-flex items-center px-4 py-2 text-sm font-medium leading-5 text-gray-700 transition duration-150 ease-in-out bg-white border border-gray-300 rounded-md hover:text-gray-500 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 active:text-gray-800 active:bg-gray-50">
+                                class="inline-flex items-center px-4 py-2 text-sm font-medium leading-5 text-gray-700 transition duration-150 ease-in-out bg-white border border-gray-300 rounded-md hover:text-gray-500 focus:outline-none focus:ring-blue focus:border-blue-300 active:text-gray-800 active:bg-gray-50">
                             <svg class="w-5 h-5 mr-2 -ml-1 text-gray-500"
                                  fill="currentColor"
                                  viewBox="0 0 20 20">
@@ -79,7 +79,7 @@
                     <!-- Main Btn -->
                     <span class="rounded-md shadow-sm sm:ml-3">
                         <button type="button"
-                                class="inline-flex items-center px-4 py-2 text-sm font-medium leading-5 text-white transition duration-150 ease-in-out bg-indigo-600 border border-transparent rounded-md hover:bg-indigo-500 focus:outline-none focus:shadow-outline-indigo focus:border-indigo-700 active:bg-indigo-700">
+                                class="inline-flex items-center px-4 py-2 text-sm font-medium leading-5 text-white transition duration-150 ease-in-out bg-indigo-600 border border-transparent rounded-md hover:bg-indigo-500 focus:outline-none focus:ring-indigo focus:border-indigo-700 active:bg-indigo-700">
                             <svg class="w-5 h-5 mr-2 -ml-1"
                                  fill="currentColor"
                                  viewBox="0 0 20 20">
@@ -96,7 +96,7 @@
                           class="relative ml-3 rounded-md shadow-sm sm:hidden">
                         <button @click="open = !open"
                                 type="button"
-                                class="inline-flex items-center px-4 py-2 text-sm font-medium leading-5 text-gray-700 transition duration-150 ease-in-out bg-white border border-gray-300 rounded-md hover:bg-gray-50 focus:outline-none focus:shadow-outline focus:border-blue-300">
+                                class="inline-flex items-center px-4 py-2 text-sm font-medium leading-5 text-gray-700 transition duration-150 ease-in-out bg-white border border-gray-300 rounded-md hover:bg-gray-50 focus:outline-none focus:ring focus:border-blue-300">
                             More
                             <svg class="w-5 h-5 ml-2 -mr-1 text-gray-500"
                                  fill="currentColor"
@@ -115,7 +115,7 @@
                              x-transition:leave-start="transform opacity-100 scale-100"
                              x-transition:leave-end="transform opacity-0 scale-95"
                              class="absolute right-0 w-48 mt-2 -mr-1 origin-top-right rounded-md shadow-lg">
-                            <div class="py-1 bg-white rounded-md shadow-xs">
+                            <div class="py-1 bg-white rounded-md ring-1 ring-black ring-opacity-5">
                                 <a href="#"
                                    class="block px-4 py-2 text-sm leading-5 text-gray-700 transition duration-150 ease-in-out hover:bg-gray-100 focus:outline-none focus:bg-gray-100">Edit</a>
                                 <a href="#"

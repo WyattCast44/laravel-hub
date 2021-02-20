@@ -58,14 +58,14 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->packages();
-        
+        // $this->packages();
+
         factory(Template::class, 10)->create();
     }
-    
+
     public function packages()
     {
-        collect($this->repos)->each(function($repo) {
+        collect($this->repos)->each(function ($repo) {
 
             $parts = explode('/', $repo);
 
@@ -74,7 +74,7 @@ class DatabaseSeeder extends Seeder
             $repo = $parts[1];
 
             app(ProcessSubmittedPackage::class)->execute($username, $repo);
-            
+
             // $packages = factory(Package::class)->create([
             //     'repo_url' => $link,
             // ]);
@@ -85,7 +85,7 @@ class DatabaseSeeder extends Seeder
             //         'attachable_type' => get_class($package),
             //     ]);
             // });
-        });        
+        });
 
         return $this;
     }

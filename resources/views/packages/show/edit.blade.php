@@ -29,7 +29,7 @@
                                         <label for="email_address"
                                                class="block text-sm font-medium leading-5 text-gray-700">Package Vendor</label>
                                         <input id="email_address"
-                                               class="block w-full px-3 py-2 mt-1 transition duration-150 ease-in-out border border-gray-300 rounded-md shadow-sm form-input focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5" value="{{ $package->vendor }}" readonly/>
+                                               class="block w-full px-3 py-2 mt-1 transition duration-150 ease-in-out border border-gray-300 rounded-md shadow-sm form-input focus:outline-none focus:ring-blue focus:border-blue-300 sm:text-sm sm:leading-5" value="{{ $package->vendor }}" readonly/>
                                     </div>
                                 </div>
         
@@ -38,7 +38,7 @@
                                         <label for="email_address"
                                                class="block text-sm font-medium leading-5 text-gray-700">Package Name</label>
                                         <input id="email_address"
-                                               class="block w-full px-3 py-2 mt-1 transition duration-150 ease-in-out border border-gray-300 rounded-md shadow-sm form-input focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5" value="{{ $package->name }}" readonly />
+                                               class="block w-full px-3 py-2 mt-1 transition duration-150 ease-in-out border border-gray-300 rounded-md shadow-sm form-input focus:outline-none focus:ring-blue focus:border-blue-300 sm:text-sm sm:leading-5" value="{{ $package->name }}" readonly />
                                     </div>
                                 </div>
         
@@ -60,7 +60,7 @@
                                         <label for="email_address"
                                                class="block text-sm font-medium leading-5 text-gray-700">Repo URL</label>
                                         <input id="email_address"
-                                               class="block w-full px-3 py-2 mt-1 transition duration-150 ease-in-out border border-gray-300 rounded-md shadow-sm form-input focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5" value="{{ $package->repo_url }}" readonly />
+                                               class="block w-full px-3 py-2 mt-1 transition duration-150 ease-in-out border border-gray-300 rounded-md shadow-sm form-input focus:outline-none focus:ring-blue focus:border-blue-300 sm:text-sm sm:leading-5" value="{{ $package->repo_url }}" readonly />
                                     </div>
                                 </div>
 

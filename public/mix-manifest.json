@@ -1,7 +1,7 @@
 {
-    "/js/ace.js": "/js/ace.js",
-    "/js/ace-json.js": "/js/ace-json.js",
-    "/js/ace-yaml.js": "/js/ace-yaml.js",
     "/js/app.js": "/js/app.js",
+    "/js/ace.js": "/js/ace.js",
+    "/js/ace-yaml.js": "/js/ace-yaml.js",
+    "/js/ace-json.js": "/js/ace-json.js",
     "/css/app.css": "/css/app.css"
 }
