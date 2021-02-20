@@ -65,7 +65,7 @@ class Package extends Model
             'name' => $this->name,
             'vendor' => $this->vendor,
             'description' => $this->description,
-            'readme' => substr($this->parsed_readme, 0, 500),
+            'parsed_readme' => substr($this->parsed_readme, 0, 500),
             'language' => $this->language,
         ];
 

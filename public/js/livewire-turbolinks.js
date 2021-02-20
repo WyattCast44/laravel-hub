@@ -1,2 +1,94 @@
-(()=>{var e={30:(e,i,r)=>{var t,n;void 0===(n="function"==typeof(t=function(){"use strict";if(void 0===window.livewire)throw"Livewire Turbolinks Plugin: window.Livewire is undefined. Make sure @livewireScripts is placed above this script include";var e=!0;function i(){e?e=!1:window.Livewire.restart()}function r(){document.querySelectorAll("[wire\\:id]").forEach((function(e){var i=e.__livewire,r={fingerprint:i.fingerprint,serverMemo:i.serverMemo,effects:i.effects};e.setAttribute("wire:initial-data",JSON.stringify(r))}))}document.addEventListener("turbo:load",i),document.addEventListener("turbo:before-cache",r),document.addEventListener("turbolinks:load",i),document.addEventListener("turbolinks:before-cache",r),Livewire.hook("beforePushState",(function(e){e.turbolinks||(e.turbolinks={})})),Livewire.hook("beforeReplaceState",(function(e){e.turbolinks||(e.turbolinks={})}))})?t.call(i,r,i,e):t)||(e.exports=n)}},i={};(function r(t){if(i[t])return i[t].exports;var n=i[t]={exports:{}};return e[t](n,n.exports,r),n.exports})(30)})();
-//# sourceMappingURL=livewire-turbolinks.js.map
+/******/ (() => { // webpackBootstrap
+/******/ 	var __webpack_modules__ = ({
+
+/***/ "./resources/js/livewire-turbolinks.js":
+/*!*********************************************!*\
+  !*** ./resources/js/livewire-turbolinks.js ***!
+  \*********************************************/
+/***/ ((module, exports, __webpack_require__) => {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (factory) {
+   true ? !(__WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+		__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+		(__WEBPACK_AMD_DEFINE_FACTORY__.call(exports, __webpack_require__, exports, module)) :
+		__WEBPACK_AMD_DEFINE_FACTORY__),
+		__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)) : 0;
+})(function () {
+  'use strict';
+
+  if (typeof window.livewire === 'undefined') {
+    throw 'Livewire Turbolinks Plugin: window.Livewire is undefined. Make sure @livewireScripts is placed above this script include';
+  }
+
+  var firstTime = true;
+
+  function wireTurboAfterFirstVisit() {
+    // We only want this handler to run AFTER the first load.
+    if (firstTime) {
+      firstTime = false;
+      return;
+    }
+
+    window.Livewire.restart();
+  }
+
+  function wireTurboBeforeCache() {
+    document.querySelectorAll('[wire\\:id]').forEach(function (el) {
+      var component = el.__livewire;
+      var dataObject = {
+        fingerprint: component.fingerprint,
+        serverMemo: component.serverMemo,
+        effects: component.effects
+      };
+      el.setAttribute('wire:initial-data', JSON.stringify(dataObject));
+    });
+  }
+
+  document.addEventListener("turbo:load", wireTurboAfterFirstVisit);
+  document.addEventListener("turbo:before-cache", wireTurboBeforeCache);
+  document.addEventListener("turbolinks:load", wireTurboAfterFirstVisit);
+  document.addEventListener("turbolinks:before-cache", wireTurboBeforeCache);
+  Livewire.hook('beforePushState', function (state) {
+    if (!state.turbolinks) state.turbolinks = {};
+  });
+  Livewire.hook('beforeReplaceState', function (state) {
+    if (!state.turbolinks) state.turbolinks = {};
+  });
+});
+
+/***/ })
+
+/******/ 	});
+/************************************************************************/
+/******/ 	// The module cache
+/******/ 	var __webpack_module_cache__ = {};
+/******/ 	
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/ 		// Check if module is in cache
+/******/ 		if(__webpack_module_cache__[moduleId]) {
+/******/ 			return __webpack_module_cache__[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = __webpack_module_cache__[moduleId] = {
+/******/ 			// no module.id needed
+/******/ 			// no module.loaded needed
+/******/ 			exports: {}
+/******/ 		};
+/******/ 	
+/******/ 		// Execute the module function
+/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
+/******/ 	
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/ 	
+/************************************************************************/
+/******/ 	
+/******/ 	// startup
+/******/ 	// Load entry module and return exports
+/******/ 	var __webpack_exports__ = __webpack_require__("./resources/js/livewire-turbolinks.js");
+/******/ 	// This entry module used 'module' so it can't be inlined
+/******/ 	
+/******/ })()
+;
