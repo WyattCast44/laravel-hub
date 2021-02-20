@@ -14,6 +14,10 @@
     <link href="{{ mix('css/app.css') }}" rel="stylesheet" data-turbo-track="reload">
     <script src="{{ mix('js/app.js') }}" data-turbo-track="reload" defer></script>
     
+    @production
+        <script src="https://dove.laravel-hub.com/script.js" data-site="NJMGQHWF" defer></script>
+    @endproduction
+
     @stack('head')
 </head>
 <body class="font-sans text-base antialiased text-gray-800 bg-gray-200">
