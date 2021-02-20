@@ -8,8 +8,13 @@ use App\Http\Controllers\TemplatesController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\PackageSyncController;
+use App\Http\Controllers\UserPackagesController;
 use App\Http\Controllers\UserProfilesController;
 use App\Http\Controllers\UserSettingsController;
+use App\Http\Controllers\UserFavoritesController;
+use App\Http\Controllers\UserTemplatesController;
+use App\Http\Controllers\PackageScreenshotsController;
+use App\Http\Controllers\TemplatesFavoritesController;
 
 // General
 Route::get('/', WelcomeController::class)->name('index');

@@ -17,15 +17,15 @@
 
                 <nav class="items-center hidden ml-5 space-x-4 md:flex">
 
-                    <a href="{{ route('app.packages.index') }}" class="text-lg text-gray-600 hover:no-underline hover:text-red-500" title="View the packages page">
+                    <a href="{{ route('app.packages.index') }}" class="text-lg text-gray-700 transition-all duration-100 hover:no-underline hover:text-red-500" title="View the packages page">
                         Packages
                     </a>
 
-                    <a href="{{ route('app.templates.index') }}" class="text-lg text-gray-600 hover:no-underline hover:text-red-500" title="View the templates page">
+                    <a href="{{ route('app.templates.index') }}" class="text-lg text-gray-700 transition-all duration-100 hover:no-underline hover:text-red-500" title="View the templates page">
                         Templates
                     </a>
 
-                    <a href="{{ route('search') }}" class="text-lg text-gray-600 hover:no-underline hover:text-red-500" title="View the search page">
+                    <a href="{{ route('search') }}" class="text-lg text-gray-700 transition-all duration-100 hover:no-underline hover:text-red-500" title="View the search page">
                         Search
                     </a>
                     
@@ -88,7 +88,7 @@
 
                         <button class="flex items-center text-red-500" x-on:click="open = true" aria-label="Open the user profile menu" aria-label="Open the user profile menu">
                             <img src="{{ auth()->user()->avatar }}" alt="{{ auth()->user()->name }}'s avatar" class="w-8 h-8 rounded-lg shadow">
-                            <span class="ml-1 text-lg md:text-xl">&triangledown;</span>
+                            <span class="ml-1 text-lg transition-all duration-500 md:text-xl" x-bind:class="{ 'transform rotate-180': open }">&triangledown;</span>
                         </button>     
 
                         <div x-show="open" x-on:click.away="open = false" class="absolute right-0 z-50 flex flex-col w-48 pb-2 bg-white border border-solid rounded-lg shadow-lg" style="top:38px">
