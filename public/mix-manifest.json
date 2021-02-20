@@ -1,7 +1,6 @@
 {
+    "/js/codemirror.js": "/js/codemirror.js",
     "/js/app.js": "/js/app.js",
-    "/js/ace.js": "/js/ace.js",
-    "/js/ace-yaml.js": "/js/ace-yaml.js",
-    "/js/ace-json.js": "/js/ace-json.js",
+    "/css/codemirror.css": "/css/codemirror.css",
     "/css/app.css": "/css/app.css"
 }

@@ -2,7 +2,23 @@
 
 @section('content')
 
-<x-ace-editor-scripts type="yaml"></x-ace-editor-scripts>
+@push('head')
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.59.2/codemirror.min.css" integrity="sha512-MWdvo/Qqcf4pY1ecQUB1uBn0qLp19U/qJ1Rpp2BDZeuBA7YsFEwkvqR/+aG4BroPiAYDunKJ6X8R/Pmdt3p7oA==" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.59.2/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.59.2/mode/yaml/yaml.min.js" integrity="sha512-+aXDZ93WyextRiAZpsRuJyiAZ38ztttUyO/H3FZx4gOAOv4/k9C6Um1CvHVtaowHZ2h7kH0d+orWvdBLPVwb4g==" crossorigin="anonymous"></script>
+@endpush
+
+@push('footer')
+    <script>
+        let cm = new CodeMirror.fromTextArea(
+            document.querySelector("#content"),
+            {
+                lineNumbers: true,
+                indentUnit: 4
+            }
+        );
+    </script>
+@endpush
 
 <div class="mx-6 my-10 md:mx-auto md:my-16" style="max-width: 1000px">
     
@@ -44,18 +60,9 @@
                     <label for="content" class="block pl-1 font-semibold text-gray-700">
                         Content
                     </label>
-                    <div 
-                        id="ace-editor" 
-                        class="block w-full my-2 placeholder-gray-600 bg-gray-200 resize-y form-textarea" 
-                        data-ace-lang="yaml"
-                        data-ace-min-lines="5"
-                        data-ace-max-lines="100"
-                        data-ace-content="#content"
-                        class="block w-full my-2 placeholder-gray-600 bg-gray-200 resize-y form-input"
-                        >name: Laravel
-laravel: master</div>
+                    <textarea name="content" id="content" class="border-2">name: Laravel
+laravel: master</textarea>
                     <span class="block pl-1 text-sm text-gray-500">Required.</span> 
-                    <textarea name="content" id="content" class="hidden"></textarea>
                 </div>
 
                 <div class="mt-6">
