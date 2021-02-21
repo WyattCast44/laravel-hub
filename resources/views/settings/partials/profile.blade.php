@@ -44,7 +44,7 @@
 
                     <!-- Website -->
                     <div class="mt-6">
-                        <label for="about"
+                        <label for="website"
                                class="block text-sm font-medium leading-5 text-gray-700">
                             Website
                         </label>
@@ -52,6 +52,7 @@
                             <input 
                                 readonly
                                 type="text"
+                                id="website"
                                 placeholder="Your website"
                                 value="{{ auth()->user()->blog }}"
                                 class="block w-full mt-1 transition duration-150 ease-in-out form-input sm:text-sm sm:leading-5">
@@ -60,12 +61,12 @@
 
                     <!-- Bio -->
                     <div class="mt-6">
-                        <label for="about"
+                        <label for="bio"
                                class="block text-sm font-medium leading-5 text-gray-700">
                             Bio
                         </label>
                         <div class="rounded-md shadow-sm">
-                            <textarea id="about"
+                            <textarea id="bio"
                                       rows="3"
                                       class="block w-full mt-1 transition duration-150 ease-in-out form-textarea sm:text-sm sm:leading-5"
                                       placeholder="Your GitHub Bio"
@@ -75,15 +76,17 @@
 
                     <!-- Avatar -->
                     <div class="mt-6">
-                        <label for="photo"
+                        <label for="avatar"
                                class="block text-sm font-medium leading-5 text-gray-700">
                             Avatar
                         </label>
                         <div class="flex items-center mt-2">
                             <span
                                   class="inline-block w-12 h-12 overflow-hidden bg-gray-100 rounded">
-                                <img src="{{ auth()->user()->avatar }}"
-                                     alt="{{ auth()->user()->name }}">
+                                <img
+                                    id="avatar" 
+                                    src="{{ auth()->user()->avatar }}"
+                                    alt="{{ auth()->user()->name }}'s avatar">
                             </span>
                         </div>
                     </div>
