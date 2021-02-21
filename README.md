@@ -56,6 +56,17 @@ GITHUB_CLIENT_SECRET=your-secret
 php artisan migrate --seed
 ```
 
+If using Laravel scout, make sure you create your indexes
+
+```bash
+php artisan scout:import App\\Packagex
+```
+if using the `mysql` driver
+
+```bash
+php artisan scout:mysql-index
+```
+
 #### Laravel Scout
 
 This project uses Laravel Scout for searching various models, for local development it can be useful to use the `mysql` driver instead of the Algolia driver. To use this driver set the following `env` values:

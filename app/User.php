@@ -104,6 +104,7 @@ class User extends Authenticatable
 
             return true;
         } catch (\Exception $e) {
+            dd('here');
             return false;
         }
     }
