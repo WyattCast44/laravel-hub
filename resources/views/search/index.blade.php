@@ -1,15 +1,7 @@
-@extends('layouts.app')
+@extends('search.layout')
 
-@section('content')
+@section('page')
 
-    <div class="bg-gray-200 border-b">
-
-        <div class="container py-16 mx-auto">
-
-            <h1 class="text-4xl">Search</h1>
-
-        </div>
-
-    </div>
+Hello
 
 @endsection
