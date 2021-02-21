@@ -18,6 +18,11 @@
         <script src="https://dove.laravel-hub.com/script.js" data-site="NJMGQHWF" defer></script>
     @endproduction
 
+    <style>
+        [x-cloak] {
+            display: none !important;
+        }
+    </style>
     @stack('head')
 </head>
 <body class="font-sans text-base antialiased text-gray-800 bg-gray-200">
