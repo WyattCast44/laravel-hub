@@ -27,14 +27,14 @@
                             </label>
                             <div class="flex mt-1 rounded-md shadow-sm">
                                 <span
-                                      class="inline-flex items-center px-3 text-sm text-gray-600 bg-gray-100 border border-r-0 border-gray-300 rounded-l-md">
+                                      class="inline-flex items-center px-3 text-sm text-gray-600 bg-gray-100 border border-r-0 border-gray-300">
                                     {{ config('app.url') }}/
                                 </span>
                                 <input 
                                     type="text"
                                     id="username"
                                     name="username"
-                                    class="flex-1 block w-full transition duration-150 ease-in-out rounded-none form-input rounded-r-md sm:text-sm sm:leading-5"
+                                    class="flex-1 block w-full transition duration-150 ease-in-out form-input sm:text-sm sm:leading-5"
                                     placeholder="username"
                                     value="{{ auth()->user()->username }}"
                                     readonly />
