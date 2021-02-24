@@ -92,7 +92,12 @@
                             <span class="ml-1 text-lg transition-all duration-500 md:text-xl" x-bind:class="{ 'transform rotate-180': open }">&triangledown;</span>
                         </button>     
 
-                        <div x-show="open" x-on:click.away="open = false" class="absolute right-0 z-50 flex flex-col w-48 pb-2 bg-white border border-solid rounded-lg shadow-lg" style="top:38px">
+                        <div 
+                            x-cloak
+                            x-show="open" 
+                            style="top:38px"
+                            x-on:click.away="open = false" 
+                            class="absolute right-0 z-50 flex flex-col w-48 pb-2 bg-white border border-solid rounded-lg shadow-lg">
 
                             <a href="{{ route('app.users.show', auth()->user()) }}" class="px-4 py-3 tracking-tighter text-gray-900 break-words border-b border-solid hover:no-underline" title="Go to your profile page">
                                 <span class="block text-sm text-gray-500">Signed in as</span>
