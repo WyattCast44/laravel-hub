@@ -2,16 +2,15 @@
 
 namespace App\Providers;
 
+use App\User;
+use App\Package;
+use App\Observers\UserObserver;
 use App\Observers\PackageObserver;
 use App\Observers\TemplateObserver;
-use App\Observers\UserObserver;
-use App\Package;
-use App\Template;
-use App\User;
 use Illuminate\Auth\Events\Registered;
+use App\Domain\Templates\Models\Template;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
-use Illuminate\Support\Facades\Event;
 
 class EventServiceProvider extends ServiceProvider
 {
@@ -36,7 +35,7 @@ class EventServiceProvider extends ServiceProvider
         parent::boot();
 
         User::observe(UserObserver::class);
-        
+
         Package::observe(PackageObserver::class);
 
         Template::observe(TemplateObserver::class);

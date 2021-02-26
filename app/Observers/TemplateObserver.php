@@ -2,14 +2,14 @@
 
 namespace App\Observers;
 
-use App\Template;
+use App\Domain\Templates\Models\Template;
 
 class TemplateObserver
 {
     /**
      * Handle the template "created" event.
      *
-     * @param  \App\Template  $template
+     * @param  \App\Domain\Templates\Models\Template  $template
      * @return void
      */
     public function created(Template $template)
@@ -20,7 +20,7 @@ class TemplateObserver
     /**
      * Handle the template "updated" event.
      *
-     * @param  \App\Template  $template
+     * @param  \App\Domain\Templates\Models\Template  $template
      * @return void
      */
     public function updated(Template $template)
@@ -31,7 +31,7 @@ class TemplateObserver
     /**
      * Handle the template "deleted" event.
      *
-     * @param  \App\Template  $template
+     * @param  \App\Domain\Templates\Models\Template  $template
      * @return void
      */
     public function deleted(Template $template)
@@ -42,7 +42,7 @@ class TemplateObserver
     /**
      * Handle the template "restored" event.
      *
-     * @param  \App\Template  $template
+     * @param  \App\Domain\Templates\Models\Template  $template
      * @return void
      */
     public function restored(Template $template)
@@ -53,7 +53,7 @@ class TemplateObserver
     /**
      * Handle the template "force deleted" event.
      *
-     * @param  \App\Template  $template
+     * @param  \App\Domain\Templates\Models\Template  $template
      * @return void
      */
     public function forceDeleted(Template $template)

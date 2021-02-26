@@ -14,10 +14,6 @@ class ViewServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        // Paginator::defaultView('view-name');
-
-        // Paginator::defaultSimpleView('view-name');
-
         /**
          * Courtesy of the legend: Caleb Porzio
          * @link https://gist.github.com/calebporzio/03d610c813d6639e96accc3b06892242

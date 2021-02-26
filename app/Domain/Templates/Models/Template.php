@@ -1,7 +1,9 @@
 <?php
 
-namespace App;
+namespace App\Domain\Templates\Models;
 
+use App\User;
+use App\Favorite;
 use Illuminate\Database\Eloquent\Model;
 
 class Template extends Model

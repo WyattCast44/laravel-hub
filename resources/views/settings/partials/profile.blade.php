@@ -6,10 +6,10 @@
                 <p class="mt-1 text-sm leading-5 text-gray-600">
                     Your general profile information is synced with your GitHub account,
                     and is refreshed any time you log in. You can also force a resync by clicking
-                    <x-form-button method="post" :action="route('app.settings.account.resync')">
-                        <button type="submit" class="text-red-500 hover:underline">here</button>
-                    </x-form-button>
                 </p>
+                <x-form-button method="post" :action="route('app.settings.account.resync')">
+                    <button type="submit" class="inline-block text-red-500 hover:underline">here</button>.
+                </x-form-button>
             </div>
         </div>
         <div class="mt-5 md:mt-0 md:col-span-2">

@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire\Templates;
 
-use App\Template;
+use App\Domain\Templates\Models\Template;
 use Livewire\Component;
 
 class Favorite extends Component

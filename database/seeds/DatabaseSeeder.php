@@ -1,7 +1,7 @@
 <?php
 
 use App\Package;
-use App\Template;
+use App\Domain\Templates\Models\Template;
 use App\Attachment;
 use Illuminate\Database\Seeder;
 use App\Actions\ProcessSubmittedPackage;

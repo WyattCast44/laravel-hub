@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Template;
+use App\Domain\Templates\Models\Template;
 use Illuminate\Http\Request;
 
 class TemplatesFavoritesController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth')->only(['store'. 'delete']);
+        $this->middleware('auth')->only(['store' . 'delete']);
     }
 
     public function store(Template $template)

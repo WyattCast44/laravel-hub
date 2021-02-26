@@ -6,6 +6,7 @@ use App\Services\Github;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Notifications\Notifiable;
+use App\Domain\Templates\Models\Template;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
