@@ -6,10 +6,10 @@
 <div class="container mx-auto my-4 md:my-16">
 
     <!-- Card Header -->
-    <div class="mx-3 bg-white rounded-lg shadow md:mx-0">
+    <section class="mx-3 bg-white rounded-lg shadow md:mx-0">
         
         <!-- User name/avatar -->
-        <div class="px-4 py-5 sm:px-6">
+        <header class="px-4 py-5 sm:px-6">
 
             <div class="lg:flex lg:items-center lg:justify-between">
                 
@@ -42,10 +42,10 @@
 
             </div>
             
-        </div>
+        </header>
         
-        <!-- Tabs -->
-        <div class="px-4 py-2 bg-white border-t border-b">
+        <!-- Nav -->
+        <nav class="px-4 py-2 bg-white border-t border-b border-gray-300">
             
             <div>
 
@@ -71,40 +71,41 @@
 
                 <!-- Desktop Tabs -->
                 <div class="hidden sm:block">
+
+                    <x-nav.pills.container>
+
+                        <x-nav.pills.pill route="{{ route('app.users.show', $user) }}" active="app.users.show">
+                            Overview
+                        </x-nav.pills.pill>
+                        
+                        <x-nav.pills.pill route="{{ route('app.users.packages.show', $user) }}" active="app.users.packages.show">
+                            Packages
+                        </x-nav.pills.pill>
+
+                        <x-nav.pills.pill route="{{ route('app.users.templates.show', $user) }}" active="app.users.templates.show">
+                            Templates
+                        </x-nav.pills.pill>
+
+                        <x-nav.pills.pill route="{{ route('app.users.favorites.show', $user) }}" active="app.users.favorites.show">
+                            Favorites
+                        </x-nav.pills.pill>
+
+                    </x-nav.pills.container>
                     
-                  <nav class="flex">
-                      
-                    <a href="{{ route('app.users.show', $user) }}" class="px-3 py-2 text-sm font-medium leading-5 text-gray-500 rounded-md hover:text-gray-700 focus:outline-none focus:text-gray-600 focus:bg-gray-100 hover:no-underline hover:bg-red-100 mr-3 @if (request()->routeIs('app.users.show')) {{ 'bg-red-200 text-red-800' }} @endif">
-                      Overview
-                    </a>
-
-                    <a href="{{ route('app.users.packages.show', $user) }}" class="px-3 py-2 text-sm font-medium leading-5 text-gray-500 rounded-md hover:text-gray-700 focus:outline-none focus:text-gray-600 focus:bg-gray-100 hover:no-underline hover:bg-red-100 mr-3 @if (request()->routeIs('app.users.packages.show')) {{ 'bg-red-200 text-red-800' }} @endif">
-                      Packages
-                    </a>
-
-                    <a href="{{ route('app.users.templates.show', $user) }}" class="px-3 py-2 mr-3 text-sm font-medium leading-5 text-gray-500 rounded-md hover:text-gray-700 focus:outline-none focus:text-gray-600 focus:bg-gray-100 hover:no-underline hover:bg-red-100 @if (request()->routeIs('app.users.templates.show')) {{ 'bg-red-200 text-red-800' }} @endif">
-                      Templates
-                    </a>
-
-                    <a href="{{ route('app.users.favorites.show', $user) }}" class="px-3 py-2 text-sm font-medium leading-5 text-gray-500 rounded-md hover:text-gray-700 focus:outline-none focus:text-gray-600 focus:bg-gray-100 hover:no-underline hover:bg-red-100 @if (request()->routeIs('app.users.favorites.show')) {{ 'bg-red-200 text-red-800' }} @endif">
-                      Favorites
-                    </a>
-                    
-                  </nav>
-                  
                 </div><!-- /desktop tabs -->
                 
               </div>
               
-        </div><!-- /tabs -->
+        </nav><!-- /tabs -->
         
         <!-- Content -->
-        <div class="px-4 py-5 bg-white sm:p-6">
+        <main class="px-4 py-5 bg-white rounded-b-lg sm:p-6">
             
             @yield('user-page')
 
-        </div>
-    </div>
+        </main>
+        
+    </section>
 
 </div>
 
