@@ -87,9 +87,19 @@
 
                     <div class="relative flex items-center" x-data="{ open: false }" x-on:keydown.escape="open=false">
 
-                        <button class="flex items-center text-red-500" x-on:click="open = true" aria-label="Open the user profile menu" aria-label="Open the user profile menu">
-                            <img src="{{ auth()->user()->avatar }}" alt="{{ auth()->user()->name }}'s avatar" class="w-8 h-8 rounded-lg shadow">
-                            <span class="ml-1 text-lg transition-all duration-500 md:text-xl" x-bind:class="{ 'transform rotate-180': open }">&triangledown;</span>
+                        <button class="flex items-center overflow-hidden text-red-500" x-on:click="open = true" aria-label="Open the user profile menu" aria-label="Open the user profile menu">
+
+                            <img 
+                                src="{{ auth()->user()->avatar }}" 
+                                alt="{{ auth()->user()->name }}'s avatar" 
+                                class="w-8 h-8 bg-gray-100 rounded-lg shadow">
+
+                            <span 
+                                x-bind:class="{ 'transform rotate-180': open }"
+                                class="ml-1 text-lg transition-all duration-500 md:text-xl">
+                                &triangledown;
+                            </span>
+                            
                         </button>     
 
                         <div 
@@ -99,7 +109,7 @@
                             x-on:click.away="open = false" 
                             class="absolute right-0 z-50 flex flex-col w-48 pb-2 bg-white border border-solid rounded-lg shadow-lg">
 
-                            <a href="{{ route('app.users.show', auth()->user()) }}" class="px-4 py-3 tracking-tighter text-gray-900 break-words border-b border-solid hover:no-underline" title="Go to your profile page">
+                            <a href="{{ route('app.users.show', auth()->user()) }}" class="px-4 py-3 tracking-tighter text-gray-900 break-words border-b border-solid hover:no-underline hover:bg-gray-100" title="Go to your profile page">
                                 <span class="block text-sm text-gray-500">Signed in as</span>
                                 {{ auth()->user()->name }}
                             </a>
