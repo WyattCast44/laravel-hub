@@ -29,8 +29,7 @@ Route::name('app.')->group(function () {
     // Settings
     Route::get('/settings', [UserSettingsController::class, 'show'])->name('settings.index');
     Route::delete('/settings/account', [UserSettingsController::class, 'delete'])->name('settings.account.delete');
-    Route::post('/settings/resync', [UserSettingsController::class, 'resync'])
-        ->name('settings.account.resync')
+    Route::post('/settings/resync', [UserSettingsController::class, 'resync'])->name('settings.account.resync')
         ->middleware('throttle:github::resync');
 
     // Users

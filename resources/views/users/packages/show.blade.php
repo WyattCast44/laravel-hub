@@ -1,4 +1,4 @@
-@extends('users.layout-new')
+@extends('users.layout')
 
 @section('user-page')
 
