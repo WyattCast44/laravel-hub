@@ -5,7 +5,7 @@
     @foreach ($templates as $template)
         <div class="p-6 mb-3 bg-white rounded shadow hover:shadow-md">
             <h3 class="text-lg font-semibold">
-                <a href="#">
+                <a href="{{ route('app.users.show', $template->user) }}">
                     {{ $template->user->username }}
                 </a>
                 /
