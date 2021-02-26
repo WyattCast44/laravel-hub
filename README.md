@@ -48,7 +48,7 @@ yarn install
 
 - [Create GitHub OAuth App](https://github.com/settings/applications/new)
 - URL:
-    - `Authorization callback URL = http://hub.test/login/callback`
+    - Authorization callback URL = http://laravel-hub.test/login/callback
 - Add the client ID and secret to `.env` file
 
 ```bash
