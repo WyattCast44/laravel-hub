@@ -9,13 +9,13 @@ Laravel hub is your home for laravel packages, template, tools and more.
 #### Clone the repo
 
 ```bash
-git clone https://github.com/WyattCast44/palette-hub.git hub
+git clone https://github.com/WyattCast44/laravel-hub.git
 ```
 
 #### Move into project
 
 ```bash
-cd hub
+cd laravel-hub
 ```
 
 #### Copy the env file
@@ -24,6 +24,12 @@ Make sure you set your local credentials in your `.env` file.
 
 ```bash
 cp .env.example .env
+```
+
+#### Generate APP_KEY
+
+```bash
+php artisan key:generate
 ```
 
 #### Install Composer dependencies
@@ -59,7 +65,7 @@ php artisan migrate --seed
 If using Laravel scout, make sure you create your indexes
 
 ```bash
-php artisan scout:import App\\Packagex
+php artisan scout:import App\\Package
 ```
 if using the `mysql` driver
 
