@@ -7,6 +7,8 @@
 
     <!-- Card Header -->
     <div class="mx-3 bg-white rounded-lg shadow md:mx-0">
+        
+        <!-- User name/avatar -->
         <div class="px-4 py-5 sm:px-6">
 
             <div class="lg:flex lg:items-center lg:justify-between">
@@ -35,34 +37,36 @@
                 
                 <!-- Right Side -->
                 <div class="flex mt-5 lg:mt-0 lg:ml-4">
-                    
-                    <!-- Buttons -->
-                    
+                    <!--  -->    
                 </div>
+
             </div>
             
         </div>
         
         <!-- Tabs -->
         <div class="px-4 py-2 bg-white border-t border-b">
+            
             <div>
 
                 <!-- Mobile Tabs -->
                 <div class="sm:hidden">
-                  <select class="block w-full form-select" onchange="navigate(this)">
-                    <option value="{{ route('app.users.show', $user) }}" @if (request()->routeIs('app.users.show')) {{ 'selected' }} @endif>
-                        Overview
-                    </option>
-                    <option value="{{ route('app.users.packages.show', $user) }}" @if (request()->routeIs('app.users.packages.show')) {{ 'selected' }} @endif>
-                        Packages
-                    </option>
-                    <option value="{{ route('app.users.templates.show', $user) }}" @if (request()->routeIs('app.users.templates.show')) {{ 'selected' }} @endif>
-                        Templates
-                    </option>
-                    <option value="{{ route('app.users.favorites.show', $user) }}" @if (request()->routeIs('app.users.favorites.show')) {{ 'selected' }} @endif>
-                        Favorites
-                    </option>
-                  </select>
+                    
+                    <x-nav.select.navigator>
+                        <x-nav.select.option route="{{ route('app.users.show', $user) }}" active="app.users.show">
+                            Overview
+                        </x-nav.select.option>
+                        <x-nav.select.option route="{{ route('app.users.packages.show', $user) }}" active="app.users.packages.show">
+                            Packages
+                        </x-nav.select.option>
+                        <x-nav.select.option route="{{ route('app.users.templates.show', $user) }}" active="app.users.templates.show">
+                            Templates
+                        </x-nav.select.option>
+                        <x-nav.select.option route="{{ route('app.users.favorites.show', $user) }}" active="app.users.favorites.show">
+                            Favorites
+                        </x-nav.select.option>
+                    </x-nav.select.navigator>
+
                 </div>
 
                 <!-- Desktop Tabs -->
@@ -103,15 +107,5 @@
     </div>
 
 </div>
-
-    @push('footer')
-
-        <script>
-            function navigate(el) {
-                window.location.href = el.value;
-            }
-        </script>
-        
-    @endpush
 
 @endsection
