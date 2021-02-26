@@ -96,7 +96,7 @@
 
                             <span 
                                 x-bind:class="{ 'transform rotate-180': open }"
-                                class="ml-1 text-lg transition-all duration-500 md:text-xl">
+                                class="ml-1 text-lg transition-all duration-300 md:text-xl">
                                 &triangledown;
                             </span>
                             
