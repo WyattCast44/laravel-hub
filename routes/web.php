@@ -28,8 +28,10 @@ Route::get('login', [LoginController::class, 'redirectToProvider'])->name('auth.
 Route::name('app.')->group(function () {
     // Settings
     Route::get('/settings', [UserSettingsController::class, 'show'])->name('settings.index');
-    Route::post('/settings/resync', [UserSettingsController::class, 'resync'])->name('settings.account.resync');
     Route::delete('/settings/account', [UserSettingsController::class, 'delete'])->name('settings.account.delete');
+    Route::post('/settings/resync', [UserSettingsController::class, 'resync'])
+        ->name('settings.account.resync')
+        ->middleware('throttle:github::resync');
 
     // Users
     Route::get('/users/{user}', [UserProfilesController::class, 'show'])->name('users.show');

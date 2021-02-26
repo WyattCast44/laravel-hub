@@ -13,24 +13,21 @@ class Attachment extends Model
         'url',
     ];
 
-    /**
-     * Relationships
-     */
+    public function getUrlAttribute()
+    {
+        return Storage::url($this->path);
+    }
+
     public function attachable()
     {
         return $this->morphTo();
     }
 
+    /**
+     * @return \App\User
+     */
     public function user()
     {
         return $this->belongsTo(User::class);
-    }
-
-    /**
-     * Accessors, Mutators, etc
-     */
-    public function getUrlAttribute()
-    {
-        return Storage::url($this->path);
     }
 }

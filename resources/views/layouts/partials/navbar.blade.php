@@ -104,8 +104,8 @@
 
                         <div 
                             x-cloak
-                            x-show="open" 
                             style="top:38px"
+                            x-show.transition="open" 
                             x-on:click.away="open = false" 
                             class="absolute right-0 z-50 flex flex-col w-48 pb-2 bg-white border border-solid rounded-lg shadow-lg">
 

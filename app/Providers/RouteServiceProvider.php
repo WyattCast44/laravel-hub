@@ -3,6 +3,8 @@
 namespace App\Providers;
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Cache\RateLimiting\Limit;
+use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 
 class RouteServiceProvider extends ServiceProvider
@@ -24,8 +26,8 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function map()
     {
+        $this->configureRateLimiting();
         $this->mapApiRoutes();
-
         $this->mapWebRoutes();
     }
 
@@ -56,5 +58,17 @@ class RouteServiceProvider extends ServiceProvider
             ->middleware('api')
             ->namespace($this->namespace)
             ->group(base_path('routes/api.php'));
+    }
+
+    /**
+     * Configure the rate limiters for the application.
+     *
+     * @return void
+     */
+    protected function configureRateLimiting()
+    {
+        RateLimiter::for('github::resync', function () {
+            return Limit::perMinute(1);
+        });
     }
 }
