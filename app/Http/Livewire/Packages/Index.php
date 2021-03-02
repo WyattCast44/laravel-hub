@@ -10,8 +10,6 @@ class Index extends Component
 {
     use WithPagination;
 
-    public $page = 1;
-
     public $perPage = 10;
 
     public $search = '';
@@ -20,7 +18,6 @@ class Index extends Component
 
     protected $queryString = [
         'search' => ['except' => ''],
-        'page' => ['except' => 1],
     ];
 
     public function mount()
@@ -52,11 +49,6 @@ class Index extends Component
 
         $packages = $this->query->paginate($this->perPage);
 
-        logger('search', [
-            'search' => $this->search,
-            'packages' => $packages->pluck('name')
-        ]);
-
         return $packages;
     }
 
@@ -70,7 +62,7 @@ class Index extends Component
         return 'partials.pagination';
     }
 
-    public function updatedSearch()
+    public function updatingSearch()
     {
         $this->resetPage();
     }

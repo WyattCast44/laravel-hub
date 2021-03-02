@@ -26,6 +26,11 @@ class Package extends Model
         return 'name';
     }
 
+    public static function getTableName()
+    {
+        return (new self)->getTable();
+    }
+
     /**
      * Relationships
      */

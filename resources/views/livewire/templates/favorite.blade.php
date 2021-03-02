@@ -14,6 +14,6 @@
         
     @endif
     
-    {{ $template->favorites_count }} favorites
+    {{ ($template->favorites_count) ? $template->favorites_count : '0' }} favorites
     
 </div>

@@ -6,7 +6,7 @@
 
     <div class="w-full md:w-2/12">
         
-        <div class="sticky mr-8" style="top:25px;">
+        <div class="sticky lg:mr-8" style="top:25px;">
             <a 
                 title="Submit a new package"
                 href="{{ route('app.packages.create') }}" 
@@ -23,14 +23,18 @@
                     <div>
                         <label class="inline-flex items-center">
                             <input type="checkbox" class="text-red-500 form-checkbox" checked>
-                            <span class="ml-2">Official <span class="text-xs tracking-tighter">(13)</span></span>
+                            <span class="ml-2">
+                                Official <span class="text-xs tracking-tighter">({{ $officialPackagesCount }})</span>
+                            </span>
                         </label>
                     </div>
 
                     <div>
                         <label class="inline-flex items-center">
                             <input type="checkbox" class="text-red-500 form-checkbox" checked>
-                            <span class="ml-2">Community <span class="text-xs tracking-tighter">(2,201)</span></span>
+                            <span class="ml-2">
+                                Community <span class="text-xs tracking-tighter">({{ $communityPackagesCount }})</span>
+                            </span>
                         </label>
                     </div>
                     

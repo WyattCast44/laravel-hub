@@ -27,8 +27,8 @@ class AppServiceProvider extends ServiceProvider
     {
         \Debugbar::disable();
 
-        Relation::morphMap([
-            'app:models:template' => Template::class,
-        ]);
+        // Relation::morphMap([
+        //    'app:models:template' => Template::class,
+        // ]);
     }
 }

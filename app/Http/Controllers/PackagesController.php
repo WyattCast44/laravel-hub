@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use App\Actions\ProcessSubmittedPackage;
 use App\Queries\PackageLanguages;
 use App\Services\Github;
+use Illuminate\Support\Facades\DB;
 
 class PackagesController extends Controller
 {
@@ -24,8 +25,18 @@ class PackagesController extends Controller
 
     public function index()
     {
+        $official = DB::table(Package::getTableName())
+            ->where('official', '=', true)
+            ->count();
+
+        $community = DB::table(Package::getTableName())
+            ->where('official', '=', false)
+            ->count();
+
         return view('packages.index', [
             'languages' => PackageLanguages::get(),
+            'officialPackagesCount' => $official,
+            'communityPackagesCount' => $community,
         ]);
     }
 

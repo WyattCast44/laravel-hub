@@ -28,18 +28,14 @@
 
                         <!-- Official Badge -->
                         @if($template->official)
-                        <div class="flex items-center mt-2 text-sm leading-5 text-gray-500 sm:mr-4">
-                            @svg('check-circle', 'w-5 h-5 mr-1.5 text-green-500')
-                            <span>Official Laravel Template</span>
-                        </div>
+                            <div class="flex items-center mt-2 text-sm leading-5 text-gray-500 sm:mr-4">
+                                @svg('check-circle', 'w-5 h-5 mr-1.5 text-green-500')
+                                <span>Official Laravel Template</span>
+                            </div>
                         @endif
 
                         <!-- Favorites Count -->
                         <livewire:templates.favorite :template="$template">
-                        {{-- <div class="flex items-center mt-2 text-sm leading-5 text-gray-500 sm:mr-6">
-                            @svg('heart', 'w-5 h-5 text-red-600 mr-1.5')
-                            {{ $template->favorites->count() }} favorites
-                        </div> --}}
 
                     </div>
                 </div>

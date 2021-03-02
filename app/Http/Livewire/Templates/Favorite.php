@@ -7,11 +7,13 @@ use Livewire\Component;
 
 class Favorite extends Component
 {
-    public $template_id;
+    public $template;
 
-    public function mount($template)
+    public function mount(Template $template)
     {
-        $this->template_id = $template->id;
+        $this->template = $template;
+
+        $this->template->loadCount('favorites');
     }
 
     public function favorite()
@@ -20,7 +22,7 @@ class Favorite extends Component
             return redirect()->route('auth.login');
         }
 
-        auth()->user()->favorite($this->template());
+        auth()->user()->favorite($this->template);
     }
 
     public function unfavorite()
@@ -29,18 +31,13 @@ class Favorite extends Component
             return redirect()->route('auth.login');
         }
 
-        auth()->user()->unfavorite($this->template());
+        auth()->user()->unfavorite($this->template);
     }
 
     public function render()
     {
         return view('livewire.templates.favorite', [
-            'template' => $this->template(),
+            'template' => $this->template,
         ]);
-    }
-
-    public function template()
-    {
-        return Template::findOrFail($this->template_id)->loadCount('favorites');
     }
 }

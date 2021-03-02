@@ -9,7 +9,9 @@
         @forelse ($favorites as $favorite)
     
             <li class="py-4 border-b border-solid">        
-                {{ $favorite->favoritable->name }}
+                <a href="{{ $favorite->favoritable->route('show') }}">
+                    {{ $favorite->favoritable->name }}
+                </a>
             </li>
     
         @empty

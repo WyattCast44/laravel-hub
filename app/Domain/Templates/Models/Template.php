@@ -10,9 +10,6 @@ class Template extends Model
 {
     protected $guarded = [];
 
-    /**
-     * Relationships
-     */
     public function favorites()
     {
         return $this->morphMany(Favorite::class, 'favoritable');
@@ -23,9 +20,6 @@ class Template extends Model
         return $this->belongsTo(User::class);
     }
 
-    /**
-     * Misc
-     */
     public function incrementViewCount()
     {
         $this->increment('views');
@@ -38,5 +32,12 @@ class Template extends Model
         $this->increment('downloads');
 
         return $this;
+    }
+
+    public function route($method = 'show')
+    {
+        return route("app.templates.{$method}", [
+            'template' => $this,
+        ]);
     }
 }
