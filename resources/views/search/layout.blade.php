@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="container flex flex-col px-4 mx-auto my-6 md:px-0 md:my-16 md:flex-row">
+<div class="container flex flex-col px-4 mx-auto my-6 md:px-4 lg:px-0 md:my-16 md:flex-row">
 
     <div class="w-full md:w-3/12">
         
@@ -37,7 +37,7 @@
 
                     <div
                         x-cloak 
-                        x-show="open"
+                        x-show.animate="open"
                         class="flex flex-col mt-2 bg-white divide-y rounded">
 
                         <label class="inline-flex items-center px-3 py-2 hover:bg-red-200">
