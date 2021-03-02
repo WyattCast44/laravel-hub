@@ -10,6 +10,7 @@
     
             <div class="block md:mr-8">
 
+                <!-- Search input -->
                 <div class="mb-6">
                     <input 
                         autofocus
@@ -22,16 +23,22 @@
                 </div>
     
                 <!-- Filters -->
-                <div x-data="{ open: false }">
+                <div x-data="{ open: (window.innerWidth > 900) ? true : false }">
 
                     <p class="flex items-center justify-between p-3 text-lg font-semibold text-gray-700 bg-white border border-gray-300 border-solid rounded md:mb-4">
                         Filters
-                        <button x-on:click="open=!open" class="text-sm md:hidden">
+                        <button 
+                            x-text="(open) ? 'Hide' : 'Show'"    
+                            x-on:click="open=!open" 
+                            class="text-sm focus:outline-none focus:ring focus:ring-offset-1">
                             Show
                         </button>
                     </p>
 
-                    <div class="flex flex-col mt-2 bg-white divide-y rounded" x-show="open">
+                    <div
+                        x-cloak 
+                        x-show="open"
+                        class="flex flex-col mt-2 bg-white divide-y rounded">
 
                         <label class="inline-flex items-center px-3 py-2 hover:bg-red-200">
                             <input type="checkbox" class="text-red-500 form-checkbox">
