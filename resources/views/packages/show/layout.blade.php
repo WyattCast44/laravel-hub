@@ -135,74 +135,56 @@
 
         </div>
 
-        <!-- Tabs -->
-        <div class="px-4 py-2 bg-white border-t border-b">
+        <nav class="px-4 py-2 bg-white border-t border-b border-gray-300">
+                
             <div>
 
                 <!-- Mobile Tabs -->
                 <div class="sm:hidden">
-                    <select class="block w-full form-select"
-                            onchange="navigate(this)">
-
-                        <option value="{{ $package->route('show') }}" @if(request()->routeIs('app.packages.show')) {{ 'selected' }} @endif>
+                    
+                    <x-nav.select.navigator>
+                        <x-nav.select.option route="{{ $package->route('show') }}" active="app.packages.show">
                             Read Me
-                        </option>
-
-                        <option value="{{ $package->route('screenshots.show') }}" @if(request()->routeIs('app.packages.screenshots.show')){{ 'selected' }} @endif>
+                        </x-nav.select.option>
+                        <x-nav.select.option route="{{ $package->route('screenshots.show') }}" active="app.packages.screenshots.show">
                             Screenshots
-                        </option>
-
+                        </x-nav.select.option>
+                        
                         @if(auth()->check() && $package->user->id == auth()->id())
-                            <option value="{{ $package->route('edit') }}">Edit</option>
+                            <x-nav.select.option route="{{ $package->route('edit') }}" active="app.packages.edit">
+                                Edit
+                            </x-nav.select.option>
                         @endif
+                    </x-nav.select.navigator>
 
-                    </select>
                 </div>
 
                 <!-- Desktop Tabs -->
                 <div class="hidden sm:block">
 
-                    <nav class="flex">
+                    <x-nav.pills.container>
 
-                        <!-- Readme -->
-                        <a href="{{ $package->route('show') }}"
-                           class="px-3 py-2 text-sm font-medium leading-5 text-gray-500 rounded-md hover:text-gray-700 focus:outline-none focus:text-gray-600 focus:bg-gray-100 hover:no-underline hover:bg-red-100 mr-3 @if (request()->routeIs('app.packages.show')) {{ 'bg-red-200 text-red-800' }} @endif">
+                        <x-nav.pills.pill route="{{ $package->route('show') }}" active="app.packages.show">
                             Read Me
-                        </a>
+                        </x-nav.pills.pill>
 
-                        <!-- Screenshots -->
-                        <a href="{{ $package->route('screenshots.show') }}"
-                           class="px-3 py-2 text-sm font-medium leading-5 text-gray-500 rounded-md hover:text-gray-700 focus:outline-none focus:text-gray-600 focus:bg-gray-100 hover:no-underline hover:bg-red-100 mr-3 @if (request()->routeIs('app.packages.screenshots.show')) {{ 'bg-red-200 text-red-800' }} @endif">
+                        <x-nav.pills.pill route="{{ $package->route('screenshots.show') }}" active="app.packages.screenshots.show">
                             Screenshots
-                        </a>
-                        
-                        {{-- <!-- Tutorials -->
-                        <a href="#"
-                           class="px-3 py-2 mr-3 text-sm font-medium leading-5 text-gray-500 rounded-md hover:text-gray-700 focus:outline-none focus:text-gray-600 focus:bg-gray-100 hover:no-underline hover:bg-red-100">
-                            Tutorials
-                        </a>
-                        
-                        <!-- Alternatives -->
-                        <a href="#"
-                           class="px-3 py-2 mr-3 text-sm font-medium leading-5 text-gray-500 rounded-md hover:text-gray-700 focus:outline-none focus:text-gray-600 focus:bg-gray-100 hover:no-underline hover:bg-red-100">
-                            Related
-                        </a> --}}
+                        </x-nav.pills.pill>
 
-                        <!-- Edit -->
                         @if(auth()->check() && $package->user->id == auth()->id())
-                        <a href="{{ $package->route('edit') }}"
-                           class="px-3 py-2 text-sm font-medium leading-5 text-gray-500 rounded-md hover:text-gray-700 focus:outline-none focus:text-gray-600 focus:bg-gray-100 hover:no-underline hover:bg-red-100 @if (request()->routeIs('app.packages.edit')) {{ 'bg-red-200 text-red-800' }} @endif">
-                            Edit
-                        </a>
+                            <x-nav.pills.pill route="{{ $package->route('edit') }}" active="app.packages.edit">
+                                Edit
+                            </x-nav.pills.pill>
                         @endif
 
-                    </nav>
-
+                    </x-nav.pills.container>
+                    
                 </div><!-- /desktop tabs -->
-
+                
             </div>
-
-        </div><!-- /tabs -->
+            
+        </nav><!-- /tabs -->
 
         <!-- Content -->
         <div class="px-4 py-5 bg-white sm:p-6">
@@ -213,15 +195,5 @@
     </div>
 
 </div>
-
-@push('footer')
-
-<script>
-    function navigate(el) {
-        window.location.href = el.value;
-    }
-</script>
-
-@endpush
 
 @endsection

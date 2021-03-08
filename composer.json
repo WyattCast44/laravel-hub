@@ -29,6 +29,7 @@
         "spatie/laravel-queueable-action": "^2.5",
         "spatie/laravel-webhook-client": "^2.4",
         "tonysm/turbo-laravel": "^0.3.1",
+        "watson/active": "^6.0",
         "yab/laravel-scout-mysql-driver": "^3.0"
     },
     "require-dev": {

@@ -32,7 +32,6 @@ class GitHubServiceProvider extends ServiceProvider
                     GitHubClient::AUTH_ACCESS_TOKEN
                 );
             } else {
-                // dd(config('services.github.client_id'), config('services.github.client_secret'));
                 $client->authenticate(
                     config('services.github.client_id'),
                     config('services.github.client_secret'),

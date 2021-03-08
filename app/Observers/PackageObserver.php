@@ -40,7 +40,7 @@ class PackageObserver
         $package->favorites->each->delete();
 
         // Delete any attachments to this package
-        // $package->attachments->each->delete();
+        $package->attachments->each->delete();
     }
 
     /**

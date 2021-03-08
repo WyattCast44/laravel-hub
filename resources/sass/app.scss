@@ -11,8 +11,16 @@ a:hover {
 }
 
 // Markdown overides
+.markdown-body {
+    @apply overflow-hidden;
+}
+
 .markdown-body ul {
     @apply list-disc;
+}
+
+.markdown-body pre {
+    @apply overflow-x-scroll;
 }
 
 .turbolinks-progress-bar {
