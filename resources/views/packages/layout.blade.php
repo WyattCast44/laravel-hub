@@ -4,7 +4,7 @@
 
 <div class="container flex flex-col px-4 mx-auto my-6 md:px-0 md:my-16 md:flex-row">
 
-    <div class="w-full md:w-2/12">
+    <div class="w-full md:w-3/12">
         
         <div class="sticky lg:mr-8" style="top:25px;">
             <a 
@@ -14,45 +14,68 @@
                 Submit Package
             </a>
     
-            <div class="block mr-8">
+            <div class="block">
                 
-                <span class="text-gray-700">Filters</span>
+                <!-- Filters -->
+                <div x-data="{ open: (window.innerWidth > 900) ? true : false }">
 
-                <div class="pb-5 mt-2 mb-5 border-b border-solid">
-                   
-                    <div>
-                        <label class="inline-flex items-center">
-                            <input type="checkbox" class="text-red-500 form-checkbox" checked>
-                            <span class="ml-2">
-                                Official <span class="text-xs tracking-tighter">({{ $officialPackagesCount }})</span>
-                            </span>
+                    <p class="flex items-center justify-between p-3 text-lg font-semibold text-gray-700 bg-white border border-gray-300 border-solid rounded md:mb-4">
+                        Filters
+                        <button 
+                            x-text="(open) ? 'Hide' : 'Show'"    
+                            x-on:click="open=!open" 
+                            class="text-sm focus:outline-none focus:ring focus:ring-offset-1">
+                            Show
+                        </button>
+                    </p>
+
+                    <div
+                        x-cloak 
+                        x-show.animate="open"
+                        class="flex flex-col mt-2 bg-white divide-y rounded">
+
+                        <label class="inline-flex items-center px-3 py-2 hover:bg-red-200">
+                            <input type="checkbox" class="text-red-500 form-checkbox">
+                            <span class="ml-2">Official</span>
                         </label>
+
+                        <label class="inline-flex items-center px-3 py-2 hover:bg-red-200">
+                            <input type="checkbox" class="text-red-500 form-checkbox">
+                            <span class="ml-2">Community</span>
+                        </label>
+                        
                     </div>
 
-                    <div>
-                        <label class="inline-flex items-center">
-                            <input type="checkbox" class="text-red-500 form-checkbox" checked>
-                            <span class="ml-2">
-                                Community <span class="text-xs tracking-tighter">({{ $communityPackagesCount }})</span>
-                            </span>
-                        </label>
-                    </div>
-                    
                 </div>
 
-                <span class="block mt-5 text-gray-700">Language</span>
+                <!-- Languages -->
+                <div class="mt-5" x-data="{ open: (window.innerWidth > 900) ? true : false }">
 
-                <div class="mt-2">
+                    <p class="flex items-center justify-between p-3 text-lg font-semibold text-gray-700 bg-white border border-gray-300 border-solid rounded md:mb-4">
+                        Languages
+                        <button 
+                            x-text="(open) ? 'Hide' : 'Show'"    
+                            x-on:click="open=!open" 
+                            class="text-sm focus:outline-none focus:ring focus:ring-offset-1">
+                            Show
+                        </button>
+                    </p>
 
-                    @foreach ($languages as $language)
-                        <div>
-                            <label class="inline-flex items-center">
-                                <input type="checkbox" class="text-red-500 form-checkbox">
-                                <span class="ml-2">{{ $language }}</span>
-                            </label>
-                        </div>
-                    @endforeach
-                    
+                    <div
+                        x-cloak 
+                        x-show.animate="open"
+                        class="flex flex-col mt-2 bg-white divide-y rounded">
+
+                        @foreach ($languages as $language)
+                            
+                        @endforeach
+                        <label class="inline-flex items-center px-3 py-2 hover:bg-red-200">
+                            <input type="checkbox" class="text-red-500 form-checkbox">
+                            <span class="ml-2">{{ $language }}</span>
+                        </label>
+                        
+                    </div>
+
                 </div>
 
             </div>
