@@ -4,7 +4,7 @@
 
 <div class="container flex mx-auto my-16">
 
-    <div class="w-2/12">
+    <div class="w-3/12">
         
         <div class="sticky mr-8" style="top:25px;">
 
@@ -12,66 +12,38 @@
                 Create Template
             </a>
     
-            <div class="block mr-8">
+            <div class="block">
                 
-                <span class="text-gray-700">Filters</span>
+                <!-- Filters -->
+                <div x-data="{ open: (window.innerWidth > 900) ? true : false }">
 
-                <div class="pb-5 mt-2 mb-5 border-b border-solid">
-                   
-                    <div>
-                        <label class="inline-flex items-center">
-                            <input type="checkbox" class="text-red-500 form-checkbox" checked>
-                            <span class="ml-2">Official <span class="text-xs tracking-tighter">(13)</span></span>
-                        </label>
-                    </div>
+                    <p class="flex items-center justify-between p-3 text-lg font-semibold text-gray-700 bg-white border border-gray-300 border-solid rounded md:mb-4">
+                        Filters
+                        <button 
+                            x-text="(open) ? 'Hide' : 'Show'"    
+                            x-on:click="open=!open" 
+                            class="text-sm focus:outline-none focus:ring focus:ring-offset-1">
+                            Show
+                        </button>
+                    </p>
 
-                    <div>
-                        <label class="inline-flex items-center">
-                            <input type="checkbox" class="text-red-500 form-checkbox" checked>
-                            <span class="ml-2">Community <span class="text-xs tracking-tighter">(2,201)</span></span>
-                        </label>
-                    </div>
-                    
-                </div>
+                    <div
+                        x-cloak 
+                        x-show.animate="open"
+                        class="flex flex-col mt-2 bg-white divide-y rounded">
 
-                <span class="block mt-5 text-gray-700">Language</span>
-
-                <div class="mt-2">
-                   
-                    <div>
-                        <label class="inline-flex items-center">
+                        <label class="inline-flex items-center px-3 py-2 hover:bg-red-200">
                             <input type="checkbox" class="text-red-500 form-checkbox">
-                            <span class="ml-2">PHP</span>
+                            <span class="ml-2">Packages</span>
                         </label>
-                    </div>
 
-                    <div>
-                        <label class="inline-flex items-center">
+                        <label class="inline-flex items-center px-3 py-2 hover:bg-red-200">
                             <input type="checkbox" class="text-red-500 form-checkbox">
-                            <span class="ml-2">Javascript</span>
+                            <span class="ml-2">Templates</span>
                         </label>
-                    </div>
-                    
-                </div>
-
-                <span class="block mt-5 text-gray-700">Categories</span>
-
-                <div class="mt-2">
-                   
-                    <div>
-                        <label class="inline-flex items-center">
-                            <input type="checkbox" class="text-red-500 form-checkbox">
-                            <span class="ml-2">Database</span>
-                        </label>
+                        
                     </div>
 
-                    <div>
-                        <label class="inline-flex items-center">
-                            <input type="checkbox" class="text-red-500 form-checkbox">
-                            <span class="ml-2">Models</span>
-                        </label>
-                    </div>
-                    
                 </div>
 
             </div>
@@ -81,33 +53,7 @@
     </div>
 
     <div class="flex-1">
-
-        <!-- Filters and search -->
-        {{-- <div class="flex items-end justify-between w-full mb-8">
-
-            <div>
-                
-                Filters
-
-            </div>
-
-            <div class="relative flex items-center focus-within:text-red-500">
-
-                <span class="relative mr-1" style="top:1px">
-                    @svg('search', 'h-4 stroke-current')
-                </span>
-                <input type="text" placeholder="Search packages..." class="px-1 py-2 text-gray-800 bg-gray-100 border-b border-gray-600 border-solid focus-within:border-red-500 focus:border-red-500 focus-within:outline-none focus:outline-none">
-
-            </div>
-
-        </div> --}}
-        
-        <div>
-
-           @yield('page')
-
-        </div>
-
+        @yield('page')
     </div>
 
 </div>
