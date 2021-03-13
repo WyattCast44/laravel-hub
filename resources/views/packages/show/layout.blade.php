@@ -105,11 +105,11 @@
                         </x-nav.select.option>
 
                         <x-nav.select.option route="#" active="app.packages.screenshots.shows">
-                            Articles/Tutorials
+                            Articles
                         </x-nav.select.option>
 
                         <x-nav.select.option route="#" active="app.packages.screenshots.shows">
-                            Related/Alternatives
+                            Related
                         </x-nav.select.option>
                         
                         @if(auth()->check() && $package->user->id == auth()->id())
@@ -136,11 +136,11 @@
                         </x-nav.pills.pill>
 
                         <x-nav.pills.pill route="#" active="app.packages.screenshots.shows">
-                            Articles/Tutorials
+                            Articles
                         </x-nav.pills.pill>
 
                         <x-nav.pills.pill route="#" active="app.packages.screenshots.shows">
-                            Related/Alternatives
+                            Related
                         </x-nav.pills.pill>
 
                         @if(auth()->check() && $package->user->id == auth()->id())
