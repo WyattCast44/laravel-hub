@@ -143,11 +143,21 @@
                 <div class="sm:hidden">
                     
                     <x-nav.select.navigator>
+                        
                         <x-nav.select.option route="{{ $package->route('show') }}" active="app.packages.show">
                             Read Me
                         </x-nav.select.option>
+
                         <x-nav.select.option route="{{ $package->route('screenshots.show') }}" active="app.packages.screenshots.show">
                             Screenshots
+                        </x-nav.select.option>
+
+                        <x-nav.select.option route="#" active="app.packages.screenshots.shows">
+                            Articles/Tutorials
+                        </x-nav.select.option>
+
+                        <x-nav.select.option route="#" active="app.packages.screenshots.shows">
+                            Related/Alternatives
                         </x-nav.select.option>
                         
                         @if(auth()->check() && $package->user->id == auth()->id())
@@ -155,6 +165,7 @@
                                 Edit
                             </x-nav.select.option>
                         @endif
+
                     </x-nav.select.navigator>
 
                 </div>
@@ -170,6 +181,14 @@
 
                         <x-nav.pills.pill route="{{ $package->route('screenshots.show') }}" active="app.packages.screenshots.show">
                             Screenshots
+                        </x-nav.pills.pill>
+
+                        <x-nav.pills.pill route="#" active="app.packages.screenshots.shows">
+                            Articles/Tutorials
+                        </x-nav.pills.pill>
+
+                        <x-nav.pills.pill route="#" active="app.packages.screenshots.shows">
+                            Related/Alternatives
                         </x-nav.pills.pill>
 
                         @if(auth()->check() && $package->user->id == auth()->id())
