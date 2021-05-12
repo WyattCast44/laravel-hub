@@ -19,7 +19,7 @@
         "laravel-echo": "^1.10.0",
         "laravel-mix": "^6.0.11",
         "livewire-turbolinks": "github:livewire/turbolinks",
-        "postcss": "^8.2.6",
+        "postcss": "^8.2.10",
         "pusher-js": "^7.0.2",
         "resolve-url-loader": "^2.3.1",
         "sass": "^1.26.5",
